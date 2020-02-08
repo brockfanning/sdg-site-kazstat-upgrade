@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'http://brock.tips/sdg-data-kazstat-upgrade/ru',
+
+  // A hook which can be replaced to modify the configuration for Chart.js.
+  // To see where this is used, see indicatorView.js createPlot() and updatePlot().
+  // To see an example of replacing it, see binary.html.
+  chartConfigAlter: function(config) {
+    // Alterations go here.
+    return config;
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded.
+  dataRounding: function(value) {
+    // Alterations go here.
+    return value;
+  },
+};
+
+// For backwards compatibility, some of these might need to be global.
+// @TODO: Remove these eventually.
+var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        <title>
+          
+            Indicators For The Sustainable Development Goals
+          
+        </title>
+
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+        <link rel="canonical" href="/">
+
+        
+
+        <!--[if IE 9]>
+        <script src="/sdg-site-kazstat-upgrade/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-site-kazstat-upgrade/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-site-kazstat-upgrade/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200208001353">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+    </head>
+<body class="language-ru layout-reportingstatus">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Альфа","default_contrast":"стандартный контраст","disable_high_contrast":"Отключить высокую контрастность","disclaimer":"Это сайт находится в разработке. Мы рады вашим отзывам.","enable_high_contrast":"Включить высокую контрастность","high_contrast":"высокий контраст","skip_link":"Перейти к главному содержанию","tag_line":"17 Целей, чтобы преобразовать наш мир"};</script>
+
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Альфа</strong>
+    Это сайт находится в разработке. Мы рады вашим отзывам.
+  </div>
+</div>
+
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/ru/" id="home">
+      <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
+    </a>
+
+  <div class='hidden visible-xs float-right'>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
+      <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
+  <i class="fa fa-globe"></i>
+  <span class="language-toggle-text">Pусский</span>
+  <i class="language-toggle fa fa-chevron-down"></i>
+  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
+</a>
+
+<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/reporting-status/"></a></li><li><a href="/sdg-site-kazstat-upgrade/en/reporting-status/">English</a></li></ul>
+
+    </div></div>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
+          <span data-target="menu" tabindex="0"
+          role="navigation">Меню</span>
+        </li>
+        <li><span data-target="search">Поиск</span></li>
+      </ul>
+
+      <div id="search" class="menu-target">
+  <form action="/sdg-site-kazstat-upgrade/ru/search">
+    <input name="q" id="indicator_search" title="Поиск" />
+    <label for="indicator_search">
+      <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Поиск></i></button><span>Поиск:</span>
+    </label>
+  </form>
+</div>
+      
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+            <a href="/sdg-site-kazstat-upgrade/ru/reporting-status">Состояние отчётности</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-site-kazstat-upgrade/ru/about">О нас</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-site-kazstat-upgrade/ru/guidance">Руководство</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-site-kazstat-upgrade/ru/faq">Часто задаваемые вопросы</a>
+          </li><li>
+          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
+  <i class="fa fa-globe"></i>
+  <span class="language-toggle-text">Pусский</span>
+  <i class="language-toggle fa fa-chevron-down"></i>
+  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
+</a>
+
+<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/reporting-status/"></a></li><li><a href="/sdg-site-kazstat-upgrade/en/reporting-status/">English</a></li></ul>
+
+        </li></ul>
+
+      
+
+    </nav>
+  </div>
+
+</header>
+<div id="main-content" class="container reportingstatus"><h1>Статус отчётности</h1><div class="goal goal-overall">
+      <div class="details">
+        <h2 class="status-goal">
+            Общее состояние отчётности <span class="total"><span>283</span> показатели</span>
+        </h2>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">207</span><strong>complete</strong><span class="value">73%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">76</span><strong>notstarted</strong><span class="value">27%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats"><span class="complete" style="width:73.145%" title="complete: 73%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:26.855%" title="notstarted: 27%"></span></div>
+
+      </div>
+    <br style="clear:both;">
+  </div>
+
+  
+  <h2>Статус по цели</h2>
+  
+
+  <div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/1">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/1.png" alt="Ликвидация нищеты - Цель 1" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/1">Ликвидация нищеты</a>
+            <span class="total">14 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">8</span><strong>complete</strong><span class="value">57%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">6</span><strong>notstarted</strong><span class="value">43%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:57.143%" title="complete: 57%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:42.857%" title="notstarted: 43%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/2">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/2.png" alt="Ликвидация голода - Цель 2" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/2">Ликвидация голода</a>
+            <span class="total">14 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">12</span><strong>complete</strong><span class="value">86%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">2</span><strong>notstarted</strong><span class="value">14%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:85.714%" title="complete: 86%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:14.286%" title="notstarted: 14%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/3">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/3.png" alt="Хорошее здоровье и благополучие - Цель 3" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/3">Хорошее здоровье и благополучие</a>
+            <span class="total">29 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">22</span><strong>complete</strong><span class="value">76%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">7</span><strong>notstarted</strong><span class="value">24%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:75.862%" title="complete: 76%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:24.138%" title="notstarted: 24%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/4">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/4.png" alt="Качественное образование - Цель 4" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/4">Качественное образование</a>
+            <span class="total">21 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">20</span><strong>complete</strong><span class="value">95%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">1</span><strong>notstarted</strong><span class="value">5%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:95.238%" title="complete: 95%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:4.762%" title="notstarted: 5%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/5">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/5.png" alt="Гендерное равенство - Цель 5" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/5">Гендерное равенство</a>
+            <span class="total">18 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">12</span><strong>complete</strong><span class="value">67%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">6</span><strong>notstarted</strong><span class="value">33%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:66.667%" title="complete: 67%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:33.333%" title="notstarted: 33%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/6">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/6.png" alt="Чистая вода и санитария - Цель 6" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/6">Чистая вода и санитария</a>
+            <span class="total">11 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">11</span><strong>complete</strong><span class="value">100%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">0</span><strong>notstarted</strong><span class="value">0%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:100.0%" title="complete: 100%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:0.0%" title="notstarted: 0%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/7">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/7.png" alt="Недорогостоящая и чистая энергия - Цель 7" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/7">Недорогостоящая и чистая энергия</a>
+            <span class="total">9 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">7</span><strong>complete</strong><span class="value">78%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">2</span><strong>notstarted</strong><span class="value">22%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:77.778%" title="complete: 78%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:22.222%" title="notstarted: 22%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/8">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/8.png" alt="Достойна работа и экономический рост - Цель 8" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/8">Достойна работа и экономический рост</a>
+            <span class="total">18 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">16</span><strong>complete</strong><span class="value">89%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">2</span><strong>notstarted</strong><span class="value">11%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:88.889%" title="complete: 89%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:11.111%" title="notstarted: 11%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/9">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/9.png" alt="Индустриализация, инновации и инфраструктура - Цель 9" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/9">Индустриализация, инновации и инфраструктура</a>
+            <span class="total">16 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">12</span><strong>complete</strong><span class="value">75%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">4</span><strong>notstarted</strong><span class="value">25%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:75.0%" title="complete: 75%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:25.0%" title="notstarted: 25%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/10">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/10.png" alt="Уменьшение неравенства - Цель 10" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/10">Уменьшение неравенства</a>
+            <span class="total">12 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">7</span><strong>complete</strong><span class="value">58%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">5</span><strong>notstarted</strong><span class="value">42%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:58.333%" title="complete: 58%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:41.667%" title="notstarted: 42%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/11">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/11.png" alt="Устойчивые города и населенные пункты - Цель 11" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/11">Устойчивые города и населенные пункты</a>
+            <span class="total">19 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">13</span><strong>complete</strong><span class="value">68%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">6</span><strong>notstarted</strong><span class="value">32%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:68.421%" title="complete: 68%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:31.579%" title="notstarted: 32%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/12">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/12.png" alt="Ответственное потребление и производство - Цель 12" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/12">Ответственное потребление и производство</a>
+            <span class="total">14 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">4</span><strong>complete</strong><span class="value">29%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">10</span><strong>notstarted</strong><span class="value">71%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:28.571%" title="complete: 29%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:71.429%" title="notstarted: 71%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/13">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/13.png" alt="Борьба с изменением климата - Цель 13" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/13">Борьба с изменением климата</a>
+            <span class="total">8 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">4</span><strong>complete</strong><span class="value">50%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">4</span><strong>notstarted</strong><span class="value">50%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:50.0%" title="complete: 50%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:50.0%" title="notstarted: 50%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/14">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/14.png" alt="Сохранение морских экосистем - Цель 14" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/14">Сохранение морских экосистем</a>
+            <span class="total">10 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">6</span><strong>complete</strong><span class="value">60%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">4</span><strong>notstarted</strong><span class="value">40%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:60.0%" title="complete: 60%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:40.0%" title="notstarted: 40%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/15">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/15.png" alt="Сохранение экосистем суши - Цель 15" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/15">Сохранение экосистем суши</a>
+            <span class="total">15 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">12</span><strong>complete</strong><span class="value">80%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">3</span><strong>notstarted</strong><span class="value">20%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:80.0%" title="complete: 80%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:20.0%" title="notstarted: 20%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/16">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/16.png" alt="Мир, правосудие и эффективные институты - Цель 16" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/16">Мир, правосудие и эффективные институты</a>
+            <span class="total">28 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">20</span><strong>complete</strong><span class="value">71%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">8</span><strong>notstarted</strong><span class="value">29%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:71.429%" title="complete: 71%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:28.571%" title="notstarted: 29%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-site-kazstat-upgrade/ru/17">
+            <img src="https://open-sdg.github.io/translations-un-sdg/assets/img/goals/ru/17.png" alt="Партнерство в интересах устойчивого развития - Цель 17" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-site-kazstat-upgrade/ru/17">Партнерство в интересах устойчивого развития</a>
+            <span class="total">27 показатели</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">21</span><strong>complete</strong><span class="value">78%</span>
+              </div><div>
+                <span class="status inprogress">0</span><strong>inprogress</strong><span class="value">0%</span>
+              </div><div>
+                <span class="status notstarted">6</span><strong>notstarted</strong><span class="value">22%</span>
+              </div><br style="clear:both;">
+            </div>
+          </div>
+          <div class="goal-stats"><span class="complete" style="width:77.778%" title="complete: 78%"></span><span class="inprogress" style="width:0.0%" title="inprogress: 0%"></span><span class="notstarted" style="width:22.222%" title="notstarted: 22%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <br style="clear:both;">
+    </div>
+
+  <!---->
+
+</div>
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="https://open-sdg.readthedocs.io/en/latest/">Построен с использованием Open SDG</a></li>
+            
+              
+                <li>
+                
+                  <a href="mailto:ai.dosanova@economy.gov.kz" target="_blank">Свяжитесь с нами</a>
+                
+                </li>
+              
+                <li>
+                
+                  <a href="https://facebook.com/statgov.kz" target="_blank">Facebook</a>
+                
+                </li>
+              
+                <li>
+                <a href="/sdg-site-kazstat-upgrade/ru/about/cookies-and-privacy/">Cookies</a>
+                
+                </li>
+              
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200208001353'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200208001353"></script><script>
+$(function() {
+    if($('#indicatorData').length) {
+      var domData = $('#indicatorData').data();
+
+      $('.async-loading').each(function(i, obj) {
+          $(obj).append($('<img />').attr('src', $(obj).data('img')));
+      });
+
+      $.ajax({
+        url: opensdg.remoteDataBaseUrl + '/comb/' + domData.id + '.json',
+        success: function(res) {
+
+          $('.async-loading').remove();
+          $('.async-loaded').show();
+
+          var model = new indicatorModel({
+            data: res.data,
+            edgesData: res.edges,
+            geoCodeRegEx: domData.geocoderegex,
+            showMap: domData.showmap,
+            country: domData.country,
+            indicatorId: domData.indicatorid,
+            shortIndicatorId: domData.id,
+            chartTitle: domData.charttitle,
+            measurementUnit: domData.measurementunit,
+            copyright: domData.copyright,
+            dataSource: domData.datasource,
+            geographicalArea: domData.geographicalarea,
+            showData: domData.showdata,
+            footnote: domData.footnote,
+            graphType: domData.graphtype,
+            startValues: domData.startvalues
+          }),
+          view  = new indicatorView(model, {
+            rootElement: '#indicatorData',
+            legendElement: '#plotLegend',
+            maxChartHeight: 420,
+            tableColumnDefs: [
+              { maxCharCount: 25 }, // nowrap
+              { maxCharCount: 35, width: 200 },
+              { maxCharCount: Infinity, width: 250 }
+            ]
+          }),
+          controller = new indicatorController(model, view);
+          controller.initialise();
+        }
+      });
+    }
+
+    var switcher = new accessibilitySwitcher();
+
+
+});
+</script>
+
+
+
+
+</body>
+</html>
+
