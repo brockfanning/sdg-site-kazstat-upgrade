@@ -323,9 +323,17 @@ opensdg.autotrack = function(preset, category, action, label) {
         // And we can now update the colors.
         plugin.updateColors();
 
-        // Add the disaggregation select.
-        plugin.disaggregationSelect = L.Control.disaggregationSelect(plugin);
-        plugin.map.addControl(plugin.disaggregationSelect);
+        // Add the disaggregation select if necessary.
+        var disaggregationOptions = plugin.getVisibleLayers().toGeoJSON().features[0].properties.disaggregations.map(function(disaggregation) {
+          return Object.values(disaggregation).filter(function(subcategory) {
+            return subcategory;
+          }).map(function(subcategory) {
+            return translations.t(subcategory);
+          }).join(' - ');
+        });
+        if (disaggregationOptions.length > 1) {
+          plugin.map.addControl(L.Control.disaggregationSelect(plugin, disaggregationOptions));
+        }
 
         // Add zoom control.
         plugin.map.addControl(L.Control.zoomHome());
@@ -370,9 +378,11 @@ opensdg.autotrack = function(preset, category, action, label) {
 
         // The list of handlers to apply to each feature on a GeoJson layer.
         function onEachFeature(feature, layer) {
-          layer.on('click', clickHandler);
-          layer.on('mouseover', mouseoverHandler);
-          layer.on('mouseout', mouseoutHandler);
+          if (plugin.featureShouldDisplay(feature)) {
+            layer.on('click', clickHandler);
+            layer.on('mouseover', mouseoverHandler);
+            layer.on('mouseout', mouseoutHandler);
+          }
         }
         // Event handler for click/touch.
         function clickHandler(e) {
@@ -445,6 +455,15 @@ opensdg.autotrack = function(preset, category, action, label) {
           }
         }, 500);
       });
+    },
+
+    featureShouldDisplay: function(feature) {
+      var display = true;
+      display = display && typeof feature.properties.name !== 'undefined';
+      display = display && typeof feature.properties.geocode !== 'undefined';
+      display = display && typeof feature.properties.values !== 'undefined';
+      display = display && typeof feature.properties.disaggregations !== 'undefined';
+      return display;
     },
   };
 
@@ -2411,8 +2430,6 @@ $(function() {
  *
  * This is a Leaflet control designed to select the disaggregations available
  * in the GeoJSON.
- *
- * @TODO: This needs a "clear" button and some accessible labels.
  */
 (function () {
   "use strict";
@@ -2427,23 +2444,22 @@ $(function() {
       position: 'topleft'
     },
 
-    initialize: function(plugin) {
+    initialize: function(plugin, disaggregationOptions) {
       this.plugin = plugin;
+      this.disaggregationOptions = disaggregationOptions;
     },
 
     onAdd: function() {
       // Use the first feature - assumes they are all the same.
       var div = L.DomUtil.create('div', 'disaggregation-select-container'),
-          select = L.DomUtil.create('select', 'disaggregation-select', div),
-          feature = this.plugin.getVisibleLayers().toGeoJSON().features[0],
-          disaggregations = feature.properties.disaggregations,
-          options = disaggregations.map(function(disaggregation) {
-            return Object.values(disaggregation).join(' - ');
-          });
+          label = L.DomUtil.create('label', 'disaggregation-select-label', div),
+          select = L.DomUtil.create('select', 'disaggregation-select', div);
 
-      select.innerHTML = options.map(function(option) {
-        var label = (option === '') ? translations.indicator.sub_categories : option;
-        return '<option>' + label  + '</option>';
+      label.setAttribute('for', 'disaggregation-select-element');
+      label.innerHTML = translations.indicator.sub_categories;
+      select.setAttribute('id', 'disaggregation-select-element');
+      select.innerHTML = this.disaggregationOptions.map(function(option) {
+        return '<option>' + option  + '</option>';
       });
       var that = this;
       L.DomEvent.on(select, 'change', function(event) {
@@ -2458,8 +2474,8 @@ $(function() {
   });
 
   // Factory function for this class.
-  L.Control.disaggregationSelect = function(plugin) {
-    return new L.Control.DisaggregationSelect(plugin);
+  L.Control.disaggregationSelect = function(plugin, disaggregationOptions) {
+    return new L.Control.DisaggregationSelect(plugin, disaggregationOptions);
   };
 }());
 
