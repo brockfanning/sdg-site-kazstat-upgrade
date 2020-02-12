@@ -323,18 +323,6 @@ opensdg.autotrack = function(preset, category, action, label) {
         // And we can now update the colors.
         plugin.updateColors();
 
-        // Add the disaggregation select if necessary.
-        var disaggregationOptions = plugin.getVisibleLayers().toGeoJSON().features[0].properties.disaggregations.map(function(disaggregation) {
-          return Object.values(disaggregation).filter(function(subcategory) {
-            return subcategory;
-          }).map(function(subcategory) {
-            return translations.t(subcategory);
-          }).join(' - ');
-        });
-        if (disaggregationOptions.length > 1) {
-          plugin.map.addControl(L.Control.disaggregationSelect(plugin, disaggregationOptions));
-        }
-
         // Add zoom control.
         plugin.map.addControl(L.Control.zoomHome());
 
@@ -1668,6 +1656,8 @@ var indicatorView = function (model, options) {
     view_obj._chartInstance.update(1000, true);
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
+
+    view_obj.updateChartDownloadButton(chartInfo.selectionsTable);
   };
 
 
@@ -1891,18 +1881,34 @@ var indicatorView = function (model, options) {
         downloadKey = 'download_table';
       }
       var gaLabel = 'Download ' + name + ' CSV: ' + indicatorId.replace('indicator_', '');
-      $(el).append($('<a />').text(translations.indicator[downloadKey])
-      .attr(opensdg.autotrack('download_data_current', 'Downloads', 'Download CSV', gaLabel))
-      .attr({
-        'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
-          type: 'text/csv'
-        })),
-        'download': indicatorId + '.csv',
-        'title': translations.indicator.download_csv_title,
-        'class': 'btn btn-primary btn-download',
-        'tabindex': 0
-      })
-      .data('csvdata', this.toCsv(table)));
+      var tableCsv = this.toCsv(table);
+      var fileName = indicatorId + '.csv';
+      var downloadButton = $('<a />').text(translations.indicator[downloadKey])
+        .attr(opensdg.autotrack('download_data_current', 'Downloads', 'Download CSV', gaLabel))
+        .attr({
+          'download': fileName,
+          'title': translations.indicator.download_csv_title,
+          'class': 'btn btn-primary btn-download',
+          'tabindex': 0
+        });
+      var blob = new Blob([tableCsv], {
+        type: 'text/csv'
+      });
+      if (window.navigator && window.navigator.msSaveBlob) {
+        // Special behavior for IE.
+        downloadButton.on('click.openSdgDownload', function(event) {
+          window.navigator.msSaveBlob(blob, fileName);
+        });
+      }
+      else {
+        downloadButton
+          .attr('href', URL.createObjectURL(blob))
+          .data('csvdata', tableCsv);
+      }
+      if (name == 'Chart') {
+        this._chartDownloadButton = downloadButton;
+      }
+      $(el).append(downloadButton);
     } else {
       var headlineId = indicatorId.replace('indicator', 'headline');
       var id = indicatorId.replace('indicator_', '');
@@ -1916,6 +1922,28 @@ var indicatorView = function (model, options) {
         'class': 'btn btn-primary btn-download',
         'tabindex': 0
       }));
+    }
+  }
+
+  this.updateChartDownloadButton = function(table) {
+    if (typeof this._chartDownloadButton !== 'undefined') {
+      var tableCsv = this.toCsv(table);
+      var blob = new Blob([tableCsv], {
+        type: 'text/csv'
+      });
+      var fileName = this._chartDownloadButton.attr('download');
+      if (window.navigator && window.navigator.msSaveBlob) {
+        // Special behavior for IE.
+        this._chartDownloadButton.off('click.openSdgDownload')
+        this._chartDownloadButton.on('click.openSdgDownload', function(event) {
+          window.navigator.msSaveBlob(blob, fileName);
+        });
+      }
+      else {
+        this._chartDownloadButton
+          .attr('href', URL.createObjectURL(blob))
+          .data('csvdata', tableCsv);
+      }
     }
   }
 
@@ -2425,60 +2453,6 @@ $(function() {
     return new L.Control.YearSlider(options);
   };
 }());
-/*
- * Leaflet disaggregation select.
- *
- * This is a Leaflet control designed to select the disaggregations available
- * in the GeoJSON.
- */
-(function () {
-  "use strict";
-
-  if (typeof L === 'undefined') {
-    return;
-  }
-
-  L.Control.DisaggregationSelect = L.Control.extend({
-
-    options: {
-      position: 'topleft'
-    },
-
-    initialize: function(plugin, disaggregationOptions) {
-      this.plugin = plugin;
-      this.disaggregationOptions = disaggregationOptions;
-    },
-
-    onAdd: function() {
-      // Use the first feature - assumes they are all the same.
-      var div = L.DomUtil.create('div', 'disaggregation-select-container'),
-          label = L.DomUtil.create('label', 'disaggregation-select-label', div),
-          select = L.DomUtil.create('select', 'disaggregation-select', div);
-
-      label.setAttribute('for', 'disaggregation-select-element');
-      label.innerHTML = translations.indicator.sub_categories;
-      select.setAttribute('id', 'disaggregation-select-element');
-      select.innerHTML = this.disaggregationOptions.map(function(option) {
-        return '<option>' + option  + '</option>';
-      });
-      var that = this;
-      L.DomEvent.on(select, 'change', function(event) {
-        that.plugin.currentDisaggregation = this.selectedIndex;
-        that.plugin.updateColors();
-        that.plugin.selectionLegend.update();
-      });
-
-      return div;
-    }
-
-  });
-
-  // Factory function for this class.
-  L.Control.disaggregationSelect = function(plugin, disaggregationOptions) {
-    return new L.Control.DisaggregationSelect(plugin, disaggregationOptions);
-  };
-}());
-
 function initialiseGoogleAnalytics(){
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
