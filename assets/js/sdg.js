@@ -94,8 +94,8 @@ opensdg.autotrack = function(preset, category, action, label) {
     this.currentDisaggregation = 0;
 
     // Require at least one geoLayer.
-    if (!options.mapLayers.length) {
-      console.log('Map disabled, no mapLayers in options.');
+    if (!options.mapLayers || !options.mapLayers.length) {
+      console.log('Map disabled - please add "map_layers" in site configuration.');
       return;
     }
 
@@ -577,13 +577,6 @@ var accessibilitySwitcher = function() {
     return null;
   }
 
-  window.onload = function(e) {
-    var cookie = readCookie("contrast");
-    var contrast = cookie ? cookie : contrastIdentifiers[0];
-    setActiveContrast(contrast);
-    imageFix(contrast);
-  }
-
   window.onunload = function(e) {
     var contrast = getActiveContrast();
     createCookie("contrast", contrast, 365);
@@ -592,6 +585,7 @@ var accessibilitySwitcher = function() {
   var cookie = readCookie("contrast");
   var contrast = cookie ? cookie : contrastIdentifiers[0];
   setActiveContrast(contrast);
+  imageFix(contrast);
 
   ////////////////////////////////////////////////////////////////////////////////////
 
@@ -606,47 +600,92 @@ var accessibilitySwitcher = function() {
     }).html(getContrastToggleLabel(contrast).replace(" ", "<br/>")).click(function() {
       setActiveContrast($(this).data('contrast'));
       imageFix(contrast);
+      broadcastContrastChange(contrast, this);
     })));
   });
-  
-function getContrastToggleLabel(identifier){
-  var contrastType = ""
-  if(contrastType === "long") {
-    if(identifier === "default"){	
-      return translations.header.default_contrast; 	
-    }	
-    else if(identifier === "high"){	
-      return translations.header.high_contrast;	
+
+  function broadcastContrastChange(contrast, elem) {
+    var event = new CustomEvent('contrastChange', {
+      bubbles: true,
+      detail: contrast
+    });
+    elem.dispatchEvent(event);
+  }
+
+  function getContrastToggleLabel(identifier){
+    var contrastType = ""
+    if(contrastType === "long") {
+      if(identifier === "default"){
+        return translations.header.default_contrast;
+      }
+      else if(identifier === "high"){
+        return translations.header.high_contrast;
+      }
+    }
+    else {
+      return 'A'
     }
   }
-  else {
-    return 'A'
-  }
-}
 
-function getContrastToggleTitle(identifier){	
-  if(identifier === "default"){	
-    return translations.header.disable_high_contrast; 	
-  }	
-  else if(identifier === "high"){	
-    return translations.header.enable_high_contrast;	
-  }	
-}
-  
-  
-function imageFix(contrast) {
-  if (contrast == 'high')  {
-    _.each($('img:not([src*=high-contrast])'), function(goalImage){
-      if ($(goalImage).attr('src').slice(0, 35) != "https://platform-cdn.sharethis.com/") {
-      $(goalImage).attr('src', $(goalImage).attr('src').replace('img/', 'img/high-contrast/'));
-      }})
-  } else {
-    // Remove high-contrast
-    _.each($('img[src*=high-contrast]'), function(goalImage){
-      $(goalImage).attr('src', $(goalImage).attr('src').replace('high-contrast/', ''));
-    })
+  function getContrastToggleTitle(identifier){
+    if(identifier === "default"){
+      return translations.header.disable_high_contrast;
+    }
+    else if(identifier === "high"){
+      return translations.header.enable_high_contrast;
+    }
   }
+
+
+  function imageFix(contrast) {
+    if (contrast == 'high')  {
+      _.each($('img:not([src*=high-contrast])'), function(goalImage){
+        if ($(goalImage).attr('src').slice(0, 35) != "https://platform-cdn.sharethis.com/") {
+        $(goalImage).attr('src', $(goalImage).attr('src').replace('img/', 'img/high-contrast/'));
+        }})
+    } else {
+      // Remove high-contrast
+      _.each($('img[src*=high-contrast]'), function(goalImage){
+        $(goalImage).attr('src', $(goalImage).attr('src').replace('high-contrast/', ''));
+      })
+    }
+  };
+
 };
+opensdg.chartColors = function(indicatorId) {
+  var colorSet = null;
+  var numberOfColors = null;
+  var customColorList = null;
+  
+  this.goalNumber = parseInt(indicatorId.slice(indicatorId.indexOf('_')+1,indicatorId.indexOf('-')));
+  this.goalColors = [['e5243b', '891523', 'ef7b89', '2d070b', 'f4a7b0', 'b71c2f', 'ea4f62', '5b0e17', 'fce9eb'],
+                ['e5b735', '896d1f', 'efd385', '2d240a', 'f4e2ae', 'b7922a', 'eac55d', '5b4915', 'f9f0d6'],
+                ['4c9f38', '2d5f21', '93c587', '0f1f0b', 'c9e2c3', '3c7f2c', '6fb25f', '1e3f16', 'a7d899'],
+                ['c5192d', '760f1b', 'dc7581', '270509', 'f3d1d5', '9d1424', 'd04656', '4e0a12', 'e7a3ab'],
+                ['ff3a21', 'b22817', 'ff7563', '330b06', 'ffd7d2', 'cc2e1a', 'ff614d', '7f1d10', 'ff9c90'],
+                ['26bde2', '167187', '7cd7ed', '07252d', 'd3f1f9', '1e97b4', '51cae7', '0f4b5a', 'a8e4f3'],
+                ['fcc30b', '977506', 'fddb6c', '322702', 'fef3ce', 'c99c08', 'fccf3b', '644e04', 'fde79d'],
+                ['a21942', '610f27', 'c7758d', '610F28', 'ecd1d9', '811434', 'b44667', '400a1a', 'd9a3b3'],
+                ['fd6925', '973f16', 'fda57c', '321507', 'fee1d3', 'ca541d', 'fd8750', '652a0e', 'fec3a7'],
+                ['dd1367', '840b3d', 'ea71a3', '2c0314', 'f8cfe0', 'b00f52', 'd5358b', '580729', 'f1a0c2'],
+                ['fd9d24', '653e0e', 'fed7a7', 'b16d19', 'fdba65', 'b14a1e', 'fd976b', '000000', 'fed2bf'],
+                ['c9992d', '785b1b', 'dec181', '281e09', 'f4ead5', 'a07a24', 'd3ad56', '503d12', 'e9d6ab'],
+                ['3f7e44', '254b28', '8bb18e', '0c190d', 'd8e5d9', '326436', '659769', '19321b', 'b2cbb4'],
+                ['0a97d9', '065a82', '6cc0e8', '021e2b', 'ceeaf7', '0878ad', '3aabe0', '043c56', '9dd5ef'],
+                ['56c02b', '337319', '99d97f', '112608', 'ddf2d4', '449922', '77cc55', '224c11', 'bbe5aa'],
+                ['00689d', '00293e', '99c2d7', '00486d', '4c95ba', '126b80', 'cce0eb', '5a9fb0', 'a1c8d2'],
+                ['19486a', '0a1c2a', '8ca3b4', '16377c', 'd1dae1', '11324a', '466c87', '5b73a3', '0f2656']];
+  this.colorSets = {'default':['7e984f', '8d73ca', 'aaa533', 'c65b8a', '4aac8d', 'c95f44'],
+                  'sdg':['e5243b', 'dda63a', '4c9f38', 'c5192d', 'ff3a21', '26bde2', 'fcc30b', 'a21942', 'fd6925', 'dd1367','fd9d24','bf8b2e','3f7e44','0a97d9','56c02b','00689d','19486a'],
+                  'goal': this.goalColors[this.goalNumber-1],
+                  'custom': customColorList};
+  if(Object.keys(this.colorSets).indexOf(colorSet) == -1 || (colorSet=='custom' && customColorList == null)){
+    return this.colorSets['default'];
+  }
+  this.numberOfColors = (numberOfColors>this.colorSets[colorSet].length || numberOfColors == null) ? this.colorSets[colorSet].length : numberOfColors;
+  this.colors = this.colorSets[colorSet].slice(0,this.numberOfColors);
+
+  return this.colors;
 
 };
 var indicatorModel = function (options) {
@@ -664,7 +703,7 @@ var indicatorModel = function (options) {
   this.onFieldsStatusUpdated = new event(this);
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
-  this.onNoHeadlineData = new event(this);
+  this.onStartValuesNeeded = new event(this);
 
   // json conversion:
   var convertJsonFormat = function(data) {
@@ -685,7 +724,8 @@ var indicatorModel = function (options) {
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.shortIndicatorId = options.shortIndicatorId;
-  this.chartTitle = options.chartTitle;
+  this.chartTitle = options.chartTitle,
+  this.chartTitles = options.chartTitles;
   this.graphType = options.graphType;
   this.measurementUnit = options.measurementUnit;
   this.copyright = options.copyright;
@@ -703,6 +743,8 @@ var indicatorModel = function (options) {
   this.validParentsByChild = {};
   this.hasGeoData = false;
   this.showMap = options.showMap;
+  this.graphLimits = options.graphLimits;
+  this.stackedDisaggregation = options.stackedDisaggregation;
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -838,8 +880,10 @@ var indicatorModel = function (options) {
   }());
 
   var headlineColor = '777777';
-  var colors = ['7e984f', '8d73ca', 'aaa533', 'c65b8a', '4aac8d', 'c95f44'];
-
+  
+  // use custom colors
+  var colors = opensdg.chartColors(this.indicatorId);
+  
   // allow headline + (2 x others)
   var maxDatasetCount = 2 * colors.length;
 
@@ -930,8 +974,17 @@ var indicatorModel = function (options) {
     });
   };
 
+  this.updateChartTitle = function() {
+    // We only need to change anything if this indicator has multiple titles.
+    if (that.chartTitles && that.chartTitles.length > 0) {
+      var chartTitle = _.findWhere(that.chartTitles, { unit: that.selectedUnit });
+      that.chartTitle = (chartTitle) ? chartTitle.title : that.chartTitles[0].title;
+    }
+  }
+
   this.updateSelectedUnit = function(selectedUnit) {
     this.selectedUnit = selectedUnit;
+    this.updateChartTitle();
 
     // if fields are dependent on the unit, reset:
     this.getData({
@@ -1056,9 +1109,10 @@ var indicatorModel = function (options) {
         // the first dataset is the headline:
         return datasetIndex > colors.length ? [5, 5] : undefined;
       },
-      convertToDataset = function (data, combinationDescription) {
+      convertToDataset = function (data, combinationDescription, combination) {
         var ds = _.extend({
             label: combinationDescription ? combinationDescription : that.country,
+            disaggregation: combination,
             borderColor: '#' + getColor(datasetIndex),
             backgroundColor: getBackground(datasetIndex),
             pointBorderColor: '#' + getColor(datasetIndex),
@@ -1159,7 +1213,8 @@ var indicatorModel = function (options) {
         // but some combinations may not have any data:
         filteredDatasets.push({
           data: filtered,
-          combinationDescription: getCombinationDescription(combination)
+          combinationDescription: getCombinationDescription(combination),
+          combination: combination,
         });
       }
     });
@@ -1172,7 +1227,7 @@ var indicatorModel = function (options) {
 
     _.chain(filteredDatasets)
       .sortBy(function(ds) { return ds.combinationDescription; })
-      .each(function(ds) { datasets.push(convertToDataset(ds.data, ds.combinationDescription)); });
+      .each(function(ds) { datasets.push(convertToDataset(ds.data, ds.combinationDescription, ds.combination)); });
 
     // convert datasets to tables:
     var selectionsTable = {
@@ -1185,6 +1240,8 @@ var indicatorModel = function (options) {
       })));
     });
 
+    this.updateChartTitle();
+
     this.onDataComplete.notify({
       datasetCountExceedsMax: datasetCountExceedsMax,
       datasets: datasetCountExceedsMax ? datasets.slice(0, maxDatasetCount) : datasets,
@@ -1194,7 +1251,10 @@ var indicatorModel = function (options) {
       indicatorId: this.indicatorId,
       shortIndicatorId: this.shortIndicatorId,
       selectedUnit: this.selectedUnit,
-      footerFields: this.footerFields
+      footerFields: this.footerFields,
+      graphLimits: this.graphLimits,
+      stackedDisaggregation: this.stackedDisaggregation,
+      chartTitle: this.chartTitle
     });
 
     if(options.initial || options.unitsChangeSeries) {
@@ -1241,27 +1301,12 @@ var indicatorModel = function (options) {
       });
     }
 
-    if((options.initial || options.unitsChangeSeries) && !this.hasHeadline) {
-      // if there is no initial data, select some:
+    if ((options.initial || options.unitsChangeSeries) && (this.startValues || !this.hasHeadline)) {
 
-      var minimumFieldSelections = {},
+      var startingFieldSelections = this.startValues,
           forceUnit = false;
-      // First, do we have some already pre-configured from data_start_values?
-      if (this.startValues) {
-        // We need to confirm that these values are valid, and pair them up
-        // with disaggregation categories. The value, at this point, is a string
-        // which we assume to be pipe-delimited.
-        var valuesToLookFor = this.startValues.split('|');
-        // Match up each field value with a field.
-        _.each(this.fieldItemStates, function(fieldItem) {
-          _.each(fieldItem.values, function(fieldValue) {
-            if (_.contains(valuesToLookFor, fieldValue.value)) {
-              minimumFieldSelections[fieldItem.field] = fieldValue.value;
-            }
-          });
-        });
-      }
-      if (_.size(minimumFieldSelections) == 0) {
+
+      if (!startingFieldSelections) {
         // If we did not have any pre-configured start values, we calculate them.
         // We have to decide what filters will be selected, and in some cases it
         // may need to be multiple filters. So we find the smallest row (meaning,
@@ -1282,13 +1327,23 @@ var indicatorModel = function (options) {
         // But actually we want the top-priority sort to be the "size" of the
         // rows. In other words we want the row with the fewest number of fields.
         fieldData = _.sortBy(fieldData, function(item) { return _.size(item); });
-        minimumFieldSelections = fieldData[0];
-        // If we ended up finding something with "Units", we need to remove it
-        // before continuing and then remember to force it later.
-        if ('Units' in minimumFieldSelections) {
-          forceUnit = minimumFieldSelections['Units'];
-          delete minimumFieldSelections['Units'];
-        }
+        // Convert to an array of objects with 'field' and 'value' keys.
+        startingFieldSelections = _.map(_.keys(fieldData[0]), function(key) {
+          return {
+            field: key,
+            value: fieldData[0][key]
+          };
+        });
+      }
+
+      var startingUnit = _.findWhere(startingFieldSelections, { field: 'Units' });
+      if (startingUnit) {
+        // If one of the starting field selections is a Unit, remember for later
+        // and remove it from the list.
+        forceUnit = startingUnit.value;
+        startingFieldSelections = _.filter(startingFieldSelections, function(item) {
+          return item.field !== 'Units';
+        });
       }
 
       // Ensure that we only force a unit on the initial load.
@@ -1296,10 +1351,10 @@ var indicatorModel = function (options) {
         forceUnit = false;
       }
 
-      // Now that we are all sorted, we notify the view that there is no headline,
-      // and pass along the first row as the minimum field selections.
-      this.onNoHeadlineData.notify({
-        minimumFieldSelections: minimumFieldSelections,
+      // Now that we are all sorted, we notify the view that there needs to be
+      // starting values, and pass along the info.
+      this.onStartValuesNeeded.notify({
+        startingFieldSelections: startingFieldSelections,
         forceUnit: forceUnit
       });
     }
@@ -1404,9 +1459,11 @@ var indicatorView = function (model, options) {
     }
 
     view_obj.createSelectionsTable(args);
+
+    view_obj.updateChartTitle(args.chartTitle);
   });
 
-  this._model.onNoHeadlineData.attach(function(sender, args) {
+  this._model.onStartValuesNeeded.attach(function(sender, args) {
     // Force a unit if necessary.
     if (args && args.forceUnit) {
       $('#units input[type="radio"]')
@@ -1416,7 +1473,7 @@ var indicatorView = function (model, options) {
     }
     // Force particular minimum field selections if necessary. We have to delay
     // this slightly to make it work...
-    if (args && args.minimumFieldSelections && _.size(args.minimumFieldSelections)) {
+    if (args && args.startingFieldSelections && args.startingFieldSelections.length) {
       function getClickFunction(fieldToSelect, fieldValue) {
         return function() {
           $('#fields .variable-options input[type="checkbox"]')
@@ -1427,10 +1484,9 @@ var indicatorView = function (model, options) {
             .click();
         }
       }
-      for (var fieldToSelect in args.minimumFieldSelections) {
-        var fieldValue = args.minimumFieldSelections[fieldToSelect];
-        setTimeout(getClickFunction(fieldToSelect, fieldValue), 500);
-      }
+      args.startingFieldSelections.forEach(function(selection) {
+        setTimeout(getClickFunction(selection.field, selection.value), 500);
+      });
     }
     else {
       // Fallback behavior - just click on the first one, whatever it is.
@@ -1456,7 +1512,7 @@ var indicatorView = function (model, options) {
 
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
-    $(view_obj._rootElement).find('#clear').addClass('disabled');
+    $(view_obj._rootElement).find('#clear').addClass('disabled').attr('aria-disabled', 'true');
 
     // reset available/unavailable fields
     updateWithSelectedFields();
@@ -1465,7 +1521,12 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onSelectionUpdate.attach(function(sender, args) {
-    $(view_obj._rootElement).find('#clear')[args.selectedFields.length ? 'removeClass' : 'addClass']('disabled');
+    if (args.selectedFields.length) {
+      $(view_obj._rootElement).find('#clear').removeClass('disabled').attr('aria-disabled', 'false');
+    }
+    else {
+      $(view_obj._rootElement).find('#clear').addClass('disabled').attr('aria-disabled', 'true');
+    }
 
     // loop through the available fields:
     $('.variable-selector').each(function(index, element) {
@@ -1603,7 +1664,7 @@ var indicatorView = function (model, options) {
       var template = _.template($("#item_template").html());
 
       if(!$('button#clear').length) {
-        $('<button id="clear" class="disabled">' + translations.indicator.clear_selections + ' <i class="fa fa-remove"></i></button>').insertBefore('#fields');
+        $('<button id="clear" aria-disabled="true" class="disabled">' + translations.indicator.clear_selections + ' <i class="fa fa-remove"></i></button>').insertBefore('#fields');
       }
 
       $('#fields').html(template({
@@ -1634,6 +1695,18 @@ var indicatorView = function (model, options) {
     }
   };
 
+  this.alterChartConfig = function(config, info) {
+    opensdg.chartConfigAlterations.forEach(function(callback) {
+      callback(config, info);
+    });
+  };
+
+  this.updateChartTitle = function(chartTitle) {
+    if (typeof chartTitle !== 'undefined') {
+      $('.chart-title').text(chartTitle);
+    }
+  }
+
   this.updatePlot = function(chartInfo) {
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
 
@@ -1644,11 +1717,12 @@ var indicatorView = function (model, options) {
     // Create a temp object to alter, and then apply. We go to all this trouble
     // to avoid completely replacing view_obj._chartInstance -- and instead we
     // just replace it's properties: "type", "data", and "options".
-    var updatedConfig = opensdg.chartConfigAlter({
+    var updatedConfig = {
       type: view_obj._chartInstance.type,
       data: view_obj._chartInstance.data,
       options: view_obj._chartInstance.options
-    });
+    }
+    this.alterChartConfig(updatedConfig, chartInfo);
     view_obj._chartInstance.type = updatedConfig.type;
     view_obj._chartInstance.data = updatedConfig.data;
     view_obj._chartInstance.options = updatedConfig.options;
@@ -1665,6 +1739,8 @@ var indicatorView = function (model, options) {
   this.createPlot = function (chartInfo) {
 
     var that = this;
+    var gridColor = that.getGridColor();
+    var tickColor = that.getTickColor();
 
     var chartConfig = {
       type: this._model.graphType,
@@ -1680,16 +1756,24 @@ var indicatorView = function (model, options) {
           xAxes: [{
             maxBarThickness: 150,
             gridLines: {
-              color: '#ddd',
-            }
+              color: gridColor,
+            },
+            ticks: {
+              fontColor: tickColor,
+            },
           }],
           yAxes: [{
+            gridLines: {
+              color: gridColor,
+            },
             ticks: {
-              suggestedMin: 0
+              suggestedMin: 0,
+              fontColor: tickColor,
             },
             scaleLabel: {
               display: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
-              labelString: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit
+              labelString: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
+              fontColor: tickColor,
             }
           }]
         },
@@ -1718,9 +1802,20 @@ var indicatorView = function (model, options) {
         }
       }
     };
-    chartConfig = opensdg.chartConfigAlter(chartConfig);
+    this.alterChartConfig(chartConfig, chartInfo);
 
     this._chartInstance = new Chart($(this._rootElement).find('canvas'), chartConfig);
+
+    window.addEventListener('contrastChange', function(e) {
+      var gridColor = that.getGridColor(e.detail);
+      var tickColor = that.getTickColor(e.detail);
+      view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.fontColor = tickColor;
+      view_obj._chartInstance.options.scales.yAxes[0].gridLines.color = gridColor;
+      view_obj._chartInstance.options.scales.yAxes[0].ticks.fontColor = tickColor;
+      view_obj._chartInstance.options.scales.xAxes[0].gridLines.color = gridColor;
+      view_obj._chartInstance.options.scales.xAxes[0].ticks.fontColor = tickColor;
+      view_obj._chartInstance.update();
+    });
 
     Chart.pluginService.register({
       afterDraw: function(chart) {
@@ -1787,6 +1882,23 @@ var indicatorView = function (model, options) {
     });
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
+  };
+
+  this.getGridColor = function(contrast=null) {
+    return this.isHighContrast(contrast) ? '#222' : '#ddd';
+  };
+
+  this.getTickColor = function(contrast=null) {
+    return this.isHighContrast(contrast) ? '#fff' : '#000';
+  }
+
+  this.isHighContrast = function(contrast=null) {
+    if (contrast) {
+      return contrast === 'high';
+    }
+    else {
+      return $('body').hasClass('contrast-high');
+    }
   };
 
   this.toCsv = function (tableData) {
@@ -2063,29 +2175,6 @@ var indicatorSearch = function() {
     document.getElementById('search-bar-on-page').value = searchTerms;
     document.getElementById('search-term').innerHTML = searchTerms;
 
-    // Add commas as an additional token separator. This is helpful because in
-    // SDG metadata many times there are acronyms separated only by commas, and
-    // we want to be able to search by any of the individual acronyms.
-    lunr.tokenizer.separator = /[\s\-,]+/
-
-    var searchIndex = lunr(function () {
-      this.ref('url');
-      // Index the expected fields.
-      this.field('title', getSearchFieldOptions('title'));
-      this.field('content', getSearchFieldOptions('content'));
-      this.field('id', getSearchFieldOptions('id'));
-      // Index any extra fields.
-      var i;
-      for (i = 0; i < opensdg.searchIndexExtraFields.length; i++) {
-        var extraField = opensdg.searchIndexExtraFields[i];
-        this.field(extraField, getSearchFieldOptions(extraField));
-      }
-      // Index all the documents.
-      for (var ref in opensdg.searchItems) {
-        this.add(opensdg.searchItems[ref]);
-      };
-    });
-
     var searchTermsToUse = searchTerms;
     // This is to allow for searching by indicator with dashes.
     if (searchTerms.split('-').length == 3 && searchTerms.length < 15) {
@@ -2093,31 +2182,89 @@ var indicatorSearch = function() {
       // indicator ID.
       searchTermsToUse = searchTerms.replace(/-/g, '.');
     }
-    // Perform the search.
-    var results = searchIndex.search(searchTermsToUse);
-    // Array of alternative search terms to suggest to the user, in the case
-    // where no results were found.
+
+    var useLunr = typeof window.lunr !== 'undefined';
+    if (useLunr && opensdg.language != 'en') {
+      if (typeof lunr[opensdg.language] === 'undefined') {
+        useLunr = false;
+      }
+    }
+
+    var results = [];
     var alternativeSearchTerms = [];
 
-    // If we didn't find anything, get progressively "fuzzier" to look for
-    // alternative search term options.
-    if (!results.length > 0) {
-      for (var fuzziness = 1; fuzziness < 5; fuzziness++) {
-        var fuzzierQuery = getFuzzierQuery(searchTermsToUse, fuzziness);
-        var alternativeResults = searchIndex.search(fuzzierQuery);
-        if (alternativeResults.length > 0) {
-          var matchedTerms = getMatchedTerms(alternativeResults);
-          if (matchedTerms) {
-            alternativeSearchTerms = matchedTerms;
+    if (useLunr) {
+      // Engish-specific tweak for words separated only by commas.
+      if (opensdg.language == 'en') {
+        lunr.tokenizer.separator = /[\s\-,]+/
+      }
+
+      var searchIndex = lunr(function () {
+        if (opensdg.language != 'en' && lunr[opensdg.language]) {
+          this.use(lunr[opensdg.language]);
+        }
+        this.ref('url');
+        // Index the expected fields.
+        this.field('title', getSearchFieldOptions('title'));
+        this.field('content', getSearchFieldOptions('content'));
+        this.field('id', getSearchFieldOptions('id'));
+        // Index any extra fields.
+        var i;
+        for (i = 0; i < opensdg.searchIndexExtraFields.length; i++) {
+          var extraField = opensdg.searchIndexExtraFields[i];
+          this.field(extraField, getSearchFieldOptions(extraField));
+        }
+        // Index all the documents.
+        for (var ref in opensdg.searchItems) {
+          this.add(opensdg.searchItems[ref]);
+        };
+      });
+
+      // Perform the search.
+      var results = searchIndex.search(searchTermsToUse);
+
+      // If we didn't find anything, get progressively "fuzzier" to look for
+      // alternative search term options.
+      if (!results.length > 0) {
+        for (var fuzziness = 1; fuzziness < 5; fuzziness++) {
+          var fuzzierQuery = getFuzzierQuery(searchTermsToUse, fuzziness);
+          var alternativeResults = searchIndex.search(fuzzierQuery);
+          if (alternativeResults.length > 0) {
+            var matchedTerms = getMatchedTerms(alternativeResults);
+            if (matchedTerms) {
+              alternativeSearchTerms = matchedTerms;
+            }
+            break;
           }
-          break;
         }
       }
     }
+    else {
+      // Non-Lunr basic search functionality.
+      results = _.filter(opensdg.searchItems, function(item) {
+        var i, match = false;
+        if (item.title) {
+          match = match || item.title.indexOf(searchTermsToUse) !== -1;
+        }
+        if (item.content) {
+          match = match || item.content.indexOf(searchTermsToUse) !== -1;
+        }
+        for (i = 0; i < opensdg.searchIndexExtraFields.length; i++) {
+          var extraField = opensdg.searchIndexExtraFields[i];
+          if (typeof item[extraField] !== 'undefined') {
+            match = match || item[extraField].indexOf(searchTermsToUse) !== -1;
+          }
+        }
+        return match;
+      });
+      // Mimic what Lunr does.
+      results = _.map(results, function(item) {
+        return { ref: item.url }
+      });
+    }
+
     var resultItems = [];
-    var escapeRegExp = function(str) {
-      return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&");
-    };
+
     results.forEach(function(result) {
       var doc = opensdg.searchItems[result.ref]
       // Truncate the contents.
@@ -2171,6 +2318,11 @@ var indicatorSearch = function() {
     }
     return opts
   }
+
+  // Used to highlight search term matches on the screen.
+  function escapeRegExp(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&");
+  };
 };
 
 $(function() {
