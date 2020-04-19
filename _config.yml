@@ -12,7 +12,7 @@ baseurl: "/sdg-site-kazstat-upgrade"
 url: ""
 environment: staging
 # Replace my-github-org and open-sdg-data-starter as needed.
-remote_data_prefix: "http://127.0.0.1:8080"
+remote_data_prefix: "http://brock.tips/sdg-data-kazstat-upgrade"
 
 analytics:
   ga_prod: ''
