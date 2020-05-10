@@ -5,7 +5,7 @@
     {% if site.frontpage_introduction_banner %}
     <div class="site-intro spacer medium">
         <h1>{{ site.frontpage_introduction_banner.title | t }}</h1>
-        <p class="leadCopy">{{ site.frontpage_introduction_banner.description | t }}</p>
+        <p class="lead-copy">{{ site.frontpage_introduction_banner.description | t }}</p>
     </div>
     {% endif %}
 
@@ -21,8 +21,8 @@
             {% cycle 'add row' : '<div class="row no-gutters">', '', '', '', '', '' %}
                 <div class="col-xs-4 col-md-2">
                     <a href="./{{ goal.number }}/">
-                        <img src="{{ goal.icon }}" id="goal-{{ goal.number }}" alt="{{ goal.short | escape }} - {{ page.t.general.goal }} {{ goal.number }}" />
-                    </a>
+                    <img src="{{ goal.icon }}" id="goal-{{ goal.number }}" alt="{{ goal.short | escape }} - {{ page.t.general.goal }} {{ goal.number }}" />
+                </a>
                 </div>
             {% cycle 'end row' : '', '', '', '', '', '</div>' %}
         {% endfor %}
