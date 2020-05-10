@@ -1722,21 +1722,21 @@ body.layout-frontpage {
   background: white;
   padding-top: 0; }
   @media only screen and (min-width: 768px) {
-    body.layout-frontpage .homepage-frame {
+    body.layout-frontpage .homepage-goal-grid {
       position: relative;
       padding: 50px; }
-    body.layout-frontpage .homepage-frame::before {
-      content: " ";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url(../img/frame-upper-left.png) left 0px top 0px no-repeat, url(../img/frame-upper-right.png) right 0px top 0px no-repeat, url(../img/frame-lower-left.png) left 0px bottom 0px no-repeat, url(../img/frame-lower-right.png) right 0px bottom 0px no-repeat, transparent;
-      border: 1px solid #CCC;
-      left: 0;
-      top: 0;
-      pointer-events: none; } }
+      body.layout-frontpage .homepage-goal-grid::before {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(../img/frame-upper-left.png) left 0px top 0px no-repeat, url(../img/frame-upper-right.png) right 0px top 0px no-repeat, url(../img/frame-lower-left.png) left 0px bottom 0px no-repeat, url(../img/frame-lower-right.png) right 0px bottom 0px no-repeat, transparent;
+        border: 1px solid #CCC;
+        left: 0;
+        top: 0;
+        pointer-events: none; } }
   body.layout-frontpage.contrast-high {
     background: black; }
     @media only screen and (min-width: 768px) {
-      body.layout-frontpage.contrast-high .homepage-frame::before {
+      body.layout-frontpage.contrast-high .homepage-goal-grid::before {
         background: url(../img/high-contrast/frame-upper-left.png) left 0px top 0px no-repeat, url(../img/high-contrast/frame-upper-right.png) right 0px top 0px no-repeat, url(../img/high-contrast/frame-lower-left.png) left 0px bottom 0px no-repeat, url(../img/high-contrast/frame-lower-right.png) right 0px bottom 0px no-repeat, transparent; } }
