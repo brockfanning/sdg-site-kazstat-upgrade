@@ -1,7 +1,7 @@
 ---
 title: Guidance
 permalink: /guidance/
-language: kz
+language: kk
 layout: page
 ---
 
