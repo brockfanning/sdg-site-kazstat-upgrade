@@ -1,7 +1,7 @@
 # Jekyll configuration for Open SDG platform
 
 # Tell the Remote Theme plugin to use the Open SDG platform (Jekyll theme).
-remote_theme: brockfanning/open-sdg@indicator-page-with-components
+remote_theme: open-sdg/open-sdg@1.0.0-beta3
 
 # Replace this title as needed.
 title: Indicators For The Sustainable Development Goals
@@ -16,6 +16,10 @@ remote_data_prefix: "http://brock.tips/sdg-data-kazstat-upgrade"
 
 analytics:
   ga_prod: ''
+
+frontpage_introduction_banner:
+  title: frontpage.intro_title
+  description: frontpage.intro_body
 
 # Replace the email addresses below.
 email_contacts:
@@ -109,3 +113,14 @@ map_layers:
   - min_zoom: 3
     max_zoom: 10
     label: data.Регионы
+
+exclude:
+  - vendor
+  - scripts
+  - remotedata
+  - Gemfile
+  - Gemfile.lock
+  - README
+  - README.md
+  - LICENSE
+  - .sass-cache
