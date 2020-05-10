@@ -1776,7 +1776,7 @@ body.layout-frontpage {
   @media only screen and (min-width: 768px) {
     body.layout-frontpage .homepage-goal-grid {
       position: relative;
-      padding: 50px; }
+      padding: 70px; }
       body.layout-frontpage .homepage-goal-grid::before {
         content: " ";
         position: absolute;
