@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200510001644">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200510222745">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -223,6 +223,11 @@ var translations = {
 <div id="main-content" class="container goal-tiles" role="main">
 
     
+    <div class="site-intro spacer medium">
+        <h1>17 целей преобразить наш мир</h1>
+        <p class="leadCopy"><a href="https://www.un.org/sustainabledevelopment/ru/">Цели в области устойчивого развития (ЦУР)</a> представляют собой универсальный призыв к действиям, направленным на то, чтобы покончить с нищетой, защитить планету и улучшить жизнь и перспективы каждого человека, где бы он ни находился. Эти 17 целей были приняты всеми государствами-членами ООН в 2015 году в рамках <a href="https://www.un.org/ga/search/view_doc.asp?symbol=A/RES/70/1&Lang=R">2030 Повестки дня в области устойчивого развития</a>.</p>
+    </div>
+    
 
     
     
@@ -231,149 +236,151 @@ var translations = {
     
     <p class="spacer medium">Нажмите на цель для просмотра данных по показателям целей устойчивого развития.</p>
 
-    
-        <div class="row no-gutters">
-            <div class="col-xs-4 col-md-2">
-                <a href="./1/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/1.png" id="goal-1" alt="Ликвидация нищеты - Цель 1" />
-              </a>
+    <div class="homepage-goal-grid">
+        
+            <div class="row no-gutters">
+                <div class="col-xs-4 col-md-2">
+                    <a href="./1/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/1.png" id="goal-1" alt="Ликвидация нищеты - Цель 1" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./2/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/2.png" id="goal-2" alt="Ликвидация голода - Цель 2" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./3/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/3.png" id="goal-3" alt="Хорошее здоровье и благополучие - Цель 3" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./4/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/4.png" id="goal-4" alt="Качественное образование - Цель 4" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./5/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/5.png" id="goal-5" alt="Гендерное равенство - Цель 5" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./6/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/6.png" id="goal-6" alt="Чистая вода и санитария - Цель 6" />
+                    </a>
+                </div>
             </div>
         
-    
+            <div class="row no-gutters">
+                <div class="col-xs-4 col-md-2">
+                    <a href="./7/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/7.png" id="goal-7" alt="Недорогостоящая и чистая энергия - Цель 7" />
+                    </a>
+                </div>
+            
         
-            <div class="col-xs-4 col-md-2">
-                <a href="./2/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/2.png" id="goal-2" alt="Ликвидация голода - Цель 2" />
-              </a>
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./8/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/8.png" id="goal-8" alt="Достойна работа и экономический рост - Цель 8" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./9/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/9.png" id="goal-9" alt="Индустриализация, инновации и инфраструктура - Цель 9" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./10/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/10.png" id="goal-10" alt="Уменьшение неравенства - Цель 10" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./11/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/11.png" id="goal-11" alt="Устойчивые города и населенные пункты - Цель 11" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./12/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/12.png" id="goal-12" alt="Ответственное потребление и производство - Цель 12" />
+                    </a>
+                </div>
             </div>
         
-    
+            <div class="row no-gutters">
+                <div class="col-xs-4 col-md-2">
+                    <a href="./13/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/13.png" id="goal-13" alt="Борьба с изменением климата - Цель 13" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./14/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/14.png" id="goal-14" alt="Сохранение морских экосистем - Цель 14" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./15/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/15.png" id="goal-15" alt="Сохранение экосистем суши - Цель 15" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./16/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/16.png" id="goal-16" alt="Мир, правосудие и эффективные институты - Цель 16" />
+                    </a>
+                </div>
+            
+        
+            
+                <div class="col-xs-4 col-md-2">
+                    <a href="./17/">
+                        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/17.png" id="goal-17" alt="Партнерство в интересах устойчивого развития - Цель 17" />
+                    </a>
+                </div>
+            
+        
+        
         
             <div class="col-xs-4 col-md-2">
-                <a href="./3/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/3.png" id="goal-3" alt="Хорошее здоровье и благополучие - Цель 3" />
-              </a>
+                <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/18.png" id="goal-18" alt="The Global Goals for Sustainable Development" />
             </div>
         
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./4/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/4.png" id="goal-4" alt="Качественное образование - Цель 4" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./5/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/5.png" id="goal-5" alt="Гендерное равенство - Цель 5" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./6/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/6.png" id="goal-6" alt="Чистая вода и санитария - Цель 6" />
-              </a>
-            </div>
         </div>
-    
-        <div class="row no-gutters">
-            <div class="col-xs-4 col-md-2">
-                <a href="./7/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/7.png" id="goal-7" alt="Недорогостоящая и чистая энергия - Цель 7" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./8/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/8.png" id="goal-8" alt="Достойна работа и экономический рост - Цель 8" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./9/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/9.png" id="goal-9" alt="Индустриализация, инновации и инфраструктура - Цель 9" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./10/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/10.png" id="goal-10" alt="Уменьшение неравенства - Цель 10" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./11/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/11.png" id="goal-11" alt="Устойчивые города и населенные пункты - Цель 11" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./12/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/12.png" id="goal-12" alt="Ответственное потребление и производство - Цель 12" />
-              </a>
-            </div>
-        </div>
-    
-        <div class="row no-gutters">
-            <div class="col-xs-4 col-md-2">
-                <a href="./13/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/13.png" id="goal-13" alt="Борьба с изменением климата - Цель 13" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./14/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/14.png" id="goal-14" alt="Сохранение морских экосистем - Цель 14" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./15/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/15.png" id="goal-15" alt="Сохранение экосистем суши - Цель 15" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./16/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/16.png" id="goal-16" alt="Мир, правосудие и эффективные институты - Цель 16" />
-              </a>
-            </div>
-        
-    
-        
-            <div class="col-xs-4 col-md-2">
-                <a href="./17/">
-                  <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/17.png" id="goal-17" alt="Партнерство в интересах устойчивого развития - Цель 17" />
-              </a>
-            </div>
-        
-    
-    
-    
-        <div class="col-xs-4 col-md-2">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/ru/18.png" id="goal-18" alt="The Global Goals for Sustainable Development" />
-        </div>
-    
     </div>
     <div class="zip-download-container">
     <a href="http://brock.tips/sdg-data-kazstat-upgrade/ru/zip/all_indicators.zip"
@@ -384,7 +391,7 @@ var translations = {
         ZIP файл - 3.3 MB
         
             <br>
-            Последний раз данные обновлялись - Apr 18, 2020
+            Последний раз данные обновлялись - май 10, 2020
         
     </div>
 </div>
@@ -442,7 +449,7 @@ var translations = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200510001644'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200510001644"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200510222745'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200510222745"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

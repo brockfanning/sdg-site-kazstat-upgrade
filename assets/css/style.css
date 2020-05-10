@@ -829,6 +829,10 @@ body.contrast-high #disclaimer .phase-tag {
 body.contrast-high #disclaimer .disclaimer-alert {
   color: white; }
 
+body {
+  background: #fff url("../img/sdgbg.png") top left repeat-x;
+  padding-top: 15px; }
+
 #skiplink {
   position: absolute;
   top: 0;
@@ -844,12 +848,10 @@ body.contrast-high #disclaimer .disclaimer-alert {
   color: black;
   display: block; }
 
-header {
-  background: #fff url("../img/sdgbg.png") bottom left repeat-x; }
-  header .container {
-    min-height: 113px; }
-    header .container .navbar-default {
-      border: none; }
+header .container {
+  min-height: 113px; }
+  header .container .navbar-default {
+    border: none; }
 
 .navbar-brand {
   display: block;
@@ -1098,11 +1100,11 @@ footer {
       footer #footerLinks ul li:first-child {
         margin-left: 0px; }
 
-#main-content #indicatorData.no-series #series-help, #main-content #indicatorData.no-series #fields, #main-content #indicatorData.no-series #legend-help, #main-content #indicatorData.no-series #clear {
+#main-content #indicatorData.no-fields #series-help, #main-content #indicatorData.no-fields #fields, #main-content #indicatorData.no-fields #legend-help, #main-content #indicatorData.no-fields #clear {
   display: none; }
-#main-content #indicatorData.no-series.no-units > .col-md-3 {
+#main-content #indicatorData.no-fields.no-units > .col-md-3 {
   display: none; }
-#main-content #indicatorData.no-series.no-units > .col-md-9 {
+#main-content #indicatorData.no-fields.no-units > .col-md-9 {
   width: 100%; }
 #main-content .indicator-sidebar-hidden {
   padding: 0;
@@ -1717,32 +1719,24 @@ body.contrast-high #search-results .search-result .content {
   max-width: 100%; }
 
 body.layout-frontpage {
-  background: white; }
-  body.layout-frontpage header, body.layout-frontpage footer {
-    position: relative; }
+  background: white;
+  padding-top: 0; }
   @media only screen and (min-width: 768px) {
-    body.layout-frontpage header::after {
+    body.layout-frontpage .homepage-frame {
+      position: relative;
+      padding: 50px; }
+    body.layout-frontpage .homepage-frame::before {
       content: " ";
       position: absolute;
       width: 100%;
-      height: 158px;
-      background: url(../img/frame-upper-left.png) left 0px bottom 0px no-repeat, url(../img/frame-upper-right.png) right 0px bottom 0px no-repeat, transparent; }
-    body.layout-frontpage footer::before {
-      content: " ";
-      position: absolute;
-      width: 100%;
-      height: 158px;
-      bottom: 100%;
-      background: url(../img/frame-lower-left.png) left 0px top 0px no-repeat, url(../img/frame-lower-right.png) right 0px top 0px no-repeat, transparent; } }
-  body.layout-frontpage #main-content > h1, body.layout-frontpage #main-content > p {
-    text-align: center;
-    max-width: 75%;
-    margin-left: auto;
-    margin-right: auto; }
+      height: 100%;
+      background: url(../img/frame-upper-left.png) left 0px top 0px no-repeat, url(../img/frame-upper-right.png) right 0px top 0px no-repeat, url(../img/frame-lower-left.png) left 0px bottom 0px no-repeat, url(../img/frame-lower-right.png) right 0px bottom 0px no-repeat, transparent;
+      border: 1px solid #CCC;
+      left: 0;
+      top: 0;
+      pointer-events: none; } }
   body.layout-frontpage.contrast-high {
     background: black; }
     @media only screen and (min-width: 768px) {
-      body.layout-frontpage.contrast-high header::after {
-        background: url(../img/high-contrast/frame-upper-left.png) left 0px bottom 0px no-repeat, url(../img/high-contrast/frame-upper-right.png) right 0px bottom 0px no-repeat, transparent; }
-      body.layout-frontpage.contrast-high footer::before {
-        background: url(../img/high-contrast/frame-lower-left.png) left 0px top 0px no-repeat, url(../img/high-contrast/frame-lower-right.png) right 0px top 0px no-repeat, transparent; } }
+      body.layout-frontpage.contrast-high .homepage-frame::before {
+        background: url(../img/high-contrast/frame-upper-left.png) left 0px top 0px no-repeat, url(../img/high-contrast/frame-upper-right.png) right 0px top 0px no-repeat, url(../img/high-contrast/frame-lower-left.png) left 0px bottom 0px no-repeat, url(../img/high-contrast/frame-lower-right.png) right 0px bottom 0px no-repeat, transparent; } }
