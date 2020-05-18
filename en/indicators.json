@@ -7,7 +7,7 @@
         
         {
           "id": "1-1-1",
-          "title": "Proportion of population with  purchasing-power parity income under USD 1,9; 3,2; 5,5 PPP per day",
+          "title": "Proportion of population below the international poverty line, by sex, age, employment status and geographical location (urban/rural)",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/1-1-1",
@@ -15,7 +15,7 @@
         },
         {
           "id": "1-2-1",
-          "title": "Proportion of population living below the minimum subsistence level",
+          "title": "Proportion of population living below the national poverty line, by sex and age",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/1-2-1",
@@ -31,7 +31,7 @@
         },
         {
           "id": "1-3-1",
-          "title": "Number of recipients of state pensions and benefits",
+          "title": "Proportion of population covered by social protection floors/systems, by sex, distinguishing children, unemployed persons, older persons, persons with disabilities, pregnant women, newborns, work-injury victims and the poor and the vulnerable",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/1-3-1",
@@ -47,7 +47,7 @@
         },
         {
           "id": "1-4-2",
-          "title": "The proportion of the adult population owning land (the number of owners and land users)",
+          "title": "Proportion of total adult population with secure tenure rights to land, with legally recognized documentation, and who perceive their rights to land as secure, by sex and by type of tenure",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/1-4-2",
@@ -55,7 +55,7 @@
         },
         {
           "id": "1-5-1",
-          "title": "Number of victims and deaths resulted from natural disasters  and emergencies",
+          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/1-5-1",
@@ -63,7 +63,7 @@
         },
         {
           "id": "1-5-2",
-          "title": "Amount of damage from natural emergencies",
+          "title": "Direct economic loss attributed to disasters in relation to global gross domestic product (GDP)",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/1-5-2",
@@ -159,7 +159,7 @@
         },
         {
           "id": "2-3-1",
-          "title": "Productivity in the agricultural sector",
+          "title": "Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/2-3-1",
@@ -175,7 +175,7 @@
         },
         {
           "id": "2-4-1",
-          "title": "Areas which introduced site-specific management technologies (as a percentage of the total sowing area)",
+          "title": "Proportion of agricultural area under productive and sustainable agriculture",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/2-4-1",
@@ -183,7 +183,7 @@
         },
         {
           "id": "2-4-1-1",
-          "title": "Area of irrigated land on which water-saving technologies are used (drip irrigation,sprinkling)",
+          "title": "Proportion of agricultural area under productive and sustainable agriculture",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/2-4-1-1",
@@ -199,7 +199,7 @@
         },
         {
           "id": "2-5-2",
-          "title": "Increase in the number of rare and endangered species",
+          "title": "Proportion of local breeds classified as being at risk, not at risk or at unknown level of risk of extinction",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/2-5-2",
@@ -295,7 +295,7 @@
         },
         {
           "id": "3-3-1-1",
-          "title": "Number of newly diagnosed HIV among injecting drug users",
+          "title": "Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/3-3-1-1",
@@ -351,7 +351,7 @@
         },
         {
           "id": "3-5-1",
-          "title": "Incidence of mental and behavioral disorders, as a result of substance use",
+          "title": "Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/3-5-1",
@@ -375,7 +375,7 @@
         },
         {
           "id": "3-7-1",
-          "title": "Percentage of women aged 15-49 years satisfied need for contraception",
+          "title": "Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/3-7-1",
@@ -383,7 +383,7 @@
         },
         {
           "id": "3-7-2",
-          "title": "national_indicators.3-7-2-title",
+          "title": "Adolescent birth rate (aged 10–14 years; aged 15–19 years) per 1,000 women in that age group",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/3-7-2",
@@ -455,7 +455,7 @@
         },
         {
           "id": "3-b-3",
-          "title": "The proportion of health facilities which have a permanent stock of essential and affordable drugs and medicines",
+          "title": "Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/3-b-3",
@@ -559,7 +559,7 @@
         },
         {
           "id": "4-5-1",
-          "title": "Gender Equality Index by Level of Education",
+          "title": "Parity indices (female/male, rural/urban, bottom/top wealth quintile and others such as disability status, indigenous peoples and conflict-affected, as data become available) for all education indicators on this list that can be disaggregated",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/4-5-1",
@@ -631,7 +631,7 @@
         },
         {
           "id": "4-a-1",
-          "title": "Proportion of schools provided with electricity",
+          "title": "Proportion of schools with access to (a) electricity; (b) the Internet for pedagogical purposes; (c) computers for pedagogical purposes; (d) adapted infrastructure and materials for students with disabilities; (e) basic drinking water; (f) single-sex basic sanitation facilities; and (g) basic handwashing facilities (as per the WASH indicator definitions)",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/4-a-1",
@@ -647,7 +647,7 @@
         },
         {
           "id": "4-c-1",
-          "title": "Proportion of teachers in pre-school institutions with pedagogical education",
+          "title": "Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/4-c-1",
@@ -671,7 +671,7 @@
         },
         {
           "id": "5-2-1",
-          "title": "The prevalence of physical and sexual violence by an intimate partner throughout life and currently among women aged 18-75 and women aged 18-49 who have ever had a partner, by type of violence and by the time period",
+          "title": "Proportion of ever-partnered women and girls aged 15 years and older subjected to physical, sexual or psychological violence by a current or former intimate partner in the previous 12 months, by form of violence and by age",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/5-2-1",
@@ -695,7 +695,7 @@
         },
         {
           "id": "5-2-2",
-          "title": "Proportion of women aged 18–75 years (18–49 years) who have been sexually abused by anyone other than intimate partners in the last 12 months, by age",
+          "title": "Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months, by age and place of occurrence",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/5-2-2",
@@ -735,7 +735,7 @@
         },
         {
           "id": "5-4-1",
-          "title": "Proportion of time spent on unpaid home services for the household and its members",
+          "title": "Proportion of time spent on unpaid domestic and care work, by sex, age and location",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/5-4-1",
@@ -775,7 +775,7 @@
         },
         {
           "id": "5-a-1",
-          "title": "Proportion of women who have been granted agricultural land by ownership",
+          "title": "(a) Proportion of total agricultural population with ownership or secure rights over agricultural land, by sex; and (b) share of women among owners or rights-bearers of agricultural land, by type of tenure",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/5-a-1",
@@ -791,7 +791,7 @@
         },
         {
           "id": "5-b-1",
-          "title": "The proportion of mobile phone users (age 6 and above)",
+          "title": "Proportion of individuals who own a mobile telephone, by sex",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/5-b-1",
@@ -815,7 +815,7 @@
         
         {
           "id": "6-1-1",
-          "title": "Provision the population with centralized water supply in the Republic of Kazakhstan",
+          "title": "Proportion of population using safely managed drinking water services",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/6-1-1",
@@ -823,7 +823,7 @@
         },
         {
           "id": "6-2-1",
-          "title": "Proportion of population covered by wastewater treatment in the Republic of Kazakhstan",
+          "title": "Proportion of population using safely managed sanitation services, including a handwashing facility with soap and water",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/6-2-1",
@@ -831,7 +831,7 @@
         },
         {
           "id": "6-3-1",
-          "title": "Proportion of regulatory wastewater in the total volume of wastewater discharged through treatment plants in urban areas",
+          "title": "Proportion of wastewater safely treated",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/6-3-1",
@@ -839,7 +839,7 @@
         },
         {
           "id": "6-3-2",
-          "title": "Proportion of water bodies with good water quality is",
+          "title": "Proportion of bodies of water with good ambient water quality",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/6-3-2",
@@ -847,7 +847,7 @@
         },
         {
           "id": "6-4-1",
-          "title": "Dynamics of changes in water use efficiency by economic activity",
+          "title": "Change in water-use efficiency over time",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/6-4-1",
@@ -895,7 +895,7 @@
         },
         {
           "id": "6-b-1",
-          "title": "The proportion of local administrative units which adopted rules and procedures regulating citizens' participation in management of water resources and sanitation facilities",
+          "title": "Proportion of local administrative units with established and operational policies and procedures for participation of local communities in water and sanitation management",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/6-b-1",
@@ -911,7 +911,7 @@
         
         {
           "id": "7-1-1",
-          "title": "Proportion of the total area equipped with: electricity",
+          "title": "Proportion of population with access to electricity",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/7-1-1",
@@ -919,7 +919,7 @@
         },
         {
           "id": "7-1-2",
-          "title": "The level of gasification of the population",
+          "title": "Proportion of population with primary reliance on clean fuels and technology",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/7-1-2",
@@ -943,7 +943,7 @@
         },
         {
           "id": "7-2-1",
-          "title": "Renewable energy share in the total energy generation",
+          "title": "Renewable energy share in the total final energy consumption",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/7-2-1",
@@ -951,7 +951,7 @@
         },
         {
           "id": "7-3-1",
-          "title": "Energy intensity of GDP",
+          "title": "Energy intensity measured in terms of primary energy and GDP",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/7-3-1",
@@ -967,7 +967,7 @@
         },
         {
           "id": "7-b-1",
-          "title": "Investments in fixed capital by ownership",
+          "title": "Investments in energy efficiency as a proportion of GDP and the amount of foreign direct investment in financial transfer for infrastructure and technology to sustainable development services",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/7-b-1",
@@ -1007,7 +1007,7 @@
         },
         {
           "id": "8-3-1",
-          "title": "Average hourly earnings of women and men in total, by foreign economic activity, region and age",
+          "title": "Proportion of informal employment in non‐agriculture employment, by sex",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-3-1",
@@ -1031,7 +1031,7 @@
         },
         {
           "id": "8-5-1",
-          "title": "Average hourly earnings of women and men in total, by foreign economic activity, region and age",
+          "title": "Average hourly earnings of female and male employees, by occupation, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-5-1",
@@ -1039,7 +1039,7 @@
         },
         {
           "id": "8-5-2",
-          "title": "Unemployment rate by sex, age",
+          "title": "Unemployment rate, by sex, age and persons with disabilities",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-5-2",
@@ -1055,7 +1055,7 @@
         },
         {
           "id": "8-7-1",
-          "title": "Proportion of employed at the age of 15-17 in the total number of employed, by sex and age",
+          "title": "Proportion and number of children aged 5–17 years engaged in child labour, by sex and age",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-7-1",
@@ -1063,7 +1063,7 @@
         },
         {
           "id": "8-8-1",
-          "title": "Occupational injury rate",
+          "title": "Frequency rates of fatal and non-fatal occupational injuries, by sex and migrant status",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-8-1",
@@ -1071,7 +1071,7 @@
         },
         {
           "id": "8-8-2",
-          "title": "Proportion of enterprises covered by the system of collective bargaining relations among large and medium-sized enterprises",
+          "title": "Level of national compliance with labour rights (freedom of association and collective bargaining) based on International Labour Organization (ILO) textual sources and national legislation, by sex and migrant status",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-8-2",
@@ -1079,7 +1079,7 @@
         },
         {
           "id": "8-9-1",
-          "title": "The direct contribution of tourism to GDP",
+          "title": "Tourism direct GDP as a proportion of total GDP and in growth rate",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-9-1",
@@ -1087,7 +1087,7 @@
         },
         {
           "id": "8-9-1-1",
-          "title": "Growth rate of GVA direct tourism",
+          "title": "global_indicators.8-9-1-1-title",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-9-1-1",
@@ -1095,7 +1095,7 @@
         },
         {
           "id": "8-9-2",
-          "title": "Proportion of employed in tourism in the total number of employed",
+          "title": "Proportion of jobs in sustainable tourism industries out of total tourism jobs",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-9-2",
@@ -1111,7 +1111,7 @@
         },
         {
           "id": "8-b-1",
-          "title": "Percentage of young people employed in permanent jobs from among those who applied to employment centers",
+          "title": "Existence of a developed and operationalized national strategy for youth employment, as a distinct strategy or as part of a national employment strategy",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/8-b-1",
@@ -1167,7 +1167,7 @@
         },
         {
           "id": "9-2-1",
-          "title": "Manufacturing GVA as a proportion of GDP",
+          "title": "Manufacturing value added as a proportion of GDP and per capita",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/9-2-1",
@@ -1191,7 +1191,7 @@
         },
         {
           "id": "9-2-2",
-          "title": "Proportion of employed in the manufacturing industry in the total number of employed",
+          "title": "Manufacturing employment as a proportion of total employment",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/9-2-2",
@@ -1223,7 +1223,7 @@
         },
         {
           "id": "9-5-1",
-          "title": "Domestic research and development expenditure as a proportion of GDP",
+          "title": "Research and development expenditure as a proportion of GDP",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/9-5-1",
@@ -1239,7 +1239,7 @@
         },
         {
           "id": "9-5-2",
-          "title": "Number of research specialists performing R & D per million inhabitants",
+          "title": "Researchers (in full-time equivalent) per million inhabitants",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/9-5-2",
@@ -1255,7 +1255,7 @@
         },
         {
           "id": "9-b-1",
-          "title": "Proportion of GVA of the middle-tech and high-tech industries in the total volume of GVA",
+          "title": "Proportion of medium and high-tech industry value added in total value added",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/9-b-1",
@@ -1263,7 +1263,7 @@
         },
         {
           "id": "9-c-1",
-          "title": "Proportion of households covered by a mobile broadband Internet network",
+          "title": "Proportion of population covered by a mobile network, by technology",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/9-c-1",
@@ -1279,7 +1279,7 @@
         
         {
           "id": "10-1-1",
-          "title": "Proportion of incomes  the bottom 40 per cent of the population",
+          "title": "Growth rates of household expenditure or income per capita among the bottom 40 per cent of the population and the total population",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/10-1-1",
@@ -1295,7 +1295,7 @@
         },
         {
           "id": "10-3-1",
-          "title": "Treatment of people with disabilities that raise issues of social security, health care, education, housing, labor rights, as well as non-execution of court decisions, obtaining qualified legal assistance",
+          "title": "Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/10-3-1",
@@ -1303,7 +1303,7 @@
         },
         {
           "id": "10-4-1",
-          "title": "Labour share of GDP",
+          "title": "Labour share of GDP, comprising wages and social protection transfers",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/10-4-1",
@@ -1311,7 +1311,7 @@
         },
         {
           "id": "10-5-1",
-          "title": "The ratio of state debt to GDP",
+          "title": "Financial Soundness Indicators (FSIs)",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/10-5-1",
@@ -1319,7 +1319,7 @@
         },
         {
           "id": "10-5-1-1",
-          "title": "national_indicators.10-5-1-1-title",
+          "title": "Financial Soundness Indicators (FSIs)",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/10-5-1-1",
@@ -1327,7 +1327,7 @@
         },
         {
           "id": "10-6-1",
-          "title": "Number of international organizations of which Kazakhstan is a member",
+          "title": "Proportion of members and voting rights of developing countries in international organizations",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/10-6-1",
@@ -1351,7 +1351,7 @@
         },
         {
           "id": "10-a-1",
-          "title": "The share of commodity items granted to least developed countries and developing countries to which tariff preferences are applied",
+          "title": "Proportion of tariff lines applied to imports from least developed countries and developing countries with zero-tariff",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/10-a-1",
@@ -1383,7 +1383,7 @@
         
         {
           "id": "11-1-1",
-          "title": "Number of people living in failing buildings",
+          "title": "Proportion of urban population living in slums, informal settlements or inadequate housing",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-1-1",
@@ -1415,7 +1415,7 @@
         },
         {
           "id": "11-3-1",
-          "title": "Housing per person",
+          "title": "Ratio of land consumption rate to population growth rate",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-3-1",
@@ -1431,7 +1431,7 @@
         },
         {
           "id": "11-4-1",
-          "title": "The number of monuments of history and culture of republican significance, on which research and restoration works have been completed, of the total number of monuments of history and culture of republican significance",
+          "title": "Total expenditure (public and private) per capita spent on the preservation, protection and conservation of all cultural and natural heritage, by type of heritage (cultural, natural, mixed and World Heritage Centre designation), level of government (national, regional and local/municipal), type of expenditure (operating expenditure/investment) and type of private funding (donations in kind, private non-profit sector and sponsorship)",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-4-1",
@@ -1439,7 +1439,7 @@
         },
         {
           "id": "11-5-1",
-          "title": "The number of suffered and perished as a result of natural emergencies",
+          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-5-1",
@@ -1447,7 +1447,7 @@
         },
         {
           "id": "11-5-2",
-          "title": "Amount of damage from natural and man-made emergencies",
+          "title": "Direct economic loss in relation to global GDP, damage to critical infrastructure and number of disruptions to basic services, attributed to disasters",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-5-2",
@@ -1455,7 +1455,7 @@
         },
         {
           "id": "11-6-1",
-          "title": "Providing the population with services for the collection and disposal of waste",
+          "title": "Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-6-1",
@@ -1463,7 +1463,7 @@
         },
         {
           "id": "11-6-1-1",
-          "title": "national_indicators.11-6-1-1-title",
+          "title": "global_indicators.11-6-1-1-title",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-6-1-1",
@@ -1471,7 +1471,7 @@
         },
         {
           "id": "11-6-1-2",
-          "title": "national_indicators.11-6-1-2-title",
+          "title": "global_indicators.11-6-1-2-title",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-6-1-2",
@@ -1479,7 +1479,7 @@
         },
         {
           "id": "11-6-2",
-          "title": "Annual mean levels of fine particulate matter PM2.5 and PM10 in the atmosphere (mg/m3) in cities where observations are held",
+          "title": "Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/11-6-2",
@@ -1583,7 +1583,7 @@
         },
         {
           "id": "12-4-2",
-          "title": "Hazardous waste generation",
+          "title": "Hazardous waste generated per capita and proportion of hazardous waste treated, by type of treatment",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/12-4-2",
@@ -1591,7 +1591,7 @@
         },
         {
           "id": "12-5-1",
-          "title": "Industrial waste recycling and disposal to their generation ratio",
+          "title": "National recycling rate, tons of material recycled",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/12-5-1",
@@ -1663,7 +1663,7 @@
         
         {
           "id": "13-1-1",
-          "title": "Number of affected and deaths attributed to natural emergencies",
+          "title": "Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/13-1-1",
@@ -1695,7 +1695,7 @@
         },
         {
           "id": "13-3-1",
-          "title": "Proportion of children covered by updated educational content",
+          "title": "Number of countries that have integrated mitigation, adaptation, impact reduction and early warning into primary, secondary and tertiary curricula",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/13-3-1",
@@ -1751,7 +1751,7 @@
         },
         {
           "id": "14-3-1",
-          "title": "Average marine acidity (pH) measured at agreed suite of representative sampling stations (the Caspian Sea)",
+          "title": "Average marine acidity (pH) measured at agreed suite of representative sampling stations",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/14-3-1",
@@ -1759,7 +1759,7 @@
         },
         {
           "id": "14-4-1",
-          "title": "Preservation of fish resources and other aquatic animals",
+          "title": "Proportion of fish stocks within biologically sustainable levels",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/14-4-1",
@@ -1767,7 +1767,7 @@
         },
         {
           "id": "14-5-1",
-          "title": "The share of the state conservation zone of the northern part of the Caspian Sea, lake ecosystems from the total share of specially protected natural areas (SPNA)",
+          "title": "Coverage of protected areas in relation to marine areas",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/14-5-1",
@@ -1775,7 +1775,7 @@
         },
         {
           "id": "14-6-1",
-          "title": "Fisheries poaching information",
+          "title": "Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/14-6-1",
@@ -1783,7 +1783,7 @@
         },
         {
           "id": "14-7-1",
-          "title": "Share of 'Fisheries and aquaculture' in GDP",
+          "title": "Sustainable fisheries as a proportion of GDP in small island developing States, least developed countries and all countries",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/14-7-1",
@@ -1831,7 +1831,7 @@
         },
         {
           "id": "15-1-2",
-          "title": "Proportion of specially protected natural areas",
+          "title": "Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/15-1-2",
@@ -1839,7 +1839,7 @@
         },
         {
           "id": "15-2-1",
-          "title": "Forest area",
+          "title": "Progress towards sustainable forest management",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/15-2-1",
@@ -1855,7 +1855,7 @@
         },
         {
           "id": "15-3-1",
-          "title": "The area of eroded land in the composition of agricultural land as a percentage of the total land area",
+          "title": "Proportion of land that is degraded over total land area",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/15-3-1",
@@ -1871,7 +1871,7 @@
         },
         {
           "id": "15-4-2",
-          "title": "Mountain Forest Area",
+          "title": "Mountain Green Cover Index",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/15-4-2",
@@ -1879,7 +1879,7 @@
         },
         {
           "id": "15-5-1",
-          "title": "list of rare and endangered",
+          "title": "Red List Index",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/15-5-1",
@@ -1895,7 +1895,7 @@
         },
         {
           "id": "15-7-1",
-          "title": "The number of rare and wild hoofed animals",
+          "title": "Proportion of traded wildlife that was poached or illicitly trafficked",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/15-7-1",
@@ -1927,7 +1927,7 @@
         },
         {
           "id": "15-b-1",
-          "title": "Maintenance of specially protected natural territories",
+          "title": "Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/15-b-1",
@@ -1935,7 +1935,7 @@
         },
         {
           "id": "15-c-1",
-          "title": "Increase in the number of saigas",
+          "title": "Proportion of traded wildlife that was poached or illicitly trafficked",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/15-c-1",
@@ -1951,7 +1951,7 @@
         
         {
           "id": "16-1-1",
-          "title": "Number of victims of intentional homicide per 100 000 people",
+          "title": "Number of victims of intentional homicide per 100,000 population, by sex and age",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/16-1-1",
@@ -1975,7 +1975,7 @@
         },
         {
           "id": "16-1-4",
-          "title": "Proportion of people feeling safe or insecure when they walk alone down the street in their area",
+          "title": "Proportion of population that feel safe walking alone around the area they live",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/16-1-4",
@@ -1991,7 +1991,7 @@
         },
         {
           "id": "16-2-1",
-          "title": "Proportion of children aged 1-14 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month",
+          "title": "Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/16-2-1",
@@ -1999,7 +1999,7 @@
         },
         {
           "id": "16-2-2",
-          "title": "Number of victims of trafficking per 100 000 people",
+          "title": "Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/16-2-2",
@@ -2023,7 +2023,7 @@
         },
         {
           "id": "16-3-2",
-          "title": "The number of suspects and accused persons in custody out of the total number of chosen preventive measures",
+          "title": "Unsentenced detainees as a proportion of overall prison population",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/16-3-2",
@@ -2087,7 +2087,7 @@
         },
         {
           "id": "16-6-1",
-          "title": "Expenditures of the republican budget as a percentage of the approved budget by functional groups",
+          "title": "Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/16-6-1",
@@ -2127,7 +2127,7 @@
         },
         {
           "id": "16-8-1",
-          "title": "Number of international organizations of which Kazakhstan is a member",
+          "title": "Proportion of members and voting rights of developing countries in international organizations",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/16-8-1",
@@ -2231,7 +2231,7 @@
         },
         {
           "id": "17-3-2",
-          "title": "national_indicators.17-3-2-title",
+          "title": "Volume of remittances (in United States dollars) as a proportion of total GDP",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/17-3-2",
@@ -2239,7 +2239,7 @@
         },
         {
           "id": "17-4-1",
-          "title": "The ratio of payments for the repayment and maintenance of external public and publicly guaranteed debt to the export of goods and services",
+          "title": "Debt service as a proportion of exports of goods and services",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/17-4-1",
@@ -2263,7 +2263,7 @@
         },
         {
           "id": "17-6-2",
-          "title": "The number of fixed (wired) broadband Internet subscribers is broken down by speed",
+          "title": "Fixed Internet broadband subscriptions per 100 inhabitants, by speed",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/17-6-2",
@@ -2287,7 +2287,7 @@
         },
         {
           "id": "17-9-1",
-          "title": "Technical and financial support provided by Kazakhstan to other countries, including within the framework of ODA, million US dollars",
+          "title": "Dollar value of financial and technical assistance (including through North-South, South‐South and triangular cooperation) committed to developing countries",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/17-9-1",
@@ -2295,7 +2295,7 @@
         },
         {
           "id": "17-10-1",
-          "title": "The weighted average level of tariffs in Kazakhstan",
+          "title": "Worldwide weighted tariff-average",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/17-10-1",
@@ -2303,7 +2303,7 @@
         },
         {
           "id": "17-11-1",
-          "title": "Proportion of developing countries and least developed countries in the import of Kazakhstan",
+          "title": "Developing countries’ and least developed countries’ share of global exports",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/17-11-1",
@@ -2311,7 +2311,7 @@
         },
         {
           "id": "17-12-1",
-          "title": "Average tariffs applied to developing countries and least developed countries",
+          "title": "Average tariffs faced by developing countries, least developed countries and small island developing States",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/17-12-1",
@@ -2351,7 +2351,7 @@
         },
         {
           "id": "17-17-1",
-          "title": "Total amount of grants, government contracts to buy social services from Non-government Organizations (NGOs), based on service areas (in millions of tenge)",
+          "title": "Amount of United States dollars committed to public-private and civil society partnerships",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/17-17-1",
