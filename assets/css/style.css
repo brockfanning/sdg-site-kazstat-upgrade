@@ -880,6 +880,11 @@ body.contrast-high #disclaimer .phase-tag {
 body.contrast-high #disclaimer .disclaimer-alert {
   color: white; }
 
+body.contrast-high .goal-tiles img {
+  background-color: black !important; }
+  body.contrast-high .goal-tiles img:hover {
+    background-color: black !important; }
+
 body {
   background: #fff url("../img/sdgbg.png") top left repeat-x;
   padding-top: 15px; }
