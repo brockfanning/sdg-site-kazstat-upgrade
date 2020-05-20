@@ -1355,7 +1355,7 @@ function makeDataset(years, rows, combination, labelFallback, color, background,
     backgroundColor: background,
     pointBorderColor: color,
     borderDash: border,
-    borderWidth: 4,
+    borderWidth: 2,
     data: prepareDataForDataset(years, rows),
   });
 }
@@ -1396,10 +1396,11 @@ function getCombinationDescription(combination, fallback) {
  */
 function prepareDataForDataset(years, rows) {
   return years.map(function(year) {
-    return rows
-      .filter(function(row) { return row[YEAR_COLUMN] === year; }, this)
-      .map(function(row) { return row[VALUE_COLUMN]; }, this)[0];
-  }, this);
+    var found = rows.find(function (row) {
+      return row[YEAR_COLUMN] === year;
+    });
+    return found ? found[VALUE_COLUMN] : null;
+  });
 }
 
 /**
@@ -1424,6 +1425,7 @@ function makeHeadlineDataset(years, rows, label) {
     borderColor: getHeadlineColor(),
     backgroundColor: getHeadlineColor(),
     pointBorderColor: getHeadlineColor(),
+    borderWidth: 4,
     data: prepareDataForDataset(years, rows),
   });
 }

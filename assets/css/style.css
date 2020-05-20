@@ -1,3 +1,10 @@
+/**
+ * variables.scss
+ *
+ * This file left blank intentionally. Implementations of Open SDG can use
+ * a similarly named file to override any "default" variables in the "variables"
+ * folder.
+ */
 .row.no-gutters {
   margin-right: 0;
   margin-left: 0; }
@@ -58,14 +65,14 @@ ul {
     margin-top: 5px;
     margin-bottom: 5px;
     border-style: solid;
-    border-color: #000000;
+    border-color: black;
     border-width: 1px; }
   #page-content td, #page-content th {
     padding-right: 5px;
     padding-left: 5px; }
   #page-content thead {
     padding-bottom: 10px;
-    border-bottom: 1pt solid #000000; }
+    border-bottom: 1pt solid black; }
 
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif; }
@@ -87,7 +94,6 @@ h3 {
 
 .heading a {
   background: transparent;
-  color: #888;
   display: block; }
   .heading a:hover {
     text-decoration: none; }
@@ -152,7 +158,7 @@ h3 {
     color: #285f8f; }
   .breadcrumb > .active {
     display: inline;
-    color: black; }
+    color: #333; }
 
 body.contrast-high .breadcrumb {
   background: white; }
@@ -483,12 +489,10 @@ body.contrast-high .goal-tiles #goal-17 {
   position: absolute;
   z-index: 999;
   left: 12px;
-  color: #222;
-  background: #fff;
+  background: white;
   border-radius: 3px;
   box-shadow: 0px 0px 2px 0px #a6a6a6;
-  padding: .2em 1em .2em .2em;
-  text-shadow: #f5f5f5 0 1px 0; }
+  padding: .2em 1em .2em .2em; }
   .language-options li {
     padding: 5px;
     padding-left: 0; }
@@ -531,75 +535,6 @@ body.contrast-high .goal-tiles #goal-17 {
 
 .async-loading img {
   margin-right: 4px; }
-
-#main-content #map {
-  position: relative;
-  width: 590px; }
-#main-content g.tick line {
-  stroke: black; }
-#main-content g.tick text {
-  fill: black; }
-#main-content line.track {
-  stroke: black; }
-#main-content g.parameter-value path {
-  stroke: black; }
-#main-content .background {
-  fill: #e5f3ff;
-  pointer-events: all; }
-#main-content .map-layer {
-  fill: #fff;
-  stroke: #aaa; }
-#main-content .tooltip {
-  color: #222;
-  background: #fff;
-  border-radius: 3px;
-  box-shadow: 0px 0px 2px 0px #a6a6a6;
-  padding: .2em;
-  text-shadow: #f5f5f5 0 1px 0;
-  opacity: 0.9;
-  position: absolute;
-  min-width: 180px; }
-  #main-content .tooltip.hidden {
-    display: none; }
-  #main-content .tooltip h2 {
-    margin: 4px 0; }
-  #main-content .tooltip table {
-    width: 100%; }
-#main-content #resetButton {
-  position: absolute;
-  top: 13px;
-  right: 12px;
-  background: #444;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  display: none; }
-  #main-content #resetButton:hover {
-    background: #000; }
-  #main-content #resetButton i {
-    font-size: 12px;
-    margin-right: 4px; }
-#main-content #key {
-  display: block;
-  margin-top: -5px; }
-#main-content #slider {
-  position: absolute;
-  top: 0; }
-#main-content #infoPanel {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  min-height: 100px;
-  background: rgba(0, 0, 0, 0.75);
-  width: 590px;
-  display: none;
-  padding: 10px;
-  color: white; }
-  #main-content #infoPanel h2 {
-    margin: 0 0 20px 0; }
-  #main-content #infoPanel table {
-    width: 100%; }
 
 #main-content #map {
   height: 500px;
@@ -794,7 +729,7 @@ body.contrast-high {
     body.contrast-high .table-hover tbody tr:hover th {
       color: black; }
     body.contrast-high .table-hover tbody tr:hover a {
-      color: blue;
+      color: #337ab7;
       text-decoration: underline; }
   body.contrast-high .container, body.contrast-high #main-content, body.contrast-high header, body.contrast-high footer, body.contrast-high #disclaimer, body.contrast-high .heading {
     background: black;
@@ -885,8 +820,13 @@ body.contrast-high .goal-tiles img {
   body.contrast-high .goal-tiles img:hover {
     background-color: black !important; }
 
+body.contrast-high #map a {
+  color: black; }
+body.contrast-high #map .selection-legend .legend-values li, body.contrast-high #map .selection-legend .legend-values span, body.contrast-high #map .selection-legend #selection-list li, body.contrast-high #map .selection-legend #selection-list span {
+  color: black; }
+
 body {
-  background: #fff url("../img/sdgbg.png") top left repeat-x;
+  background: white url("../img/sdgbg.png") top left repeat-x;
   padding-top: 15px; }
 
 #skiplink {
@@ -1065,10 +1005,10 @@ header .container {
             color: #E5E6E7; }
         .navbar ul.navbar-nav li.active a {
           border: none;
-          color: #fff;
+          color: white;
           font-weight: bold; }
           .navbar ul.navbar-nav li.active a:hover {
-            color: #fff; }
+            color: white; }
         .navbar ul.navbar-nav li:last-child {
           padding-bottom: 10px; }
     .navbar #search {
@@ -1175,7 +1115,7 @@ footer {
   transition: width 0.3s ease; }
 #main-content #toolbar button {
   width: 100%;
-  background-color: #fff;
+  background-color: white;
   position: relative;
   border: 1px solid #ccc;
   text-align: left;
@@ -1205,7 +1145,7 @@ footer {
   font-size: 0.75em;
   margin-top: 10px; }
   #main-content #fields label {
-    background-color: #fff;
+    background-color: white;
     padding: 7px;
     display: block;
     font-weight: normal;
@@ -1219,7 +1159,7 @@ footer {
     #main-content #fields label:hover {
       border-color: #acacac; }
     #main-content #fields label.disabled {
-      color: #888;
+      color: #777;
       cursor: not-allowed; }
       #main-content #fields label.disabled:hover {
         border-color: #ccc; }
@@ -1285,9 +1225,9 @@ footer {
         padding: 4px; }
       #main-content #fields .variable-selector .variable-options button {
         width: auto;
-        background-color: #fff;
+        background-color: white;
         border: 1px solid #555;
-        color: #000;
+        color: black;
         float: none;
         position: static;
         text-align: center;
@@ -1592,7 +1532,7 @@ body.contrast-high .goal-indicators .indicator-cards span.status, body.contrast-
 body.contrast-high .goal-indicators .indicator-cards span.status.complete, body.contrast-high .goal-indicators .indicator-cards span.status.notapplicable {
   color: black !important; }
 body.contrast-high .goal-indicators .indicator-cards span.status.notstarted, body.contrast-high .goal-indicators .indicator-cards span.status.inprogress {
-  color: white !important; }
+  color: black !important; }
 body.contrast-high .goal-indicators .indicator-cards span.status.notstarted {
   color: white !important;
   border: 1px solid white !important; }
@@ -1627,7 +1567,6 @@ body.contrast-high #main-content.goal-indicators.goal-by-target .indicator-cards
     margin: 0; }
 
 .notapplicable {
-  background-color: #ccc;
   background: repeating-linear-gradient(135deg, #ccc, white 10px, #ccc 10px, white 20px); }
 
 .inprogress {
@@ -1650,7 +1589,7 @@ body.contrast-high #main-content.goal-indicators.goal-by-target .indicator-cards
     text-align: center;
     font-size: 16px; }
     #main-content .statuses > div .status.notstarted {
-      border: 1px solid #000000;
+      border: 1px solid black;
       color: black; }
     #main-content .statuses > div .status.complete, #main-content .statuses > div .status.inprogress {
       color: white; }
@@ -1659,7 +1598,7 @@ body.contrast-high #main-content.goal-indicators.goal-by-target .indicator-cards
   font-weight: bold;
   margin-left: 3px; }
 #main-content .goal-stats {
-  border: 1px solid #000000;
+  border: 1px solid black;
   font-size: 0;
   margin-top: 10px; }
   #main-content .goal-stats span {
