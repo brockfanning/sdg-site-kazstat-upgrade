@@ -92,20 +92,20 @@ h3 {
 .lead-copy {
   font-size: 22px; }
 
-.heading a {
+.goal-banner a {
   background: transparent;
   display: block; }
-  .heading a:hover {
+  .goal-banner a:hover {
     text-decoration: none; }
-.heading h1,
-.heading h2,
-.heading h3 {
+.goal-banner h1,
+.goal-banner h2,
+.goal-banner h3 {
   color: black; }
-.heading h1 {
+.goal-banner h1 {
   margin-top: 12px; }
-.heading.indicator h1 {
+.goal-banner.indicator h1 {
   line-height: normal; }
-.heading img {
+.goal-banner img {
   max-width: 100%;
   margin-top: 10px; }
 
@@ -734,9 +734,22 @@ body.contrast-high {
     body.contrast-high .table-hover tbody tr:hover a {
       color: #337ab7;
       text-decoration: underline; }
-  body.contrast-high .container, body.contrast-high #main-content, body.contrast-high header, body.contrast-high footer, body.contrast-high #disclaimer, body.contrast-high .heading {
+  body.contrast-high .container, body.contrast-high #main-content, body.contrast-high header, body.contrast-high #disclaimer {
     background: black;
     border-color: black; }
+  body.contrast-high footer {
+    color: white;
+    background: black;
+    border-color: black; }
+    body.contrast-high footer a {
+      color: white; }
+      body.contrast-high footer a:hover, body.contrast-high footer a:focus {
+        color: yellow; }
+  body.contrast-high .goal-banner {
+    background: black;
+    border-color: black; }
+    body.contrast-high .goal-banner h1, body.contrast-high .goal-banner p {
+      color: white; }
   body.contrast-high p, body.contrast-high h2, body.contrast-high h3, body.contrast-high h4, body.contrast-high span, body.contrast-high td, body.contrast-high th, body.contrast-high a#text {
     color: white; }
   body.contrast-high a {
@@ -806,11 +819,6 @@ body.contrast-high .site-intro .description {
 
 body.contrast-high #main-content .no-gutters img:not(#goal-18):hover {
   box-shadow: 0px 0px 0px 5px yellow; }
-
-body.contrast-high footer a {
-  color: white; }
-  body.contrast-high footer a:hover, body.contrast-high footer a:focus {
-    color: yellow; }
 
 body.contrast-high #disclaimer .phase-tag {
   background: white;
@@ -908,7 +916,7 @@ header .container {
     .navbar ul.navbar-nav li:not(.contrast) a {
       border-bottom: 2px solid transparent; }
       .navbar ul.navbar-nav li:not(.contrast) a:hover {
-        border-bottom: 2px solid #aaaaaa; }
+        border-bottom: 2px solid #595959; }
     @media screen and (min-width: 769px) {
       .navbar ul.navbar-nav > li:first-child a {
         margin-left: 0; } }
@@ -1073,7 +1081,8 @@ body.contrast-high .navbar li.active a {
 
 footer {
   clear: left;
-  color: #000000;
+  color: black;
+  background-color: white;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -1089,7 +1098,7 @@ footer {
       footer .row {
         padding: 5px 0; } }
   footer a {
-    color: #000000;
+    color: black;
     text-decoration: underline; }
     footer a:hover, footer a:focus {
       color: #333333; }
@@ -1593,9 +1602,13 @@ body.contrast-high #main-content.goal-indicators.goal-by-target .indicator-cards
     font-size: 16px; }
     #main-content .statuses > div .status.notstarted {
       border: 1px solid black;
-      color: black; }
-    #main-content .statuses > div .status.complete, #main-content .statuses > div .status.inprogress {
+      color: #333; }
+    #main-content .statuses > div .status.complete {
       color: white; }
+    #main-content .statuses > div .status.inprogress {
+      color: white; }
+    #main-content .statuses > div .status.notapplicable {
+      color: #333; }
 #main-content .value {
   color: #333;
   font-weight: bold;
@@ -1661,7 +1674,8 @@ body.contrast-high .complete {
   background-color: white;
   color: black !important; }
 body.contrast-high .inprogress {
-  background-color: #767676; }
+  background-color: #767676;
+  color: black; }
 body.contrast-high .notstarted {
   color: white !important; }
 body.contrast-high .notapplicable {
