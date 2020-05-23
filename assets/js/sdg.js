@@ -297,6 +297,7 @@ opensdg.autotrack = function(preset, category, action, label) {
           var downloadLabel = translations.t(plugin.mapLayers[i].label)
           var downloadButton = $('<a></a>')
             .attr('href', plugin.getGeoJsonUrl(plugin.mapLayers[i].subfolder))
+            .attr('download', '')
             .attr('class', 'btn btn-primary btn-download')
             .attr('title', translations.indicator.download_geojson_title + ' - ' + downloadLabel)
             .text(translations.indicator.download_geojson + ' - ' + downloadLabel);
@@ -1098,10 +1099,17 @@ function selectFieldsFromStartValues(startValues, selectableFieldNames) {
 /**
  * @param {Array} rows
  * @param {Array} selectableFieldNames Field names
+ * @param {string} selectedUnit
  * @return {Array} Field items
  */
-function selectMinimumStartingFields(rows, selectableFieldNames) {
-  var filteredData = rows.filter(function(row) {
+function selectMinimumStartingFields(rows, selectableFieldNames, selectedUnit) {
+  var filteredData = rows;
+  if (selectedUnit) {
+    filteredData = filteredData.filter(function(row) {
+      return row[UNIT_COLUMN] === selectedUnit;
+    });
+  }
+  filteredData = filteredData.filter(function(row) {
     return selectableFieldNames.some(function(fieldName) {
       return row[fieldName];
     });
@@ -1732,7 +1740,7 @@ function sortData(rows, selectedUnit) {
       }
       else {
         if (headline.length === 0) {
-          startingFields = helpers.selectMinimumStartingFields(this.data, this.selectableFields);
+          startingFields = helpers.selectMinimumStartingFields(this.data, this.selectableFields, this.selectedUnit);
         }
       }
       if (startingFields.length > 0) {
@@ -1763,7 +1771,7 @@ function sortData(rows, selectedUnit) {
       });
     }
 
-    if (selectionUpdateNeeded) {
+    if (selectionUpdateNeeded || options.unitsChangeSeries) {
       this.updateFieldStates(this.selectedFields);
     }
 
