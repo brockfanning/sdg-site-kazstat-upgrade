@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200523150006">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200523162241">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -222,37 +222,60 @@ var translations = {
 <div id="main-content" class="container reportingstatus"><h1>Есептіліктің жағдайы</h1><div class="goal goal-overall">
       <div class="details">
         <h2 class="status-goal">
-            Есептіліктің жалпы жағдайы <span class="total"><span>283</span> көрсеткіштер</span>
+            Есептіліктің жалпы жағдайы <span class="total"><span>245</span> көрсеткіштер</span>
         </h2>
         <div class="summary">
           <div class="statuses"><div>
-              <span class="status complete">206</span><strong>Интернетте хабарланған</strong><span class="value">73%</span>
+              <span class="status complete">172</span><strong>Интернетте хабарланған</strong><span class="value">70%</span>
             </div><div>
               <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
             </div><div>
-              <span class="status notstarted">77</span><strong>Дереккөздерін зерттеу</strong><span class="value">27%</span>
+              <span class="status notstarted">73</span><strong>Дереккөздерін зерттеу</strong><span class="value">30%</span>
             </div><br style="clear:both;">
           </div>
         </div>
         <div class="goal-stats">
             
             
-            <span class="complete" style="width:72.79151943462897%" title="Интернетте хабарланған: 73%"></span>
+            <span class="complete" style="width:70.20408163265306%" title="Интернетте хабарланған: 70%"></span>
             
             
             <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
             
             
-            <span class="notstarted" style="width:27.208480565371023%" title="Дереккөздерін зерттеу: 27%"></span></div>
+            <span class="notstarted" style="width:29.79591836734694%" title="Дереккөздерін зерттеу: 30%"></span></div>
 
       </div>
     <br style="clear:both;">
   </div>
 
   
-  <h2>Мақсат бойынша мәртебе</h2>
+  <ul class="nav nav-tabs reporting-status-view" role="tablist">
+    <li role="presentation" class="nav-item active">
+      <a class="nav-link" data-toggle="tab" href="#goalsview" aria-controls="goals" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change reporting status view"
+data-event-label="Change reporting status view to goals"
+>Мақсат бойынша мәртебе</a>
+    </li>
+    
+    
+    
+    
+    <li role="presentation" class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#un_designated_tierview" aria-controls="un_designated_tier" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change reporting status view"
+data-event-label="Change reporting status view to un_designated_tier"
+>БҰҰ-мен тағайындалған деңгейі мәртебесі</a>
+    </li>
+    
+  </ul>
   
 
+  
+  <div class="tab-content reporting-status-view">
+    <div role="tabpanel" class="tab-pane active" id="goalsview">
   <div class="goal">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/1">
@@ -849,6 +872,319 @@ var translations = {
         </div>
       <br style="clear:both;">
     </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="un_designated_tierview"><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">1</span>
+          <span class="total">1
+            
+              көрсеткіш
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">0</span><strong>Интернетте хабарланған</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">1</span><strong>Дереккөздерін зерттеу</strong><span class="value">100%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:0.0%" title="Интернетте хабарланған: 0%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:100.0%" title="Дереккөздерін зерттеу: 100%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">2</span>
+          <span class="total">3
+            
+              көрсеткіштер
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">3</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">1</span>
+          <span class="total">95
+            
+              көрсеткіштер
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">87</span><strong>Интернетте хабарланған</strong><span class="value">92%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">8</span><strong>Дереккөздерін зерттеу</strong><span class="value">8%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:91.57894736842105%" title="Интернетте хабарланған: 92%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:8.421052631578947%" title="Дереккөздерін зерттеу: 8%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">1 (ODA) / 2 (FDI)</span>
+          <span class="total">1
+            
+              көрсеткіш
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">1/2</span>
+          <span class="total">1
+            
+              көрсеткіш
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">1/2/3</span>
+          <span class="total">1
+            
+              көрсеткіш
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">1/3</span>
+          <span class="total">2
+            
+              көрсеткіштер
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">2</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">2</span>
+          <span class="total">67
+            
+              көрсеткіштер
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">42</span><strong>Интернетте хабарланған</strong><span class="value">63%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">25</span><strong>Дереккөздерін зерттеу</strong><span class="value">37%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:62.68656716417911%" title="Интернетте хабарланған: 63%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:37.3134328358209%" title="Дереккөздерін зерттеу: 37%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">3</span>
+          <span class="total">73
+            
+              көрсеткіштер
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">34</span><strong>Интернетте хабарланған</strong><span class="value">47%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">39</span><strong>Дереккөздерін зерттеу</strong><span class="value">53%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:46.57534246575342%" title="Интернетте хабарланған: 47%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:53.42465753424658%" title="Дереккөздерін зерттеу: 53%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div><div class="goal details">
+        <h3 class="status-goal">
+          <span class="status-field">3 (a) /2 (b,c)</span>
+          <span class="total">1
+            
+              көрсеткіш
+            
+          </span>
+        </h3>
+        <div class="summary">
+          <div class="statuses"><div>
+              <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+            </div><div>
+              <span class="status inprogress">0</span><strong>Статистика орындалу барысында</strong><span class="value">0%</span>
+            </div><div>
+              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+            </div><br style="clear:both;">
+          </div>
+        </div>
+        <div class="goal-stats">
+        
+        
+          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+        
+        
+          <span class="inprogress" style="width:0.0%" title="Статистика орындалу барысында: 0%"></span>
+        
+        
+          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span></div>
+        <div class="divider"></div>
+        <br style="clear:both;">
+      </div></div></div>
+  
 
   <!---->
 
@@ -905,7 +1241,7 @@ var translations = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200523150006'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200523150006"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200523162241'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200523162241"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
