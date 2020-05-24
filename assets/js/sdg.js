@@ -2740,7 +2740,7 @@ var indicatorSearch = function() {
   function getSearchFieldOptions(field) {
     var opts = {}
     if (opensdg.searchIndexBoost[field]) {
-      opts['boost'] = intval(opensdg.searchIndexBoost[field])
+      opts['boost'] = parseInt(opensdg.searchIndexBoost[field])
     }
     return opts
   }
