@@ -18,8 +18,8 @@ analytics:
   ga_prod: ''
 
 frontpage_introduction_banner:
-  title: frontpage.intro_title
-  description: frontpage.intro_body
+  title: custom.frontpage_intro_title
+  description: custom.frontpage_intro_description
 
 # Replace the email addresses below.
 email_contacts:
