@@ -1729,8 +1729,8 @@ body.layout-frontpage {
       display: block;
       position: absolute;
       top: 200px;
-      right: 0;
-      width: 286px;
+      right: 23px;
+      width: 240px;
       text-align: center; }
       body.layout-frontpage .site-intro-sidebar .btn {
         margin-bottom: 1.5rem; }
