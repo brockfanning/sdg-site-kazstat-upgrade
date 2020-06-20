@@ -20,7 +20,20 @@ analytics:
 frontpage_introduction_banner:
   title: custom.frontpage_intro_title
   description: custom.frontpage_intro_description
-
+  sidebar: "
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec eu neque metus. Nam hendrerit lacinia lorem, eu tincidunt mi gravida sed.
+    </p>
+    <p>
+      <a href='foo' class='btn btn-primary btn-download'>Sidebar link 1</a>
+    </p>
+    <p>
+      Aliquam placerat rhoncus nibh vel finibus. Cras egestas a neque id gravida. Fusce placerat sem dui, eget fermentum enim sodales id.
+    </p>
+    <p>
+      <a href='foo' class='btn btn-primary btn-download'>Sidebar link 2</a>
+    </p>
+    "
 # Replace the email addresses below.
 email_contacts:
   questions: ai.dosanova@economy.gov.kz
