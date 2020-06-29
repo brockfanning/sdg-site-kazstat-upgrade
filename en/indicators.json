@@ -2030,11 +2030,11 @@
           "status": "complete"
         },
         {
-          "id": "16-3-3- ",
+          "id": "16-3-3",
           "title": "The proportion of the population that has participated in the dispute over the past two years and has used the formal or informal dispute resolution mechanism, disaggregated by type of mechanism",
           "description": "",
           "keywords": "",
-          "href": "/sdg-site-kazstat-upgrade/en/16-3-3- ",
+          "href": "/sdg-site-kazstat-upgrade/en/16-3-3",
           "status": "notstarted"
         },
         {
@@ -2166,11 +2166,35 @@
           "status": "complete"
         },
         {
+          "id": "16-a-1",
+          "title": "Existence of independent national human rights institutions in compliance with the Paris Principles",
+          "description": "",
+          "keywords": "",
+          "href": "/sdg-site-kazstat-upgrade/en/16-a-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "16-b-1",
+          "title": "Percentage of the population reporting that they have personally experienced discrimination or harassment in the past 12 months that is prohibited under international human rights law",
+          "description": "",
+          "keywords": "",
+          "href": "/sdg-site-kazstat-upgrade/en/16-b-1",
+          "status": "notstarted"
+        },
+        {
           "id": "16-10-1",
           "title": "Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months",
           "description": "",
           "keywords": "",
           "href": "/sdg-site-kazstat-upgrade/en/16-10-1",
+          "status": "notstarted"
+        },
+        {
+          "id": "16-10-1-1",
+          "title": "Number of cases registered under articles 78, 456-1 of the administrative Code of the Republic of Kazakhstan, cases",
+          "description": "",
+          "keywords": "",
+          "href": "/sdg-site-kazstat-upgrade/en/16-10-1-1",
           "status": "notstarted"
         },
         {
