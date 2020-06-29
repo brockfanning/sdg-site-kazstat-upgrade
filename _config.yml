@@ -20,33 +20,7 @@ analytics:
 frontpage_introduction_banner:
   title: custom.frontpage_intro_title
   description: custom.frontpage_intro_description
-  sidebar: "
-    <p>
-      <a href='http://sdgs.kz/' class='btn btn-primary btn-download'>
-        National situation on SDGs (ERI)
-      </a>
-    </p>
-    <p>
-      <a href='https://sustainabledevelopment.un.org/' class='btn btn-primary btn-download'>
-        UN SDG Knowledge platform
-      </a>
-    </p>
-    <p>
-      <a href='https://unstats.un.org/home/' class='btn btn-primary btn-download'>
-        UN Statistics Division
-      </a>
-    </p>
-    <p>
-      <a href='https://www.unece.org/unece-and-the-sdgs/unece-and-the-sdgs.html' class='btn btn-primary btn-download'>
-        UNECE and the SDGs
-      </a>
-    </p>
-    <p>
-      <a href='https://datatopics.worldbank.org/sdgs/index.html' class='btn btn-primary btn-download'>
-        World Development Indicators Sustainable Development Goals
-      </a>
-    </p>
-    "
+  sidebar: custom.frontpage_intro_sidebar
 # Replace the email addresses below.
 email_contacts:
   questions: ai.dosanova@economy.gov.kz
@@ -80,8 +54,6 @@ menu:
     translation_key: menu.reporting_status
   - path: /about
     translation_key: menu.about
-  - path: /guidance
-    translation_key: menu.guidance
   - path: /faq
     translation_key: menu.faq
 
