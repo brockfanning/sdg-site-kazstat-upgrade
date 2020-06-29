@@ -22,16 +22,29 @@ frontpage_introduction_banner:
   description: custom.frontpage_intro_description
   sidebar: "
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec eu neque metus. Nam hendrerit lacinia lorem, eu tincidunt mi gravida sed.
+      <a href='http://sdgs.kz/' class='btn btn-primary btn-download'>
+        National situation on SDGs (ERI)
+      </a>
     </p>
     <p>
-      <a href='foo' class='btn btn-primary btn-download'>Sidebar link 1</a>
+      <a href='https://sustainabledevelopment.un.org/' class='btn btn-primary btn-download'>
+        UN SDG Knowledge platform
+      </a>
     </p>
     <p>
-      Aliquam placerat rhoncus nibh vel finibus. Cras egestas a neque id gravida. Fusce placerat sem dui, eget fermentum enim sodales id.
+      <a href='https://unstats.un.org/home/' class='btn btn-primary btn-download'>
+        UN Statistics Division
+      </a>
     </p>
     <p>
-      <a href='foo' class='btn btn-primary btn-download'>Sidebar link 2</a>
+      <a href='https://www.unece.org/unece-and-the-sdgs/unece-and-the-sdgs.html' class='btn btn-primary btn-download'>
+        UNECE and the SDGs
+      </a>
+    </p>
+    <p>
+      <a href='https://datatopics.worldbank.org/sdgs/index.html' class='btn btn-primary btn-download'>
+        World Development Indicators Sustainable Development Goals
+      </a>
     </p>
     "
 # Replace the email addresses below.
