@@ -75,7 +75,8 @@ ul {
     border-bottom: 1pt solid black; }
 
 body {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif; }
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px; }
 
 h1 {
   font-size: 36px; }
@@ -86,26 +87,23 @@ h2 {
 h3 {
   font-size: 24px; }
 
-.normal-copy {
-  font-size: 16px; }
-
 .lead-copy {
   font-size: 22px; }
 
-.heading a {
+.goal-banner a {
   background: transparent;
   display: block; }
-  .heading a:hover {
+  .goal-banner a:hover {
     text-decoration: none; }
-.heading h1,
-.heading h2,
-.heading h3 {
+.goal-banner h1,
+.goal-banner h2,
+.goal-banner h3 {
   color: black; }
-.heading h1 {
+.goal-banner h1 {
   margin-top: 12px; }
-.heading.indicator h1 {
+.goal-banner.indicator h1 {
   line-height: normal; }
-.heading img {
+.goal-banner img {
   max-width: 100%;
   margin-top: 10px; }
 
@@ -139,6 +137,45 @@ h3 {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0; }
+
+a,
+a:hover {
+  text-decoration: underline; }
+
+a {
+  color: #1d70b8; }
+
+a:hover {
+  color: #003078; }
+
+a:visited {
+  color: #4c2c92; }
+
+body.contrast-high a:visited {
+  color: #F47738; }
+
+.nav li a,
+.nav li a:hover,
+a.btn {
+  text-decoration: none; }
+
+.navbar ul.navbar-nav li:not(.contrast) a {
+  border-bottom: 2px solid transparent; }
+
+.navbar ul.navbar-nav li:not(.contrast) a:hover {
+  border-bottom: 2px solid #aaaaaa; }
+
+#search-results .search-result a {
+  text-decoration: none; }
+
+footer a {
+  color: black; }
+
+footer a:hover {
+  color: #333333; }
+
+body.contrast-high footer a:visited {
+  color: white; }
 
 #main-content #back-to-top {
   cursor: pointer;
@@ -413,74 +450,59 @@ body.contrast-high #zip-download-info {
 .goal-tiles #goal-17:hover {
   background-color: #1F4A6A; }
 
-body.contrast-high .goal-tiles #goal-1 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-1:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-2 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-2:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-3 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-3:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-4 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-4:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-5 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-5:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-6 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-6:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-7 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-7:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-8 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-8:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-9 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-9:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-10 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-10:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-11 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-11:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-12 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-12:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-13 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-13:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-14 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-14:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-15 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-15:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-16 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-16:hover {
-    background-color: black; }
-body.contrast-high .goal-tiles #goal-17 {
-  background-color: black; }
-  body.contrast-high .goal-tiles #goal-17:hover {
-    background-color: black; }
+.goal-1.goal-banner {
+  background-color: white; }
+
+.goal-2.goal-banner {
+  background-color: white; }
+
+.goal-3.goal-banner {
+  background-color: white; }
+
+.goal-4.goal-banner {
+  background-color: white; }
+
+.goal-5.goal-banner {
+  background-color: white; }
+
+.goal-6.goal-banner {
+  background-color: white; }
+
+.goal-7.goal-banner {
+  background-color: white; }
+
+.goal-8.goal-banner {
+  background-color: white; }
+
+.goal-9.goal-banner {
+  background-color: white; }
+
+.goal-10.goal-banner {
+  background-color: white; }
+
+.goal-11.goal-banner {
+  background-color: white; }
+
+.goal-12.goal-banner {
+  background-color: white; }
+
+.goal-13.goal-banner {
+  background-color: white; }
+
+.goal-14.goal-banner {
+  background-color: white; }
+
+.goal-15.goal-banner {
+  background-color: white; }
+
+.goal-16.goal-banner {
+  background-color: white; }
+
+.goal-17.goal-banner {
+  background-color: white; }
+
+.goal-banner h1, .goal-banner p {
+  color: black; }
 
 .language-ar {
   direction: rtl; }
@@ -732,11 +754,24 @@ body.contrast-high {
     body.contrast-high .table-hover tbody tr:hover th {
       color: black; }
     body.contrast-high .table-hover tbody tr:hover a {
-      color: #337ab7;
+      color: #1d70b8;
       text-decoration: underline; }
-  body.contrast-high .container, body.contrast-high #main-content, body.contrast-high header, body.contrast-high footer, body.contrast-high #disclaimer, body.contrast-high .heading {
+  body.contrast-high .container, body.contrast-high #main-content, body.contrast-high header, body.contrast-high #disclaimer {
     background: black;
     border-color: black; }
+  body.contrast-high footer {
+    color: white;
+    background: black;
+    border-color: black; }
+    body.contrast-high footer a {
+      color: white; }
+      body.contrast-high footer a:hover, body.contrast-high footer a:focus {
+        color: yellow; }
+  body.contrast-high .goal-banner {
+    background: black;
+    border-color: black; }
+    body.contrast-high .goal-banner h1, body.contrast-high .goal-banner p {
+      color: white; }
   body.contrast-high p, body.contrast-high h2, body.contrast-high h3, body.contrast-high h4, body.contrast-high span, body.contrast-high td, body.contrast-high th, body.contrast-high a#text {
     color: white; }
   body.contrast-high a {
@@ -806,11 +841,6 @@ body.contrast-high .site-intro .description {
 
 body.contrast-high #main-content .no-gutters img:not(#goal-18):hover {
   box-shadow: 0px 0px 0px 5px yellow; }
-
-body.contrast-high footer a {
-  color: white; }
-  body.contrast-high footer a:hover, body.contrast-high footer a:focus {
-    color: yellow; }
 
 body.contrast-high #disclaimer .phase-tag {
   background: white;
@@ -905,10 +935,6 @@ header .container {
       background: black; }
       .navbar ul.navbar-nav li.contrast-high a {
         color: yellow; }
-    .navbar ul.navbar-nav li:not(.contrast) a {
-      border-bottom: 2px solid transparent; }
-      .navbar ul.navbar-nav li:not(.contrast) a:hover {
-        border-bottom: 2px solid #aaaaaa; }
     @media screen and (min-width: 769px) {
       .navbar ul.navbar-nav > li:first-child a {
         margin-left: 0; } }
@@ -937,7 +963,7 @@ header .container {
       height: 34px;
       transition: width 0.4s;
       margin-top: 5px;
-      font-size: 15px; }
+      font-size: 16px; }
 
 #search-btn {
   height: 34px; }
@@ -1073,7 +1099,8 @@ body.contrast-high .navbar li.active a {
 
 footer {
   clear: left;
-  color: #000000;
+  color: black;
+  background-color: white;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -1088,11 +1115,6 @@ footer {
     @media only screen and (max-width: 767px) {
       footer .row {
         padding: 5px 0; } }
-  footer a {
-    color: #000000;
-    text-decoration: underline; }
-    footer a:hover, footer a:focus {
-      color: #333333; }
   footer #footerLinks ul {
     padding-left: 0; }
     footer #footerLinks ul li {
@@ -1359,11 +1381,9 @@ footer {
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
   height: 100%;
-  width: 100%;
-  text-decoration: none; }
+  width: 100%; }
   #main-content.goal-indicators .indicator-cards a:hover {
-    background: transparent;
-    text-decoration: underline; }
+    background: transparent; }
 #main-content.goal-indicators .indicator-cards span {
   display: block;
   margin-bottom: 0.5rem;
@@ -1570,13 +1590,20 @@ body.contrast-high #main-content.goal-indicators.goal-by-target .indicator-cards
     margin: 0; }
 
 .notapplicable {
+  background-color: repeating-linear-gradient(135deg, #ccc, white 10px, #ccc 10px, white 20px);
   background: repeating-linear-gradient(135deg, #ccc, white 10px, #ccc 10px, white 20px); }
 
+.notstarted {
+  background-color: white;
+  background: white; }
+
 .inprogress {
-  background-color: #757575; }
+  background-color: #757575;
+  background: #757575; }
 
 .complete {
-  background-color: #2B2B2B; }
+  background-color: #2B2B2B;
+  background: #2B2B2B; }
 
 #main-content .statuses strong {
   font-weight: normal; }
@@ -1593,9 +1620,15 @@ body.contrast-high #main-content.goal-indicators.goal-by-target .indicator-cards
     font-size: 16px; }
     #main-content .statuses > div .status.notstarted {
       border: 1px solid black;
-      color: black; }
-    #main-content .statuses > div .status.complete, #main-content .statuses > div .status.inprogress {
+      color: #333; }
+    #main-content .statuses > div .status.complete {
       color: white; }
+    #main-content .statuses > div .status.inprogress {
+      color: white; }
+    #main-content .statuses > div .status.notstarted {
+      color: #333; }
+    #main-content .statuses > div .status.notapplicable {
+      color: #333; }
 #main-content .value {
   color: #333;
   font-weight: bold;
@@ -1659,12 +1692,19 @@ body.contrast-high .summary .statuses .notstarted {
   border: 1px solid white !important; }
 body.contrast-high .complete {
   background-color: white;
+  background: white;
   color: black !important; }
 body.contrast-high .inprogress {
-  background-color: #767676; }
+  background-color: #767676;
+  background: #767676;
+  color: black; }
 body.contrast-high .notstarted {
+  background-color: black;
+  background: black;
   color: white !important; }
 body.contrast-high .notapplicable {
+  background-color: repeating-linear-gradient(135deg, #ccc, white 10px, #ccc 10px, white 20px);
+  background: repeating-linear-gradient(135deg, #ccc, white 10px, #ccc 10px, white 20px);
   color: black !important; }
 
 #jump-to-search a {
@@ -1678,7 +1718,6 @@ body.contrast-high .notapplicable {
     margin-top: 20px;
     margin-bottom: 20px; }
     #search-results .search-result a {
-      text-decoration: none;
       margin-bottom: 5px;
       margin-top: 10px; }
       #search-results .search-result a .title {
