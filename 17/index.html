@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200807004755">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200807151419">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -153,22 +153,43 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/" id="home">
-      <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Тұрақты даму мақсаттары шеңберінде - Біздің өмірді көркейту үшін 17 мақсат" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/" id="home">
+        <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Тұрақты даму мақсаттары шеңберінде - Біздің өмірді көркейту үшін 17 мақсат" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-      <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Қазақ</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
+          
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/ru/17/">Pусский</a></li><li><a href="/sdg-site-kazstat-upgrade/en/17/">English</a></li></ul>
 
-    </div></div>
+
+
+
+  <div class="language-toggle-container">
+  <i class="fa fa-globe language-toggle-globe-links"></i>
+  <ul class="language-toggle-links"><li>
+      <span class="language-toggle-active-language">
+        <span class="language-name">Қазақ</span>
+        <span class="language-abbreviation">kk</span>
+      </span>
+    </li><li>
+      <a class="language-toggle-link" href="/sdg-site-kazstat-upgrade/ru/17/">
+        <span class="language-name">Pусский</span>
+        <span class="language-abbreviation">ru</span>
+      </a>
+    </li><li>
+      <a class="language-toggle-link" href="/sdg-site-kazstat-upgrade/en/17/">
+        <span class="language-name">English</span>
+        <span class="language-abbreviation">en</span>
+      </a>
+    </li></ul>
+</div>
+
+
+
+        </div></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
@@ -192,26 +213,43 @@ var translations = {
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/reporting-status">Есептіліктің жағдайы</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/about">Біз туралы</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/faq">Жиі қойылатын сұрақтар</a>
-          </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Қазақ</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          </li><li class="language-toggle-menu-header">
+          
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/ru/17/">Pусский</a></li><li><a href="/sdg-site-kazstat-upgrade/en/17/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  <i class="fa fa-globe language-toggle-globe-links"></i>
+  <ul class="language-toggle-links"><li>
+      <span class="language-toggle-active-language">
+        <span class="language-name">Қазақ</span>
+        <span class="language-abbreviation">kk</span>
+      </span>
+    </li><li>
+      <a class="language-toggle-link" href="/sdg-site-kazstat-upgrade/ru/17/">
+        <span class="language-name">Pусский</span>
+        <span class="language-abbreviation">ru</span>
+      </a>
+    </li><li>
+      <a class="language-toggle-link" href="/sdg-site-kazstat-upgrade/en/17/">
+        <span class="language-name">English</span>
+        <span class="language-abbreviation">en</span>
+      </a>
+    </li></ul>
+</div>
+
+
 
         </li></ul>
-
-      
 
     </nav>
   </div>
@@ -255,7 +293,7 @@ var translations = {
   
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.1
@@ -274,7 +312,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-1-1">
           <span>
             17.1.1
@@ -301,7 +339,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-1-2">
           <span>
             17.1.2
@@ -321,7 +359,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.2
@@ -340,7 +378,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-2-1">
           <span>
             17.2.1
@@ -360,7 +398,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.3
@@ -379,7 +417,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-3-1">
           <span>
             17.3.1
@@ -406,7 +444,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-3-1-1">
           <span>
             17.3.1.1
@@ -433,7 +471,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-3-1-2">
           <span>
             17.3.1.2
@@ -460,7 +498,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-3-1-3">
           <span>
             17.3.1.3
@@ -483,7 +521,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-3-2">
           <span>
             17.3.2
@@ -503,7 +541,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.4
@@ -522,7 +560,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-4-1">
           <span>
             17.4.1
@@ -542,7 +580,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.5
@@ -561,7 +599,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-5-1">
           <span>
             17.5.1
@@ -581,7 +619,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.6
@@ -600,7 +638,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-6-1">
           <span>
             17.6.1
@@ -627,7 +665,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-6-2">
           <span>
             17.6.2
@@ -647,7 +685,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.7
@@ -666,7 +704,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-7-1">
           <span>
             17.7.1
@@ -686,7 +724,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.8
@@ -705,7 +743,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-8-1">
           <span>
             17.8.1
@@ -725,7 +763,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.9
@@ -744,7 +782,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-9-1">
           <span>
             17.9.1
@@ -764,7 +802,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.10
@@ -783,7 +821,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-10-1">
           <span>
             17.10.1
@@ -803,7 +841,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.11
@@ -822,7 +860,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-11-1">
           <span>
             17.11.1
@@ -842,7 +880,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.12
@@ -861,7 +899,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-12-1">
           <span>
             17.12.1
@@ -881,7 +919,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.13
@@ -900,7 +938,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-13-1">
           <span>
             17.13.1
@@ -920,7 +958,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.14
@@ -939,7 +977,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-14-1">
           <span>
             17.14.1
@@ -959,7 +997,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.15
@@ -978,7 +1016,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-15-1">
           <span>
             17.15.1
@@ -998,7 +1036,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.16
@@ -1017,7 +1055,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-16-1">
           <span>
             17.16.1
@@ -1037,7 +1075,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.17
@@ -1056,7 +1094,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-17-1">
           <span>
             17.17.1
@@ -1076,7 +1114,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.18
@@ -1095,7 +1133,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-18-1">
           <span>
             17.18.1
@@ -1122,7 +1160,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-18-2">
           <span>
             17.18.2
@@ -1149,7 +1187,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-18-3">
           <span>
             17.18.3
@@ -1169,7 +1207,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.19
@@ -1188,7 +1226,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-19-1">
           <span>
             17.19.1
@@ -1215,7 +1253,7 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
         <a href="/sdg-site-kazstat-upgrade/17-19-2">
           <span>
             17.19.2
@@ -1262,8 +1300,39 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            <li class="language-toggle-menu-footer">
+              
+
+
+
+
+
+  <div class="language-toggle-container">
+  <i class="fa fa-globe language-toggle-globe-dropdown"></i>
+  
+  <div class="btn-group language-toggle-dropdown  dropup">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-name">Қазақ</span>
+      <span class="language-abbreviation">kk</span>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/17/">
+              <span class="language-name">Pусский</span>
+              <span class="language-abbreviation">ru</span>
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/en/17/">
+              <span class="language-name">English</span>
+              <span class="language-abbreviation">en</span>
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
+
+            </li></ul>
         </div>
       </div>
     </div>
@@ -1294,7 +1363,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Іздеу';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200807004755'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200807004755"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200807151419'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200807151419"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
