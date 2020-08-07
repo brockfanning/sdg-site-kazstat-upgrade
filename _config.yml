@@ -1,7 +1,7 @@
 # Jekyll configuration for Open SDG platform
 
 # Tell the Remote Theme plugin to use the Open SDG platform (Jekyll theme).
-remote_theme: open-sdg/open-sdg@1.0.2
+remote_theme: brockfanning/open-sdg@language-toggle-non-dropdown
 
 # Replace this title as needed.
 title: Indicators For The Sustainable Development Goals
@@ -132,3 +132,6 @@ search_index_extra_fields:
 search_index_boost:
   title: 10
   indicator_available: 15
+
+header_language_toggle: links
+footer_language_toggle: dropdown
