@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200811004823">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200811192055">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -153,43 +153,22 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <div class="logo-and-mobile-widgets">
-      <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/en/" id="home">
-        <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-      </a>
+    <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/en/" id="home">
+      <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
 
-      <div class="mobile-widgets">
-        <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-          
+  <div class='hidden visible-xs float-right'>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
+      <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
+  <i class="fa fa-globe"></i>
+  <span class="language-toggle-text">English</span>
+  <i class="language-toggle fa fa-chevron-down"></i>
+  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
+</a>
 
+<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/8/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/ru/8/">Pусский</a></li></ul>
 
-
-
-
-  <div class="language-toggle-container">
-  <i class="fa fa-globe language-toggle-globe-links"></i>
-  <ul class="language-toggle-links"><li>
-      <a class="language-toggle-link" href="/sdg-site-kazstat-upgrade/8/">
-        <span class="language-name">Қазақ</span>
-        <span class="language-abbreviation">kz</span>
-      </a>
-    </li><li>
-      <a class="language-toggle-link" href="/sdg-site-kazstat-upgrade/ru/8/">
-        <span class="language-name">Pусский</span>
-        <span class="language-abbreviation">ru</span>
-      </a>
-    </li><li>
-      <span class="language-toggle-active-language">
-        <span class="language-name">English</span>
-        <span class="language-abbreviation">en</span>
-      </span>
-    </li></ul>
-</div>
-
-
-
-        </div></div>
-    </div>
+    </div></div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
@@ -213,43 +192,26 @@ var translations = {
   </form>
 </div>
 
-
+      
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/reporting-status">Reporting Status</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/about">About</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/faq">FAQ</a>
-          </li><li class="language-toggle-menu-header">
-          
+          </li><li>
+          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
+  <i class="fa fa-globe"></i>
+  <span class="language-toggle-text">English</span>
+  <i class="language-toggle fa fa-chevron-down"></i>
+  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
+</a>
 
-
-
-
-
-  <div class="language-toggle-container">
-  <i class="fa fa-globe language-toggle-globe-links"></i>
-  <ul class="language-toggle-links"><li>
-      <a class="language-toggle-link" href="/sdg-site-kazstat-upgrade/8/">
-        <span class="language-name">Қазақ</span>
-        <span class="language-abbreviation">kz</span>
-      </a>
-    </li><li>
-      <a class="language-toggle-link" href="/sdg-site-kazstat-upgrade/ru/8/">
-        <span class="language-name">Pусский</span>
-        <span class="language-abbreviation">ru</span>
-      </a>
-    </li><li>
-      <span class="language-toggle-active-language">
-        <span class="language-name">English</span>
-        <span class="language-abbreviation">en</span>
-      </span>
-    </li></ul>
-</div>
-
-
+<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/8/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/ru/8/">Pусский</a></li></ul>
 
         </li></ul>
+
+      
 
     </nav>
   </div>
@@ -293,7 +255,7 @@ var translations = {
   
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.1
@@ -312,7 +274,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-1-1">
           <span>
             8.1.1
@@ -332,7 +294,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.2
@@ -351,7 +313,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-2-1">
           <span>
             8.2.1
@@ -371,7 +333,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.3
@@ -390,7 +352,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-3-1">
           <span>
             8.3.1
@@ -417,7 +379,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-3-1-1">
           <span>
             8.3.1.1
@@ -433,7 +395,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.5
@@ -452,7 +414,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-5-1">
           <span>
             8.5.1
@@ -479,7 +441,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-5-2">
           <span>
             8.5.2
@@ -499,7 +461,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.6
@@ -518,7 +480,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-6-1">
           <span>
             8.6.1
@@ -538,7 +500,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.7
@@ -557,7 +519,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-7-1">
           <span>
             8.7.1
@@ -577,7 +539,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.8
@@ -596,7 +558,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-8-1">
           <span>
             8.8.1
@@ -623,7 +585,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-8-2">
           <span>
             8.8.2
@@ -643,7 +605,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.9
@@ -662,7 +624,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-9-1">
           <span>
             8.9.1
@@ -689,7 +651,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-9-1-1">
           <span>
             8.9.1.1
@@ -709,7 +671,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.a
@@ -728,7 +690,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-a-1">
           <span>
             8.a.1
@@ -748,7 +710,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.b
@@ -767,7 +729,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-b-1">
           <span>
             8.b.1
@@ -787,7 +749,7 @@ var translations = {
     </div>
   
     
-    <div class="indicator-cards target goal-target col-md-6">
+    <div class="indicator-cards target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         8.10
@@ -806,7 +768,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-10-1">
           <span>
             8.10.1
@@ -833,7 +795,7 @@ var translations = {
       
       
 
-      <div class="col-md-12  goal-indicator">
+      <div class="col-md-12 ">
         <a href="/sdg-site-kazstat-upgrade/en/8-10-2">
           <span>
             8.10.2
@@ -880,39 +842,8 @@ var translations = {
                 
                 </li>
               
-            <li class="language-toggle-menu-footer">
-              
-
-
-
-
-
-  <div class="language-toggle-container">
-  <i class="fa fa-globe language-toggle-globe-dropdown"></i>
-  
-  <div class="btn-group language-toggle-dropdown  dropup">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="language-name">English</span>
-      <span class="language-abbreviation">en</span>
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu"><li>
-            <a href="/sdg-site-kazstat-upgrade/8/">
-              <span class="language-name">Қазақ</span>
-              <span class="language-abbreviation">kz</span>
-            </a>
-          </li><li>
-            <a href="/sdg-site-kazstat-upgrade/ru/8/">
-              <span class="language-name">Pусский</span>
-              <span class="language-abbreviation">ru</span>
-            </a>
-          </li></ul>
-  </div>
-</div>
-
-
-
-            </li></ul>
+            
+          </ul>
         </div>
       </div>
     </div>
@@ -943,7 +874,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200811004823'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200811004823"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200811192055'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200811192055"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
