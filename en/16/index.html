@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,9 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Goal 16 - Peace and justice - strong institutions
-          
-        </title>
+        
+        <title>Goal 16 - Peace and justice - strong institutions</title>
+        
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914005927">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914081254">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -141,7 +139,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website. We welcome your <a href="mailto:as.abraeva@economy.gov.kz">feedback</a>.
@@ -153,71 +151,110 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/en/" id="home">
-      <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/en/" id="home">
+        <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-      <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
+          <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/16/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/16/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/16/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/ru/16/">Pусский</a></li></ul>
-
-    </div></div>
+        </div></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-site-kazstat-upgrade/en/search">
-    <input name="q" id="indicator_search" title="Search" />
+    <input type="text" name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
       <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
     </label>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/reporting-status">Reporting Status</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/about">About</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/faq">FAQ</a>
-          </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          </li><li class="language-toggle-menu-header">
+          
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/16/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/ru/16/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/16/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/16/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
-
-      
 
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-site-kazstat-upgrade/en/">Home</a></li>
+  <li class="active">Goal 16</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-16">
   <div class="container">
@@ -238,11 +275,6 @@ var translations = {
 
   
 
-  <ol class="breadcrumb">
-    <li><a href="/sdg-site-kazstat-upgrade/en/">Home</a></li>
-    <li class="active">Goal 16</li>
-  </ol>
-
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
       <h2>Targets</h2>
@@ -255,7 +287,7 @@ var translations = {
   
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.1
@@ -274,21 +306,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.1.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-1-1">
-          <span>
-            16.1.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Number of victims of intentional homicide per 100,000 population, by sex and age
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -301,21 +333,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.1.2
+          <span class="status notapplicable">
+            Not applicable
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-1-2">
-          <span>
-            16.1.2
-            <span class="status notapplicable">
-              Not applicable
-            </span>
-          </span>
           Conflict-related deaths per 100,000 population, by sex, age and cause
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -328,21 +360,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.1.3
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-1-3">
-          <span>
-            16.1.3
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -355,27 +387,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-1-4">
-          <span>
-            16.1.4
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.1.4
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-1-4">
           Proportion of population that feel safe walking alone around the area they live
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.2
@@ -394,21 +426,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.2.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-2-1">
-          <span>
-            16.2.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -421,21 +453,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.2.2
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-2-2">
-          <span>
-            16.2.2
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -448,27 +480,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-2-3">
-          <span>
-            16.2.3
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.2.3
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-2-3">
           Proportion of young women and men aged 18–29 years who experienced sexual violence by age 18
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.3
@@ -487,21 +519,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.3.1
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-3-1">
-          <span>
-            16.3.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -514,21 +546,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.3.2
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-3-2">
-          <span>
-            16.3.2
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Unsentenced detainees as a proportion of overall prison population
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -541,21 +573,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.3.2.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-3-2-1">
-          <span>
-            16.3.2.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           The number of people who received free legal assistance guaranteed by the state
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -568,17 +600,17 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.3.3
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-3-3">
-          <span>
-            16.3.3
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Proportion of the population who have experienced a dispute in the past two years and who accessed a formal or informal dispute resolution mechanism, by type of mechanism
-          
         </a>
+        
       </div>
     
 
@@ -591,17 +623,17 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.3.3.1
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-3-3-1">
-          <span>
-            16.3.3.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           The number of disputes resolved through conciliation proceedings in pretrial order
-          
         </a>
+        
       </div>
     
 
@@ -614,23 +646,23 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-3-3-2">
-          <span>
-            16.3.3.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.3.3.2
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-3-3-2">
           Level of trust in law enforcement, by authority
-          
         </a>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.4
@@ -649,21 +681,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.4.1
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-4-1">
-          <span>
-            16.4.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Total value of inward and outward illicit financial flows (in current United States dollars)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -676,21 +708,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.4.2
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-4-2">
-          <span>
-            16.4.2
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -703,23 +735,23 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-4-2-1">
-          <span>
-            16.4.2.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.4.2.1
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-4-2-1">
           The number of crimes committed as part of an organized criminal group (OCG)
-          
         </a>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.5
@@ -738,21 +770,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.5.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-5-1">
-          <span>
-            16.5.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Proportion of persons who had at least one contact with a public official and who paid a bribe to a public official, or were asked for a bribe by those public officials, during the previous 12 months
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -765,21 +797,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.5.2
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-5-2">
-          <span>
-            16.5.2
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Proportion of businesses that had at least one contact with a public official and that paid a bribe to a public official, or were asked for a bribe by those public officials during the previous 12 months
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -792,27 +824,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-5-2-1">
-          <span>
-            16.5.2.1
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.5.2.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-5-2-1">
           Public perceptions of corruption
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.6
@@ -831,21 +863,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.6.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-6-1">
-          <span>
-            16.6.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -858,21 +890,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.6.2
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-6-2">
-          <span>
-            16.6.2
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Proportion of population satisfied with their last experience of public services
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -885,21 +917,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.6.2.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-6-2-1">
-          <span>
-            16.6.2.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           The proportion of restated rights for service recipients (on the basis of violations found during inspections on appeals from these recipients)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -912,17 +944,17 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.6.2.2
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-6-2-2">
-          <span>
-            16.6.2.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           The proportion of applications and messages or other information on offenses left without consideration to the total number of registered applications by type (adm. and criminal), percentage
-          
         </a>
+        
       </div>
     
 
@@ -935,23 +967,23 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-6-2-3">
-          <span>
-            16.6.2.3
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.6.2.3
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-6-2-3">
           Number of citizens held administratively liable per 100,000
-          
         </a>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.7
@@ -970,17 +1002,17 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-7-1">
-          <span>
-            16.7.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.7.1
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-7-1">
           Proportions of positions in national and local institutions, including (a) the legislatures; (b) the public service; and (c) the judiciary, compared to national distributions, by sex, age, persons with disabilities population groups
-          
         </a>
+        
       </div>
     
 
@@ -993,27 +1025,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-7-2">
-          <span>
-            16.7.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.7.2
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-7-2">
           Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.9
@@ -1032,27 +1064,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-9-1">
-          <span>
-            16.9.1
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.9.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-9-1">
           Proportion of children under 5 years of age whose births have been registered with a civil authority, by age
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.a
@@ -1071,23 +1103,23 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-a-1">
-          <span>
-            16.a.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.a.1
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-a-1">
           Existence of independent national human rights institutions in compliance with the Paris Principles
-          
         </a>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.b
@@ -1106,23 +1138,23 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-b-1">
-          <span>
-            16.b.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.b.1
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-b-1">
           Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law
-          
         </a>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         16.10
@@ -1141,21 +1173,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.10.1
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-10-1">
-          <span>
-            16.10.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -1168,17 +1200,17 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.10.1.1
+          <span class="status notstarted">
+            Exploring data sources
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/16-10-1-1">
-          <span>
-            16.10.1.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
-          </span>
           Number of cases registered under articles 78, 456-1 of the administrative Code of the Republic of Kazakhstan, cases
-          
         </a>
+        
       </div>
     
 
@@ -1191,21 +1223,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/16-10-2">
-          <span>
-            16.10.2
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          16.10.2
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/16-10-2">
           Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -1238,8 +1270,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -1270,7 +1301,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914005927'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914005927"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914081254'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914081254"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

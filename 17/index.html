@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,9 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Мақсат 17 - Тұрақты даму мүдделеріндегі әріптестіктер
-          
-        </title>
+        
+        <title>Мақсат 17 - Тұрақты даму мүдделеріндегі әріптестіктер</title>
+        
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914005927">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914081254">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -141,7 +139,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Басты мазмұнына өту</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Бұл сайт әзірленуде. Біз сіздердің пікірлеріңізге қуаныштымыз
@@ -153,71 +151,110 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/" id="home">
-      <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Тұрақты даму мақсаттары шеңберінде - Біздің өмірді көркейту үшін 17 мақсат" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/" id="home">
+        <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Тұрақты даму мақсаттары шеңберінде - Біздің өмірді көркейту үшін 17 мақсат" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-      <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Қазақ</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
+          <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Қазақ</span>
+      <span class="language-abbreviation">kz</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/17/">
+              Pусский
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/en/17/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/ru/17/">Pусский</a></li><li><a href="/sdg-site-kazstat-upgrade/en/17/">English</a></li></ul>
-
-    </div></div>
+        </div></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Меню</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Меню</button>
         </li>
-        <li><span data-target="search">Іздеу</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Іздеу</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-site-kazstat-upgrade/search">
-    <input name="q" id="indicator_search" title="Іздеу" />
+    <input type="text" name="q" id="indicator_search" title="Іздеу" />
     <label for="indicator_search">
       <button aria-label="Іздеу" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Іздеу:</span>
     </label>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/reporting-status">Есептіліктің жағдайы</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/about">Біз туралы</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/faq">Жиі қойылатын сұрақтар</a>
-          </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Қазақ</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          </li><li class="language-toggle-menu-header">
+          
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/ru/17/">Pусский</a></li><li><a href="/sdg-site-kazstat-upgrade/en/17/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Қазақ</span>
+      <span class="language-abbreviation">kz</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/17/">
+              Pусский
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/en/17/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
-
-      
 
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-site-kazstat-upgrade/">Басты бет</a></li>
+  <li class="active">Мақсат 17</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-17">
   <div class="container">
@@ -238,11 +275,6 @@ var translations = {
 
   
 
-  <ol class="breadcrumb">
-    <li><a href="/sdg-site-kazstat-upgrade/">Басты бет</a></li>
-    <li class="active">Мақсат 17</li>
-  </ol>
-
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
       <h2>Міндеттер</h2>
@@ -255,7 +287,7 @@ var translations = {
   
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.1
@@ -274,21 +306,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-1-1">
-          <span>
-            17.1.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.1.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-1-1">
           Көздер бойынша бөліністегі ЖІӨ-ге пайыздық қатынастағы мемлекеттік кірістердің жалпы көлемі
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -301,27 +333,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-1-2">
-          <span>
-            17.1.2
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.1.2
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-1-2">
            Ішкі салықтармен қаржыландырылатын ұлттық бюджет үлесі 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.2
@@ -340,27 +372,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-2-1">
-          <span>
-            17.2.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.2.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-2-1">
           Донорлардың – ЭЫДҰ дамуына Комитеті мүшелерінің жалпы ұлттық табысына пайыздық қатынастағы даму мақсатындағы ресми көмектің (жиынтық, сондай-ақ аз дамыған елдерге бөлінетін) таза көлемі 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.3
@@ -379,21 +411,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.1
+          <span class="status complete">
+            Интернетте хабарланған
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/17-3-1">
-          <span>
-            17.3.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
-          </span>
           Оңтүстік — Оңтүстік дамыту және ынтымақтастық мақсатында тікелей шетелдік инвестициялар, ресми көмек желісі бойынша түсетін қаражаттың жалпы ұлттық кірістен үлесі
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -406,21 +438,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.1.1
+          <span class="status complete">
+            Интернетте хабарланған
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/17-3-1-1">
-          <span>
-            17.3.1.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
-          </span>
           Оңтүстік-Оңтүстік ынтымақтастық және даму мақсатындағы ресми көмек көлемінің жалпы ұлттық табысқа қатынасы
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -433,21 +465,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.1.2
+          <span class="status complete">
+            Интернетте хабарланған
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/17-3-1-2">
-          <span>
-            17.3.1.2
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
-          </span>
           Шетелге тікелей инвестициялардың қазақстандық тікелей инвесторлардан жалпы ағымының ЖІӨ-ге қатынасы
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -460,17 +492,17 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.1.3
+          <span class="status notstarted">
+            Дереккөздерін зерттеу
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/17-3-1-3">
-          <span>
-            17.3.1.3
-            <span class="status notstarted">
-              Дереккөздерін зерттеу
-            </span>
-          </span>
           Шетелдік тікелей инвесторлардан Қазақстанға тікелей инвестициялардың жалпы ағынының қатынасы
-          
         </a>
+        
       </div>
     
 
@@ -483,27 +515,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-3-2">
-          <span>
-            17.3.2
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.2
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-3-2">
           Жиынтық ЖІӨ-дегі ақша аударымдарының үлесі (АҚШ долларымен)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.4
@@ -522,27 +554,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-4-1">
-          <span>
-            17.4.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.4.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-4-1">
           Борышқа қызмет көрсетуге жұмсалатын тауарлар мен қызметтер экспортынан түсетін түсімдердің үлесі
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.5
@@ -561,27 +593,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-5-1">
-          <span>
-            17.5.1
-            <span class="status notstarted">
-              Дереккөздерін зерттеу
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.5.1
+          <span class="status notstarted">
+            Дереккөздерін зерттеу
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-5-1">
           Аз дамыған елдерді қоса алғанда, дамушы елдердің мүддесінде инвестицияларды көтермелеу режимдері қабылданған және әрекет ететін елдердің саны
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.6
@@ -600,21 +632,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-6-1">
-          <span>
-            17.6.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.6.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-6-1">
           Ынтымақтастық түрлерінің бөлінісіндегі елдер арасындағы келісімдер мен ғылыми және/немесе техникалық ынтымақтастық бағдарламаларының саны
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -627,27 +659,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-6-2">
-          <span>
-            17.6.2
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.6.2
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-6-2">
           Кең жолақты Ғаламтордың стандартты абоненттерінің саны, жылдамдық бойынша топтастыру 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.7
@@ -666,27 +698,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-7-1">
-          <span>
-            17.7.1
-            <span class="status notstarted">
-              Дереккөздерін зерттеу
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.7.1
+          <span class="status notstarted">
+            Дереккөздерін зерттеу
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-7-1">
           Экологиялық қауіпсіз технологияларды әзірлеу, тапсыру, тарату және меңгеруге жәрдемдесу мақсатында дамушы елдерге бекітілген қаржыландырудың жалпы сомасы 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.8
@@ -705,27 +737,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-8-1">
-          <span>
-            17.8.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.8.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-8-1">
           Интернетті пайдаланатын халық үлесі 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.9
@@ -744,27 +776,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-9-1">
-          <span>
-            17.9.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.9.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-9-1">
           Дамушы елдерге берілетін қаржылық және техникалық көмектің көлемі (оның ішінде солтүстік — оңтүстік, оңтүстік — оңтүстік желісі бойынша және үшжақты ынтымақтастық шеңберінде) (АҚШ долларымен)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.10
@@ -783,27 +815,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-10-1">
-          <span>
-            17.10.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.10.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-10-1">
           Тарифтердің әлемдік орташа салмақталған деңгейі 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.11
@@ -822,27 +854,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-11-1">
-          <span>
-            17.11.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.11.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-11-1">
           Әлемдік экспорттағы дамушы елдердің және аз дамыған елдердің үлесі 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.12
@@ -861,27 +893,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-12-1">
-          <span>
-            17.12.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.12.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-12-1">
           Дамушы елдерге, аз дамыған елдерге және шағын аралдық дамушы мемлекеттерге қатысты қолданылатын тарифтердің орташа өлшемді деңгейі
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.13
@@ -900,27 +932,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-13-1">
-          <span>
-            17.13.1
-            <span class="status notstarted">
-              Дереккөздерін зерттеу
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.13.1
+          <span class="status notstarted">
+            Дереккөздерін зерттеу
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-13-1">
           Макроэкономикалық көрсеткіштер панелі
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.14
@@ -939,27 +971,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-14-1">
-          <span>
-            17.14.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.14.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-14-1">
           Тұрақты даму саласында саясаттың келісушілігін көтеруге арналған механизмдер
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.15
@@ -978,27 +1010,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-15-1">
-          <span>
-            17.15.1
-            <span class="status notstarted">
-              Дереккөздерін зерттеу
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.15.1
+          <span class="status notstarted">
+            Дереккөздерін зерттеу
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-15-1">
           Даму процесіне қатысушылар қатарынан донорлардың елдердің өздері әзірлеген нәтижелер схемалары мен жоспарлау құралдарын пайдалану дәрежесі
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.16
@@ -1017,27 +1049,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-16-1">
-          <span>
-            17.16.1
-            <span class="status notstarted">
-              Дереккөздерін зерттеу
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.16.1
+          <span class="status notstarted">
+            Дереккөздерін зерттеу
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-16-1">
           Тұрақты даму мақсаттарына жетудегі демеуші болып табылатын көптеген мүдделі тараптардың қатысуымен даму тиімділігін бақылау механзмдерін қолдану ісіндегі прогресс туралы хабарлайтын елдер саны 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.17
@@ -1056,27 +1088,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-17-1">
-          <span>
-            17.17.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.17.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-17-1">
           Инфрақұрылым саласындағы мемлекеттік-жеке меншік әріптестікке бөлінетін сома (АҚШ долларымен)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.18
@@ -1095,21 +1127,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.18.1
+          <span class="status complete">
+            Интернетте хабарланған
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/17-18-1">
-          <span>
-            17.18.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
-          </span>
           Тұрақты даму саласындағы мақсаттарға қол жеткізу барысын қадағалау үшін статистика саласындағы әлеует көрсеткіші
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -1122,21 +1154,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.18.2
+          <span class="status notstarted">
+            Дереккөздерін зерттеу
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/17-18-2">
-          <span>
-            17.18.2
-            <span class="status notstarted">
-              Дереккөздерін зерттеу
-            </span>
-          </span>
           Ресми статистиканың негізін қалайтын қағидаттарға сәйкес келетін ұлттық статистикалық заңнамасы бар елдер саны 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -1149,27 +1181,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-18-3">
-          <span>
-            17.18.3
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.18.3
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-18-3">
           Қаржыландыру көздері бойынша бөлінісіндегі толығымен қаржыландырылған және ұлттық статистикалық жоспарды жүзеге асыратын елдер саны 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Міндет</label>
         17.19
@@ -1188,21 +1220,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-19-1">
-          <span>
-            17.19.1
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.19.1
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-19-1">
           Статистика саласындағы дамушы елдердің әлеуетін арттыруға бөлінген барлық ресурстардың құны (АҚШ долларымен))
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -1215,21 +1247,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/17-19-2">
-          <span>
-            17.19.2
-            <span class="status complete">
-              Интернетте хабарланған
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.19.2
+          <span class="status complete">
+            Интернетте хабарланған
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/17-19-2">
           Соңғы 10 жыл ішінде кем дегенде бір халық және тұрғын қорының санағын өткізген және b) оқиғалардың 100 пайызында тууды тіркеу және олардың 80 пайызында өлімді тіркеу мақсаттарына жеткен елдер үлесі 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -1262,8 +1294,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -1294,7 +1325,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Іздеу';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914005927'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914005927"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914081254'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914081254"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

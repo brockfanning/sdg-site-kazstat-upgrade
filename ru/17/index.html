@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,9 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Цель 17 - Партнерство в интересах устойчивого развития
-          
-        </title>
+        
+        <title>Цель 17 - Партнерство в интересах устойчивого развития</title>
+        
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914005927">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914081254">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -141,7 +139,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Перейти к главному содержанию</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Альфа</strong>
     
     Это сайт находится в разработке. Мы рады вашим отзывам.
@@ -153,71 +151,110 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/ru/" id="home">
-      <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/ru/" id="home">
+        <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Цели в области устойчивого развития - 17 Целей, чтобы преобразовать наш мир" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-      <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
+          <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/17/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/en/17/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/17/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/en/17/">English</a></li></ul>
-
-    </div></div>
+        </div></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Меню</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Меню</button>
         </li>
-        <li><span data-target="search">Поиск</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Поиск</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-site-kazstat-upgrade/ru/search">
-    <input name="q" id="indicator_search" title="Поиск" />
+    <input type="text" name="q" id="indicator_search" title="Поиск" />
     <label for="indicator_search">
       <button aria-label="Поиск" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Поиск:</span>
     </label>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/ru/reporting-status">Состояние отчётности</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/ru/about">О нас</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/ru/faq">Часто задаваемые вопросы</a>
-          </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">Pусский</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          </li><li class="language-toggle-menu-header">
+          
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/17/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/en/17/">English</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Pусский</span>
+      <span class="language-abbreviation">ru</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/17/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/en/17/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
-
-      
 
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-site-kazstat-upgrade/ru/">Главная</a></li>
+  <li class="active">Цель 17</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-17">
   <div class="container">
@@ -239,11 +276,6 @@ var translations = {
 
   
 
-  <ol class="breadcrumb">
-    <li><a href="/sdg-site-kazstat-upgrade/ru/">Главная</a></li>
-    <li class="active">Цель 17</li>
-  </ol>
-
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
       <h2>Задачи</h2>
@@ -256,7 +288,7 @@ var translations = {
   
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.1
@@ -275,22 +307,22 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-1-1">
-          <span>
-            17.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.1.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-1-1">
           Общий объем государственных доходов в
 процентном отношении к ВВП в разбивке по источникам
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -303,27 +335,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-1-2">
-          <span>
-            17.1.2
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.1.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-1-2">
           Доля национального бюджета,финансируемая за счет внутренних налогов
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.2
@@ -354,27 +386,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-2-1">
-          <span>
-            17.2.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.2.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-2-1">
           Чистый объем официальной помощи в целях развития (как суммарной, так и выделяемой наименее развитым странам) как доля валового национального дохода доноров из числа членов Комитета содействия развитию ОЭСР
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.3
@@ -395,21 +427,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.1
+          <span class="status complete">
+            Опубликован
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/ru/17-3-1">
-          <span>
-            17.3.1
-            <span class="status complete">
-              Опубликован
-            </span>
-          </span>
           Доля средств, поступающих по линии прямых иностранных инвестиций, официальной помощи в целях развития и сотрудничества Юг — Юг, от валового национального дохода
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -422,21 +454,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.1.1
+          <span class="status complete">
+            Опубликован
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/ru/17-3-1-1">
-          <span>
-            17.3.1.1
-            <span class="status complete">
-              Опубликован
-            </span>
-          </span>
           Отношение обьема официальной помощи в целях развития и сотрудничество Юг-Юг к валовому национальному доходу
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -449,21 +481,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.1.2
+          <span class="status complete">
+            Опубликован
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/ru/17-3-1-2">
-          <span>
-            17.3.1.2
-            <span class="status complete">
-              Опубликован
-            </span>
-          </span>
           Отношение валового оттока прямых инвестиций за границу от казахстанских прямых инвесторов к ВВП
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -476,17 +508,17 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.1.3
+          <span class="status notstarted">
+            В процессе разработки
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/ru/17-3-1-3">
-          <span>
-            17.3.1.3
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
-          </span>
           Отношение валового притока прямых инвестиций в Казахстан от иностранных прямых инвесторов
-          
         </a>
+        
       </div>
     
 
@@ -499,27 +531,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-3-2">
-          <span>
-            17.3.2
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.3.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-3-2">
           Доля денежных переводов (в долларах США) в совокупном ВВП
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.4
@@ -548,27 +580,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-4-1">
-          <span>
-            17.4.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.4.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-4-1">
           Доля поступлений от экспорта товаров и услуг, расходуемая на обслуживание долга
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.5
@@ -588,27 +620,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-5-1">
-          <span>
-            17.5.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.5.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-5-1">
           Число стран, в которых приняты и действуют режимы поощрения инвестиций в интересах развивающихся стран, включая наименее развитые страны
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.6
@@ -637,23 +669,23 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-6-1">
-          <span>
-            17.6.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.6.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-6-1">
           Число соглашений и программ научного
 и/или технического сотрудничества между странами
 в разбивке по видам сотрудничества
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -666,28 +698,28 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-6-2">
-          <span>
-            17.6.2
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.6.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-6-2">
           Число стационарных абонентов широкополосного
 Интернета в разбивке по скорости
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.7
@@ -711,31 +743,31 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-7-1">
-          <span>
-            17.7.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.7.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-7-1">
           Общая сумма утвержденного финансирования
 для развивающихся стран в целях содействия
 разработке, передаче, распространению и освоению
 экологически безопасных технологий
 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.8
@@ -759,27 +791,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-8-1">
-          <span>
-            17.8.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.8.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-8-1">
           Доля населения, пользующегося Интернетом
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.9
@@ -803,27 +835,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-9-1">
-          <span>
-            17.9.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.9.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-9-1">
           Объем финансовой и технической помощи (в том числе по линии Север — Юг, Юг — Юг и в рамках трехстороннего сотрудничества), предоставляемой развивающимся странам (в долларах США)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.10
@@ -847,28 +879,28 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-10-1">
-          <span>
-            17.10.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.10.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-10-1">
           Средневзвешенный мировой уровень тарифов
 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.11
@@ -891,28 +923,28 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-11-1">
-          <span>
-            17.11.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.11.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-11-1">
            Доля развивающихся стран и наименее развитых
 стран в мировом экспорте
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.12
@@ -940,27 +972,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-12-1">
-          <span>
-            17.12.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.12.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-12-1">
           Средневзвешенный уровень тарифов, применяемых в отношении развивающихся стран, наименее развитых стран и малых островных развивающихся государств
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.13
@@ -981,28 +1013,28 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-13-1">
-          <span>
-            17.13.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.13.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-13-1">
           Единый набор контрольных макроэкономических
 показателей
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.14
@@ -1022,30 +1054,30 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-14-1">
-          <span>
-            17.14.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.14.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-14-1">
           Число стран, в которых созданы механизмы
 для повышения согласованности политики в области
 устойчивого развития
 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.15
@@ -1068,27 +1100,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-15-1">
-          <span>
-            17.15.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.15.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-15-1">
           Степень использования донорами из числа участников процесса развития схем результатов и инструментов планирования, разработанных самими странами
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.16
@@ -1114,31 +1146,31 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-16-1">
-          <span>
-            17.16.1
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.16.1
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-16-1">
           Число стран, сообщающих о прогрессе в
 деле применения механизмов контроля за эффективностью
 развития с участием многих заинтересованных
 сторон, которые служат подспорьем в достижении
 целей устойчивого развития
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.17
@@ -1162,27 +1194,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-17-1">
-          <span>
-            17.17.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.17.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-17-1">
           Сумма (в долларах США), выделяемая на государственно-частные партнерства в области инфраструктуры
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.18
@@ -1211,21 +1243,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-18-1">
-          <span>
-            17.18.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.18.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-18-1">
           Показатель потенциала в области статистики для отслеживания хода достижения целей в области устойчивого развития
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -1238,23 +1270,23 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-18-2">
-          <span>
-            17.18.2
-            <span class="status notstarted">
-              В процессе разработки
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.18.2
+          <span class="status notstarted">
+            В процессе разработки
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-18-2">
            Число, стран, имеющих национальное статистическое
 законодательство, соответствующее Основополагающим
 принципам официальной статистики
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -1267,30 +1299,30 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-18-3">
-          <span>
-            17.18.3
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.18.3
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-18-3">
           Число стран, имеющих полностью финансированный
 и осуществляемый национальный статистический
 план, в разбивке по источникам финансирования
 
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Задача</label>
         17.19
@@ -1314,21 +1346,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-19-1">
-          <span>
-            17.19.1
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.19.1
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-19-1">
           Стоимость всех ресурсов, выделенных на наращивание потенциала развивающихся стран в области статистики (в долларах США)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -1341,25 +1373,25 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/ru/17-19-2">
-          <span>
-            17.19.2
-            <span class="status complete">
-              Опубликован
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          17.19.2
+          <span class="status complete">
+            Опубликован
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/ru/17-19-2">
           Доля стран, которые a) провели хотя бы одну
 перепись населения и жилищного фонда в течение
 последних 10 лет; и b) достигли цели регистрации
 рождений в 100 процентах случаев и регистрации
 смерти в 80 процентах случаев
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -1392,8 +1424,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -1424,7 +1455,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914005927'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914005927"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914081254'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914081254"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

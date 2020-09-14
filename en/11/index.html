@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,9 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Goal 11 - Sustainable cities &amp; communities
-          
-        </title>
+        
+        <title>Goal 11 - Sustainable cities &amp; communities</title>
+        
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914005927">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914081254">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -141,7 +139,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website. We welcome your <a href="mailto:as.abraeva@economy.gov.kz">feedback</a>.
@@ -153,71 +151,110 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/en/" id="home">
-      <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/en/" id="home">
+        <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-      <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
+          <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/11/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/11/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/11/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/ru/11/">Pусский</a></li></ul>
-
-    </div></div>
+        </div></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-site-kazstat-upgrade/en/search">
-    <input name="q" id="indicator_search" title="Search" />
+    <input type="text" name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
       <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
     </label>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/reporting-status">Reporting Status</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/about">About</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/faq">FAQ</a>
-          </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          </li><li class="language-toggle-menu-header">
+          
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/11/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/ru/11/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/11/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/11/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
-
-      
 
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-site-kazstat-upgrade/en/">Home</a></li>
+  <li class="active">Goal 11</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-11">
   <div class="container">
@@ -238,11 +275,6 @@ var translations = {
 
   
 
-  <ol class="breadcrumb">
-    <li><a href="/sdg-site-kazstat-upgrade/en/">Home</a></li>
-    <li class="active">Goal 11</li>
-  </ol>
-
   <div class="visible-md-block visible-lg-block">
     <div class="col-md-6">
       <h2>Targets</h2>
@@ -255,7 +287,7 @@ var translations = {
   
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         11.1
@@ -274,27 +306,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-1-1">
-          <span>
-            11.1.1
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.1.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-1-1">
           Proportion of urban population living in slums, informal settlements or inadequate housing
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         11.2
@@ -313,21 +345,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-2-1">
-          <span>
-            11.2.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.2.1
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-2-1">
           Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -340,27 +372,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-2-1-1">
-          <span>
-            11.2.1.1
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.2.1.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-2-1-1">
           The proportion of local roads that are in good and satisfactory condition
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         11.3
@@ -379,21 +411,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-3-1">
-          <span>
-            11.3.1
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.3.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-3-1">
           Ratio of land consumption rate to population growth rate
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -406,27 +438,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-3-2">
-          <span>
-            11.3.2
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.3.2
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-3-2">
           Proportion of cities with a direct participation structure of civil society in urban planning and management that operate regularly and democratically
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         11.4
@@ -445,27 +477,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-4-1">
-          <span>
-            11.4.1
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.4.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-4-1">
           Total per capita expenditure on the preservation, protection and conservation of all cultural and natural heritage, by source of funding (public, private), type of heritage (cultural, natural) and level of government (national, regional, and local/municipal)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         11.6
@@ -484,21 +516,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.6.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/11-6-1">
-          <span>
-            11.6.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           Proportion of municipal solid waste collected and managed in controlled facilities out of total municipal waste generated, by cities
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -511,21 +543,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.6.1.1
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/11-6-1-1">
-          <span>
-            11.6.1.1
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           global_indicators.11-6-1-1-title
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -538,21 +570,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.6.1.2
+          <span class="status complete">
+            Reported online
+          </span>
+        </span>
         <a href="/sdg-site-kazstat-upgrade/en/11-6-1-2">
-          <span>
-            11.6.1.2
-            <span class="status complete">
-              Reported online
-            </span>
-          </span>
           global_indicators.11-6-1-2-title
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -565,27 +597,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-6-2">
-          <span>
-            11.6.2
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.6.2
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-6-2">
           Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         11.7
@@ -604,21 +636,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-7-1">
-          <span>
-            11.7.1
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.7.1
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-7-1">
           Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
 
@@ -631,27 +663,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-7-2">
-          <span>
-            11.7.2
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.7.2
+          <span class="status notstarted">
+            Exploring data sources
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-7-2">
           Proportion of persons victim of physical or sexual harassment, by sex, age, disability status and place of occurrence, in the previous 12 months
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         11.a
@@ -670,27 +702,27 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-a-1">
-          <span>
-            11.a.1
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.a.1
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-a-1">
           Number of countries that have national urban policies or regional development plans that (a) respond to population dynamics; (b) ensure balanced territorial development; and (c) increase local fiscal space
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
   
     
-    <div class="indicator-cards target col-md-6">
+    <div class="indicator-cards target goal-target col-md-6">
       <span>
         <label class="hidden-md hidden-lg">Target</label>
         11.b
@@ -709,21 +741,21 @@ var translations = {
       
       
 
-      <div class="col-md-12 ">
-        <a href="/sdg-site-kazstat-upgrade/en/11-b-2">
-          <span>
-            11.b.2
-            <span class="status complete">
-              Reported online
-            </span>
+      <div class="col-md-12  goal-indicator">
+        <span>
+          11.b.2
+          <span class="status complete">
+            Reported online
           </span>
+        </span>
+        <a href="/sdg-site-kazstat-upgrade/en/11-b-2">
           Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies
-          
-            <ul class="tags">
-            
-            </ul>
-          
         </a>
+        
+          <ul class="tags">
+          
+          </ul>
+        
       </div>
     
     </div>
@@ -756,8 +788,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -788,7 +819,7 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914005927'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914005927"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914081254'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914081254"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

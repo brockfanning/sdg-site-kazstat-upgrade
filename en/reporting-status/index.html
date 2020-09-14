@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,9 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Indicators For The Sustainable Development Goals
-          
-        </title>
+        
+        <title>Indicators For The Sustainable Development Goals</title>
+        
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914005927">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20200914081254">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -141,7 +139,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website. We welcome your <a href="mailto:as.abraeva@economy.gov.kz">feedback</a>.
@@ -153,74 +151,112 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/en/" id="home">
-      <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-site-kazstat-upgrade/en/" id="home">
+        <img src="/sdg-site-kazstat-upgrade/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
-      <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul><div class="language-toggle-mobile">
+          <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/reporting-status/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/reporting-status/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/reporting-status/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/ru/reporting-status/">Pусский</a></li></ul>
-
-    </div></div>
+        </div></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-site-kazstat-upgrade/en/search">
-    <input name="q" id="indicator_search" title="Search" />
+    <input type="text" name="q" id="indicator_search" title="Search" />
     <label for="indicator_search">
       <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
     </label>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/reporting-status">Reporting Status</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/about">About</a>
           </li><li class="nav-link ">
             <a href="/sdg-site-kazstat-upgrade/en/faq">FAQ</a>
-          </li><li>
-          <a class="language-toggle-button" onclick="$(this).next('.language-toggle').toggle(); return false;">
-  <i class="fa fa-globe"></i>
-  <span class="language-toggle-text">English</span>
-  <i class="language-toggle fa fa-chevron-down"></i>
-  <i class="language-toggle fa fa-chevron-up" style="display:none;"></i>
-</a>
+          </li><li class="language-toggle-menu-header">
+          
 
-<ul class="language-options language-toggle"><li><a href="/sdg-site-kazstat-upgrade/reporting-status/">Қазақ</a></li><li><a href="/sdg-site-kazstat-upgrade/ru/reporting-status/">Pусский</a></li></ul>
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/reporting-status/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/reporting-status/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
 
         </li></ul>
-
-      
 
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
 
 
-<div id="main-content" class="container reportingstatus"><h1>Reporting Status</h1><div class="goal goal-overall">
+<div id="main-content" class="container reportingstatus">
+
+  <h1>
+  
+    Reporting Status
+  
+</h1>
+
+
+<div class="goal goal-overall">
       <div class="details">
         <h2 class="status-goal">
             Overall Reporting Status <span class="total"><span>221</span> indicators</span>
@@ -288,7 +324,7 @@ data-event-label="Change reporting status view to customisation"
   
   <div class="tab-content reporting-status-view">
     <div role="tabpanel" class="tab-pane active" id="goalsview">
-  <div class="goal">
+  <div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/1">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/1.png" alt="No poverty - Goal 1" width="100" height="100" />
@@ -323,7 +359,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/2">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" width="100" height="100" />
@@ -358,7 +394,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/3">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.png" alt="Good health and well-being - Goal 3" width="100" height="100" />
@@ -393,7 +429,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/4">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.png" alt="Quality education - Goal 4" width="100" height="100" />
@@ -428,7 +464,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/5">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" width="100" height="100" />
@@ -463,7 +499,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/6">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.png" alt="Clean water and sanitation - Goal 6" width="100" height="100" />
@@ -498,7 +534,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/7">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/7.png" alt="Affordable and clean energy - Goal 7" width="100" height="100" />
@@ -533,7 +569,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/8">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.png" alt="Decent jobs and economic growth - Goal 8" width="100" height="100" />
@@ -568,7 +604,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/9">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" />
@@ -603,7 +639,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/10">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.png" alt="Reduced inequalities - Goal 10" width="100" height="100" />
@@ -638,7 +674,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/11">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.png" alt="Sustainable cities &amp; communities - Goal 11" width="100" height="100" />
@@ -673,7 +709,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/12">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" width="100" height="100" />
@@ -708,7 +744,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/13">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.png" alt="Climate action - Goal 13" width="100" height="100" />
@@ -743,7 +779,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/14">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.png" alt="Life below water - Goal 14" width="100" height="100" />
@@ -778,7 +814,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/15">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.png" alt="Life on land - Goal 15" width="100" height="100" />
@@ -813,7 +849,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/16">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" width="100" height="100" />
@@ -848,7 +884,7 @@ data-event-label="Change reporting status view to customisation"
           </div>
         </div>
       <br style="clear:both;">
-    </div><div class="goal">
+    </div><div class="goal reporting-status-item">
         <div class="frame">
           <a href="/sdg-site-kazstat-upgrade/en/17">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.png" alt="Partnerships for the goals - Goal 17" width="100" height="100" />
@@ -885,7 +921,7 @@ data-event-label="Change reporting status view to customisation"
       <br style="clear:both;">
     </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="un_designated_tierview"><div class="goal details">
+    <div role="tabpanel" class="tab-pane" id="un_designated_tierview"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">1</span>
           <span class="total">90
@@ -916,7 +952,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:3.333333333333333%" title="Not applicable: 3%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">1 (ODA) / 2 (FDI)</span>
           <span class="total">1
@@ -947,7 +983,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">1/2</span>
           <span class="total">1
@@ -978,7 +1014,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">1/2/3</span>
           <span class="total">1
@@ -1009,7 +1045,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">1/3</span>
           <span class="total">2
@@ -1040,7 +1076,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">2</span>
           <span class="total">66
@@ -1071,7 +1107,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:4.545454545454546%" title="Not applicable: 5%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">3</span>
           <span class="total">59
@@ -1102,7 +1138,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:10.16949152542373%" title="Not applicable: 10%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">3 (a) /2 (b,c)</span>
           <span class="total">1
@@ -1134,7 +1170,7 @@ data-event-label="Change reporting status view to customisation"
         <div class="divider"></div>
       </div>
       <br style="clear:both;"></div>
-    <div role="tabpanel" class="tab-pane" id="customisationview"><div class="goal details">
+    <div role="tabpanel" class="tab-pane" id="customisationview"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">Additional national</span>
           <span class="total">15
@@ -1165,7 +1201,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">Alternative national</span>
           <span class="total">25
@@ -1196,7 +1232,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">Global with minor alterations</span>
           <span class="total">45
@@ -1227,7 +1263,7 @@ data-event-label="Change reporting status view to customisation"
           <span class="notapplicable" style="width:0.0%" title="Not applicable: 0%"></span></div>
         <div class="divider"></div>
       </div>
-      <br style="clear:both;"><div class="goal details">
+      <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
           <span class="status-field">Global without changes</span>
           <span class="total">141
@@ -1290,8 +1326,7 @@ data-event-label="Change reporting status view to customisation"
                 
                 </li>
               
-            
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
@@ -1322,7 +1357,7 @@ data-event-label="Change reporting status view to customisation"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914005927'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914005927"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20200914081254'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20200914081254"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
