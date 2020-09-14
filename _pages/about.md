@@ -1,7 +1,7 @@
 ---
-title: About
+title: pages.about_title
 permalink: /about/
 language: kk
 layout: page
 ---
-{{ page.t.pages.about | markdownify }}
+pages.about
