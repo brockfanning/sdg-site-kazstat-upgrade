@@ -1224,13 +1224,6 @@ body.contrast-high .navbar-brand:focus {
     @media only screen and (max-width: 768px) {
       .navbar #search {
         margin-bottom: 0; } }
-    .navbar #search label {
-      position: absolute;
-      top: 5px;
-      right: 0px;
-      font-size: 1.40em; }
-      .navbar #search label span {
-        display: none; }
     .navbar #search input {
       padding: 5px;
       padding-left: 5px;
@@ -1240,10 +1233,14 @@ body.contrast-high .navbar-brand:focus {
       transition: width 0.4s;
       margin-top: 5px;
       font-size: 16px; }
-
-#search-btn {
-  line-height: 15px;
-  height: 34px; }
+    .navbar #search button {
+      height: 34px;
+      color: #0b0c0c;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      font-size: 1.40em;
+      line-height: 15px; }
 
 .table .table-value {
   text-align: right; }
@@ -1318,21 +1315,13 @@ body.contrast-high .navbar-brand:focus {
       display: none;
       width: 100%;
       padding: 20px; }
-      .navbar #search label {
-        top: 23px;
-        left: 25px;
-        color: #0b0c0c; }
-      .navbar #search button {
-        display: inline-flex;
-        position: absolute;
-        right: 20px;
-        top: -3px; }
       .navbar #search input {
         width: 100%;
         color: #0b0c0c;
         margin-top: 0; }
-        .navbar #search input:focus {
-          width: 100%; } }
+      .navbar #search button {
+        right: 20px;
+        bottom: 20px; } }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .navbar {
     width: 100%; }
@@ -1358,7 +1347,7 @@ body.contrast-high .navbar li.active a {
     color: yellow; }
   body.contrast-high .navbar li.active a:focus {
     color: yellow; }
-body.contrast-high .navbar #search input, body.contrast-high .navbar #search label {
+body.contrast-high .navbar #search input, body.contrast-high .navbar #search button {
   color: black; }
 @media screen and (max-width: 768px) {
   body.contrast-high .navbar.navbar-default {
@@ -1483,7 +1472,7 @@ footer {
   #main-content #fields .bar {
     height: 7px;
     border: 1px solid #dedede;
-    margin: 2px;
+    margin: 8px 2px 2px 2px;
     padding: 0;
     position: relative; }
     #main-content #fields .bar > div {
@@ -1577,7 +1566,8 @@ footer {
     #main-content #fields .variable-selector[data-has-data="false"]:not(.disallowed) .no-data-hint {
       display: block; }
     #main-content #fields .variable-selector.disallowed .variable-hint {
-      display: block; }
+      display: block;
+      margin-top: 10px; }
 #main-content #units, #main-content #serieses {
   clear: left;
   margin-bottom: 20px; }
@@ -1621,7 +1611,7 @@ footer {
     #main-content #legend li:hover {
       background: #eee; }
     #main-content #legend li.notshown button {
-      text-decoration: line-through; }
+      text-decoration: line-through !important; }
   #main-content #legend .swatch {
     display: inline-block;
     width: 45px;
@@ -1647,6 +1637,9 @@ footer {
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none; }
+  #main-content canvas:focus {
+    background-color: transparent !important;
+    outline: 6px #ffdd00 solid !important; }
 #main-content.goal-indicators .indicator-cards a {
   padding: 1rem;
   display: inline-block;
@@ -1771,6 +1764,10 @@ footer {
     #main-content #selectionsTable .table-footer-text p {
       font-size: 0.85em;
       margin: 0 0 5px; }
+    #main-content #selectionsTable .table-footer-text dl {
+      font-size: 0.85em; }
+      #main-content #selectionsTable .table-footer-text dl dd {
+        margin: 0 0 5px; }
 #main-content #selectionsChart {
   padding-bottom: 20px; }
   #main-content #selectionsChart.chart-has-no-data #selectionChartFooter {
@@ -1779,6 +1776,16 @@ footer {
   font-size: 12px;
   line-height: 1.2;
   padding-left: 20px; }
+
+caption {
+  color: #0b0c0c; }
+
+.table-footer-text dl dt {
+  float: left;
+  margin-right: 5px;
+  font-weight: normal; }
+.table-footer-text dl dd {
+  margin-bottom: 10px; }
 
 .roleHeader {
   cursor: pointer; }
@@ -1831,6 +1838,9 @@ body.contrast-high #legend li {
     float: none;
     width: 100%; } }
 .goal-banner .goal-icon {
+  margin-top: 10px; }
+.goal-banner h1 .lead-copy {
+  display: block;
   margin-top: 10px; }
 
 body.contrast-high .goal-indicators div span {
@@ -2018,16 +2028,28 @@ body.contrast-high .reporting-status-description {
       margin-top: 10px; }
       #search-results .search-result a .title {
         margin-bottom: 5px;
-        font-size: 18px; }
-      #search-results .search-result a .url {
-        color: green;
-        font-size: 16px; }
+        font-size: 18px;
+        display: inline-block; }
+      #search-results .search-result a:focus .title {
+        color: #0b0c0c !important;
+        outline: 3px solid transparent !important;
+        background-color: #ffdd00 !important;
+        outline-offset: 0 !important;
+        box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c !important;
+        text-decoration: none !important; }
+        #search-results .search-result a:focus .title span.match {
+          background-color: transparent; }
       #search-results .search-result a:hover .title {
         text-decoration: underline; }
+    #search-results .search-result .url {
+      color: green;
+      font-size: 16px; }
+    #search-results .search-result .content {
+      margin-top: 2px; }
 
 body.contrast-high #search-results span.match {
   color: black !important; }
-body.contrast-high #search-results .search-result a .url {
+body.contrast-high #search-results .search-result .url {
   color: yellow !important; }
 body.contrast-high #search-results .search-result .content {
   color: white !important; }

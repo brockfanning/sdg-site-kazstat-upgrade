@@ -1625,6 +1625,7 @@ function makeDataset(years, rows, combination, labelFallback, color, background,
     borderColor: color,
     backgroundColor: background,
     pointBorderColor: color,
+    pointBackgroundColor: background,
     borderDash: border,
     borderWidth: 2,
     data: prepareDataForDataset(years, rows),
@@ -1638,7 +1639,6 @@ function getBaseDataset() {
   return Object.assign({}, {
     fill: false,
     pointHoverRadius: 5,
-    pointBackgroundColor: '#FFFFFF',
     pointHoverBorderWidth: 1,
     tension: 0,
     spanGaps: true
@@ -1696,6 +1696,7 @@ function makeHeadlineDataset(years, rows, label) {
     borderColor: getHeadlineColor(),
     backgroundColor: getHeadlineColor(),
     pointBorderColor: getHeadlineColor(),
+    pointBackgroundColor: getHeadlineColor(),
     borderWidth: 4,
     data: prepareDataForDataset(years, rows),
   });
@@ -2316,7 +2317,14 @@ var indicatorView = function (model, options) {
       $(element).find('.bar .selected').css('width', width);
 
       // is this an allowed field:
-      $(element)[_.contains(args.allowedFields, currentField) ? 'removeClass' : 'addClass']('disallowed');
+      if (_.contains(args.allowedFields, currentField)) {
+        $(element).removeClass('disallowed');
+        $(element).find('> button').removeAttr('aria-describedby');
+      }
+      else {
+        $(element).addClass('disallowed');
+        $(element).find('> button').attr('aria-describedby', 'variable-hint-' + currentField);
+      }
     });
   });
 
@@ -2503,6 +2511,7 @@ var indicatorView = function (model, options) {
   }
 
   this.updatePlot = function(chartInfo) {
+    this.updateIndicatorDataViewStatus(view_obj._chartInstance.data.datasets, chartInfo.datasets);
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
 
     if(chartInfo.selectedUnit) {
@@ -2525,7 +2534,6 @@ var indicatorView = function (model, options) {
     view_obj._chartInstance.update(1000, true);
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
-    view_obj.updateIndicatorDataViewStatus(chartInfo);
     view_obj.addLegendClickBehavior(this._legendElement, view_obj._chartInstance);
     view_obj.updateChartDownloadButton(chartInfo.selectionsTable);
   };
@@ -2620,7 +2628,6 @@ var indicatorView = function (model, options) {
         var $canvas = $(that._rootElement).find('canvas'),
         font = '12px Arial',
         canvas = $canvas.get(0),
-        textRowHeight = 20,
         ctx = canvas.getContext("2d");
 
         ctx.font = font;
@@ -2681,7 +2688,6 @@ var indicatorView = function (model, options) {
     });
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
-    view_obj.updateIndicatorDataViewStatus(chartInfo);
     view_obj.addLegendClickBehavior(this._legendElement, view_obj._chartInstance);
   };
 
@@ -2868,21 +2874,43 @@ var indicatorView = function (model, options) {
     }
   }
 
-  this.updateIndicatorDataViewStatus = function(chartInfo) {
-    var status = 'Chart and table shows no data.';
-    if (chartInfo.datasets.length > 0) {
-      var labels = chartInfo.datasets.map(function(dataset) {
-        return dataset.label;
-      });
-      status = 'Chart and table shows datasets for ' + labels.join(' and ') + '.';
-      if (chartInfo.selectedUnit) {
-        status += ' Selected unit of measurement is ' + chartInfo.selectedUnit + '.';
-      }
-      if (chartInfo.selectedSeries) {
-        status += ' Selected series is ' + chartInfo.selectedSeries + '.';
-      }
+  this.updateIndicatorDataViewStatus = function(oldDatasets, newDatasets) {
+    var status = '',
+        hasData = newDatasets.length > 0,
+        dataAdded = newDatasets.length > oldDatasets.length,
+        dataRemoved = newDatasets.length < oldDatasets.length,
+        getDatasetLabel = function(dataset) { return dataset.label; },
+        oldLabels = oldDatasets.map(getDatasetLabel),
+        newLabels = newDatasets.map(getDatasetLabel);
+
+    if (!hasData) {
+      status = 'Chart and table shows no data.';
     }
-    $('#indicator-data-view-status').html(status);
+    else if (dataAdded) {
+      status = 'Chart and table updated to include data.';
+      var addedLabels = [];
+      newLabels.forEach(function(label) {
+        if (!oldLabels.includes(label)) {
+          addedLabels.push(label);
+        }
+      });
+      status += ' ' + addedLabels.join(', ');
+    }
+    else if (dataRemoved) {
+      status = 'Chart and table updated to exclude data.';
+      var removedLabels = [];
+      oldLabels.forEach(function(label) {
+        if (!newLabels.includes(label)) {
+          removedLabels.push(label);
+        }
+      });
+      status += ' ' + removedLabels.join(', ');
+    }
+
+    var current = $('#indicator-data-view-status').text();
+    if (current != status) {
+      $('#indicator-data-view-status').text(status);
+    }
   }
 
   this.createSourceButton = function(indicatorId, el) {
@@ -2961,7 +2989,12 @@ var indicatorView = function (model, options) {
 
       $(el).removeClass('table-has-no-data');
 
-      $(el).find('th').removeAttr('tabindex');
+      $(el).find('th')
+        .removeAttr('tabindex')
+        .click(function() {
+          var sortDirection = $(this).attr('aria-sort');
+          $(this).find('span[role="button"]').attr('aria-sort', sortDirection);
+        });
     } else {
       $(el).append($('<h3 />').text(translations.indicator.data_not_available));
       $(el).addClass('table-has-no-data');
@@ -2973,9 +3006,12 @@ var indicatorView = function (model, options) {
       'id': divid,
       'class': 'table-footer-text'
     });
+    var footList = $('<dl>');
+    footdiv.append(footList);
 
     _.each(footerFields, function(val, key) {
-      footdiv.append($('<p />').text(key + ': ' + val));
+      footList.append($('<dt />').text(key + ': '));
+      footList.append($('<dd />').text(val));
     });
 
     $(el).append(footdiv);
@@ -3152,8 +3188,19 @@ var indicatorSearch = function() {
   // Helper function to get a boost score, if any.
   function getSearchFieldOptions(field) {
     var opts = {}
-    if (opensdg.searchIndexBoost[field]) {
-      opts['boost'] = parseInt(opensdg.searchIndexBoost[field])
+    // @deprecated start
+    if (opensdg.searchIndexBoost && !Array.isArray(opensdg.searchIndexBoost)) {
+      if (opensdg.searchIndexBoost[field]) {
+        opts['boost'] = parseInt(opensdg.searchIndexBoost[field])
+      }
+      return opts;
+    }
+    // @deprecated end
+    var fieldBoost = opensdg.searchIndexBoost.find(function(boost) {
+      return boost.field === field;
+    });
+    if (fieldBoost) {
+      opts['boost'] = parseInt(fieldBoost.boost)
     }
     return opts
   }
