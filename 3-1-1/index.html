@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201024011408">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201025011753">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -186,32 +186,15 @@ var translations = {
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
             aria-haspopup="true">
-          <button data-target="menu" aria-expanded="false">Меню</button>
-        </li>
-        <li id="searchToggle"
-            aria-label="Search toggle. Click to expand or collapse the search bar."
-            aria-haspopup="true">
-          <button data-target="search" aria-expanded="false">Іздеу</button>
-        </li>
-      </ul>
-
-      <div id="search" class="menu-target">
-  <form action="/sdg-site-kazstat-upgrade/search">
-    <input type="text" name="q" id="indicator_search" title="Іздеу" />
-    <label class="sr-only" for="indicator_search">Іздеу</label>
-    <button aria-label="Іздеу" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
-  </form>
-</div>
-
-
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-            <a href="/sdg-site-kazstat-upgrade/reporting-status">Есептіліктің жағдайы</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-site-kazstat-upgrade/about">Біз туралы</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-site-kazstat-upgrade/faq">Жиі қойылатын сұрақтар</a>
-          </li><li class="language-toggle-menu-header">
-          
+          <button data-target="menu-mobile" aria-expanded="false">Меню</button>
+          <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/reporting-status">Есептіліктің жағдайы</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/about">Біз туралы</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/faq">Жиі қойылатын сұрақтар</a>
+    </li><li class="language-toggle-menu-header">
+    
 
 
 
@@ -237,7 +220,68 @@ var translations = {
 
 
 
-        </li></ul>
+</li></ul>
+
+        </li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search-mobile" aria-expanded="false">Іздеу</button>
+          <div id="search-mobile" class="menu-target">
+  <form action="/sdg-site-kazstat-upgrade/search">
+    <input type="text" name="q" id="indicator_search-mobile" title="Іздеу" />
+    <label class="sr-only" for="indicator_search-mobile">Іздеу</label>
+    <button aria-label="Іздеу" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+        </li>
+      </ul>
+
+      <div id="search" class="menu-target">
+  <form action="/sdg-site-kazstat-upgrade/search">
+    <input type="text" name="q" id="indicator_search" title="Іздеу" />
+    <label class="sr-only" for="indicator_search">Іздеу</label>
+    <button aria-label="Іздеу" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/reporting-status">Есептіліктің жағдайы</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/about">Біз туралы</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/faq">Жиі қойылатын сұрақтар</a>
+    </li><li class="language-toggle-menu-header">
+    
+
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">Қазақ</span>
+      <span class="language-abbreviation">kz</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/3-1-1/">
+              Pусский
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/en/3-1-1/">
+              English
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
+
+</li></ul>
+
 
     </nav>
   </div>
@@ -248,20 +292,23 @@ var translations = {
 
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
-    <fieldset>
-      <legend class="sr-only">Субкатегориялар - <%=translations.t(fieldItem.field)%></legend>
-      <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-        <button class='accessBtn' tabindex='0' aria-expanded='false'
-          <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-          aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
-          <% }%>
-        >
-          <h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5>
-        </button>
-        <div class="bar">
-          <div class="selected"></div>
-        </div>
-        <div class="variable-options">
+    <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.field)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Субкатегориялар - <%=translations.t(fieldItem.field)%></legend>
           <div>
             <button data-type="select">Барлығын белгілеу</button>
             <button data-type="clear">Барлығын тазарту</button>
@@ -271,18 +318,18 @@ var translations = {
               <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
             </label>
           <% }); %>
-        </div>
-
-        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-          <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Таңдаған кезде қолжетімді
-          </div>
-          <div class="no-data-hint">
-            Жоғарыда фильтрлар бар болғандықтан нұсқалар жоқ
-          </div>
-        <% }%>
-
+        </fieldset>
       </div>
-    </fieldset>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Таңдаған кезде қолжетімді
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          Жоғарыда фильтрлар бар болғандықтан нұсқалар жоқ
+        </div>
+      <% }%>
+
+    </div>
   <% }); %>
 </script>
 
@@ -330,9 +377,9 @@ var translations = {
 <div class="heading goal-banner indicator goal-3">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
         <a href="/sdg-site-kazstat-upgrade/3" title="Осы мақсаттың көрсеткіштерінің тізімін көру">
-          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/3.png" alt="Денсаулық пен амандық - Мақсат 3" />
+          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/3.png" alt="Денсаулық пен амандық - Мақсат 3" id="goal-3"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
@@ -358,11 +405,6 @@ var translations = {
   
 
 
-
-
-
-
-
 <div class="row"
   id="indicatorData"
   data-indicatorid='indicator_3-1-1'
@@ -371,10 +413,6 @@ var translations = {
   data-charttitle="Ана өлім-жетімінің коэффициенті"
   data-charttitles="null"
   data-measurementunit="data.на 100 тыс.родившихся живыми"
-  data-datasource=""
-  data-copyright=""
-  data-geographicalarea="Қазақстан"
-  data-footnote=""
   data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
@@ -382,6 +420,7 @@ var translations = {
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
+  data-graphannotations="null"
 >
   
   <span role="status" class="sr-only" id="indicator-data-view-status"></span>
@@ -717,6 +756,31 @@ opensdg.chartConfigAlter(function(config, info) {
 
           </div>
           <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географиялық аудан:</dt>
+        <dd>Қазақстан</dd>
+        
+
+        
+        <dt>Өлшем бірлігі:</dt>
+        <dd>data.на 100 тыс.родившихся живыми</dd>
+        
+
+        
+
+        
+    <dl>
+</div>
+
         </div>
       </figure>
       <div id="chartSelectionDownload" class="clearfix">
@@ -735,10 +799,63 @@ opensdg.chartConfigAlter(function(config, info) {
     </div>
     <div id="selectionsTable"></div>
 
-  </div><div role="tabpanel" class="tab-pane" id="mapview" class="map">
-    <div id="map" aria-describedby="table-alternative">
-  <img src="/sdg-site-kazstat-upgrade/assets/img/loading.gif" alt="Картаны жүктеу" />
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географиялық аудан:</dt>
+        <dd>Қазақстан</dd>
+        
+
+        
+        <dt>Өлшем бірлігі:</dt>
+        <dd>data.на 100 тыс.родившихся живыми</dd>
+        
+
+        
+
+        
+    <dl>
 </div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>'
+
+  </div><div role="tabpanel" class="tab-pane" id="mapview" class="map">
+    
+<h4 id="map-heading" class="chart-title">Ана өлім-жетімінің коэффициенті</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/sdg-site-kazstat-upgrade/assets/img/loading.gif" alt="Картаны жүктеу" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географиялық аудан:</dt>
+        <dd>Қазақстан</dd>
+        
+
+        
+        <dt>Өлшем бірлігі:</dt>
+        <dd>data.на 100 тыс.родившихся живыми</dd>
+        
+
+        
+
+        
+    <dl>
+</div>
+
 
   </div>
 </div>
@@ -1731,6 +1848,7 @@ data-event-label="Change to Sources tab"
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+}
 
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
@@ -1750,7 +1868,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Іздеу';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201024011408'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201024011408"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201025011753'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201025011753"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1783,15 +1901,12 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

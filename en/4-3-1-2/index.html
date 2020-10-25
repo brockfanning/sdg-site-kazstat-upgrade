@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201024011408">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201025011753">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -186,32 +186,15 @@ var translations = {
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
             aria-haspopup="true">
-          <button data-target="menu" aria-expanded="false">Menu</button>
-        </li>
-        <li id="searchToggle"
-            aria-label="Search toggle. Click to expand or collapse the search bar."
-            aria-haspopup="true">
-          <button data-target="search" aria-expanded="false">Search</button>
-        </li>
-      </ul>
-
-      <div id="search" class="menu-target">
-  <form action="/sdg-site-kazstat-upgrade/en/search">
-    <input type="text" name="q" id="indicator_search" title="Search" />
-    <label class="sr-only" for="indicator_search">Search</label>
-    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
-  </form>
-</div>
-
-
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-            <a href="/sdg-site-kazstat-upgrade/en/reporting-status">Reporting Status</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-site-kazstat-upgrade/en/about">About</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-site-kazstat-upgrade/en/faq">FAQ</a>
-          </li><li class="language-toggle-menu-header">
-          
+          <button data-target="menu-mobile" aria-expanded="false">Menu</button>
+          <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/en/reporting-status">Reporting Status</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/en/about">About</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/en/faq">FAQ</a>
+    </li><li class="language-toggle-menu-header">
+    
 
 
 
@@ -237,7 +220,68 @@ var translations = {
 
 
 
-        </li></ul>
+</li></ul>
+
+        </li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search-mobile" aria-expanded="false">Search</button>
+          <div id="search-mobile" class="menu-target">
+  <form action="/sdg-site-kazstat-upgrade/en/search">
+    <input type="text" name="q" id="indicator_search-mobile" title="Search" />
+    <label class="sr-only" for="indicator_search-mobile">Search</label>
+    <button aria-label="Search" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+        </li>
+      </ul>
+
+      <div id="search" class="menu-target">
+  <form action="/sdg-site-kazstat-upgrade/en/search">
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/en/reporting-status">Reporting Status</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/en/about">About</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-site-kazstat-upgrade/en/faq">FAQ</a>
+    </li><li class="language-toggle-menu-header">
+    
+
+
+
+
+
+  <div class="language-toggle-container">
+  
+  <div class="btn-group language-toggle-dropdown ">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="language-globe-in-dropdown"><i class="fa fa-globe language-toggle-globe-dropdown"></i></span><span class="language-name">English</span>
+      <span class="language-abbreviation">en</span><i class="language-toggle-caret fa fa-chevron-down"></i></button>
+    <ul class="dropdown-menu"><li>
+            <a href="/sdg-site-kazstat-upgrade/4-3-1-2/">
+              Қазақ
+            </a>
+          </li><li>
+            <a href="/sdg-site-kazstat-upgrade/ru/4-3-1-2/">
+              Pусский
+            </a>
+          </li></ul>
+  </div>
+</div>
+
+
+
+</li></ul>
+
 
     </nav>
   </div>
@@ -248,20 +292,23 @@ var translations = {
 
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
-    <fieldset>
-      <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
-      <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-        <button class='accessBtn' tabindex='0' aria-expanded='false'
-          <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-          aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
-          <% }%>
-        >
-          <h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5>
-        </button>
-        <div class="bar">
-          <div class="selected"></div>
-        </div>
-        <div class="variable-options">
+    <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.field)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
           <div>
             <button data-type="select">Select all</button>
             <button data-type="clear">Clear all</button>
@@ -271,18 +318,18 @@ var translations = {
               <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
             </label>
           <% }); %>
-        </div>
-
-        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-          <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
-          </div>
-          <div class="no-data-hint">
-            No options available because of filters above
-          </div>
-        <% }%>
-
+        </fieldset>
       </div>
-    </fieldset>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          No options available because of filters above
+        </div>
+      <% }%>
+
+    </div>
   <% }); %>
 </script>
 
@@ -330,9 +377,9 @@ var translations = {
 <div class="heading goal-banner indicator goal-4">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
         <a href="/sdg-site-kazstat-upgrade/en/4" title="View this goal's indicator list">
-          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.png" alt="Quality education - Goal 4" />
+          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.png" alt="Quality education - Goal 4" id="goal-4"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
@@ -358,11 +405,6 @@ var translations = {
   
 
 
-
-
-
-
-
 <div class="row"
   id="indicatorData"
   data-indicatorid='indicator_4-3-1-2'
@@ -371,10 +413,6 @@ var translations = {
   data-charttitle="Citizens (age 18-28) who received technical and professional (vocational) training as a proportion of total economically active population of the same age"
   data-charttitles="null"
   data-measurementunit="Percent"
-  data-datasource=""
-  data-copyright=""
-  data-geographicalarea="Kazakhstan"
-  data-footnote=""
   data-showdata="true"
   data-graphtype="bar"
   data-geocoderegex=""
@@ -382,6 +420,7 @@ var translations = {
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
+  data-graphannotations="null"
 >
   
   <span role="status" class="sr-only" id="indicator-data-view-status"></span>
@@ -635,10 +674,10 @@ data-event-label="Change to Table tab"
           <h4 id="chart-heading" class="chart-title">Citizens (age 18-28) who received technical and professional (vocational) training as a proportion of total economically active population of the same age</h4>
           <div id="chart" class="plot-container">
             
-<canvas 
+<canvas
     role="img"
     aria-labelledby="chart-heading"
-    aria-describedby="table-alternative legend-help"
+    aria-describedby="table-alternative chart-annotations"
     tabindex="0"
  ></canvas>
 
@@ -662,6 +701,169 @@ opensdg.chartConfigAlter(function(config, info) {
     // Add these overrides onto the normal config.
     $.extend(true, config, overrides);
   }
+});
+</script>
+
+<span style="display: none;" id="chart-annotations" role="status"></span>
+<script>
+opensdg.annotationPresets = {
+    common: {
+        // This "common" preset is applied to all annotations automatically.
+        borderColor: '#505a5f',
+        type: 'line',
+        label: {
+            backgroundColor: 'black',
+            fontColor: 'white',
+        },
+        // This "highContrast" overrides colors when in high-contrast mode.
+        highContrast: {
+            label: {
+                backgroundColor: 'white',
+                fontColor: 'black'
+            }
+        },
+        // This callback is used to generate a generic description for screenreaders.
+        // This can be overridden to be a more specific string, eg:
+        //
+        //     description: 'Chart annotation showing a 2030 target of 15%'
+        //
+        description: function() {
+            var descriptionParts = ['Chart annotation'];
+            if (this.label && this.label.content) {
+                descriptionParts.push(translations.t(this.label.content));
+            }
+            else {
+                // If there is no label, just specify whether it is a box or line.
+                if (this.type == 'line') {
+                    descriptionParts.push(this.mode + ' line');
+                }
+                if (this.type == 'box') {
+                    descriptionParts.push('box');
+                }
+            }
+            if (typeof this.value !== 'undefined') {
+                descriptionParts.push(this.value);
+            }
+            return descriptionParts.join(': ');
+        },
+    },
+    target_line: {
+        mode: 'horizontal',
+        borderDash: [5, 5],
+        label: {
+            position: 'right',
+            content: '2030 Target',
+        },
+    },
+};
+
+// Add a chart alteration to support the chart_annotations metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+    if (info.graphAnnotations) {
+        var annotations = info.graphAnnotations.filter(function(annotation) {
+            var match = true;
+            if (match && info.selectedUnit) {
+                match = (info.selectedUnit === annotation.unit);
+            }
+            if (match && info.selectedSeries) {
+                match = (info.selectedSeries === annotation.series);
+            }
+            return match;
+        });
+        // Apply some helpers/fixes to the annotations.
+        annotations = annotations.map(function(annotation) {
+            // Apply the "common" preset.
+            if (opensdg.annotationPresets.common) {
+                annotation = $.extend(true, {}, opensdg.annotationPresets.common, annotation);
+            }
+            // Apply any specified presets.
+            if (annotation.preset) {
+                var preset = annotation.preset;
+                if (opensdg.annotationPresets[preset]) {
+                    annotation = $.extend(true, {}, opensdg.annotationPresets[preset], annotation);
+                }
+            }
+            // Default to horizontal lines.
+            if (!annotation.mode && annotation.type === 'line') {
+                annotation.mode = 'horizontal';
+            }
+            // Provide the obscure scaleID properties on user's behalf.
+            if (!annotation.scaleID && annotation.type === 'line') {
+                if (annotation.mode === 'horizontal') {
+                    annotation.scaleID = 'y-axis-0';
+                }
+                if (annotation.mode === 'vertical') {
+                    annotation.scaleID = 'x-axis-0';
+                }
+            }
+            if (!annotation.xScaleID && annotation.type === 'box') {
+                annotation.xScaleID = 'x-axis-0';
+            }
+            if (!annotation.yScaleID && annotation.type === 'box') {
+                annotation.yScaleID = 'y-axis-0';
+            }
+            // Provide the "enabled" label property on the user's behalf.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.enabled = true;
+            }
+            // Translate any label content.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.content = translations.t(annotation.label.content);
+            }
+            // Save some original values for later used when contrast mode is switched.
+            if (typeof annotation.defaultContrast === 'undefined') {
+                annotation.defaultContrast = {};
+                if (annotation.borderColor) {
+                    annotation.defaultContrast.borderColor = annotation.borderColor;
+                }
+                if (annotation.backgroundColor) {
+                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
+                }
+                if (annotation.label) {
+                    annotation.defaultContrast.label = {};
+                    if (annotation.label.fontColor) {
+                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
+                    }
+                    if (annotation.label.backgroundColor) {
+                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
+                    }
+                }
+            }
+            return annotation;
+        });
+        if (annotations.length > 0) {
+            var overrides = {
+                options: {
+                    annotation: {
+                        drawTime: 'afterDatasetsDraw',
+                        annotations: annotations
+                    }
+                }
+            };
+            // Add these overrides onto the normal config.
+            $.extend(true, config, overrides);
+
+            // Update the chart annotations element.
+            var descriptions = annotations.map(function(annotation) {
+                var description = '';
+                if (annotation.description) {
+                    if (typeof annotation.description === 'function') {
+                        description = annotation.description.call(annotation);
+                    }
+                    else {
+                        description = translations.t(annotation.description);
+                    }
+                }
+                return description;
+            }).filter(function(description) { return description != ''; });
+
+            var currentDescription = $('#chart-annotations').text();
+            var newDescription = descriptions.join('. ');
+            if (currentDescription != newDescription) {
+                $('#chart-annotations').text(newDescription);
+            }
+        }
+    }
 });
 </script>
 
@@ -697,6 +899,31 @@ opensdg.chartConfigAlter(function(config, info) {
 
           </div>
           <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>Kazakhstan</dd>
+        
+
+        
+        <dt>Unit of Measurement:</dt>
+        <dd>Percent</dd>
+        
+
+        
+
+        
+    <dl>
+</div>
+
         </div>
       </figure>
       <div id="chartSelectionDownload" class="clearfix">
@@ -714,6 +941,32 @@ opensdg.chartConfigAlter(function(config, info) {
       <span id="column-sort-info">Click to sort by this column</span>
     </div>
     <div id="selectionsTable"></div>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>Kazakhstan</dd>
+        
+
+        
+        <dt>Unit of Measurement:</dt>
+        <dd>Percent</dd>
+        
+
+        
+
+        
+    <dl>
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>'
 
   </div>
 </div>
@@ -1694,6 +1947,7 @@ data-event-label="Change to Sources tab"
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
@@ -1704,7 +1958,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201024011408'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201024011408"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201025011753'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201025011753"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1737,15 +1991,12 @@ $(function() {
               chartTitle: domData.charttitle,
               chartTitles: domData.charttitles,
               measurementUnit: domData.measurementunit,
-              copyright: domData.copyright,
-              dataSource: domData.datasource,
-              geographicalArea: domData.geographicalarea,
               showData: domData.showdata,
-              footnote: domData.footnote,
               graphType: domData.graphtype,
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
