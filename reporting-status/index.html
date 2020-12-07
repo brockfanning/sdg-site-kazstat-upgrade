@@ -91,7 +91,7 @@ var translations = {
         ================================================== -->
 
         
-    <title>Indicators For The Sustainable Development Goals</title>
+    <title>Есептіліктің жағдайы - Indicators For The Sustainable Development Goals</title>
 
 
 
@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201206010829">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201207001507">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -184,7 +184,7 @@ var translations = {
 
       <ul class="top-level">
         <li id="menuToggle"
-            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-label=""
             aria-haspopup="true">
           <button data-target="menu-mobile" aria-expanded="false">Меню</button>
           <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link active">
@@ -224,7 +224,7 @@ var translations = {
 
         </li>
         <li id="searchToggle"
-            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-label=""
             aria-haspopup="true">
           <button data-target="search-mobile" aria-expanded="false">Іздеу</button>
           <div id="search-mobile" class="menu-target">
@@ -291,7 +291,13 @@ var translations = {
 
 
 
-<div id="main-content" class="container reportingstatus">
+
+
+
+
+
+
+<div id="main-content" class="container reportingstatus" role="main">
 
   <h1>
   
@@ -300,35 +306,7 @@ var translations = {
 </h1>
 
 
-<div class="goal goal-overall">
-      <div class="details">
-        <h2 class="status-goal">
-            Есептіліктің жалпы жағдайы <span class="total"><span>221</span> көрсеткіштер</span>
-        </h2>
-        <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">160</span><strong>Интернетте хабарланған</strong><span class="value">72%</span>
-            </div><div>
-              <span class="status notstarted">49</span><strong>Дереккөздерін зерттеу</strong><span class="value">22%</span>
-            </div><div>
-              <span class="status notapplicable">12</span><strong>Жарамсыз</strong><span class="value">5%</span>
-            </div><br style="clear:both;">
-          </div>
-        </div>
-        <div class="goal-stats">
-            
-            
-            <span class="complete" style="width:72.39819004524887%" title="Интернетте хабарланған: 72%"></span>
-            
-            
-            <span class="notstarted" style="width:22.171945701357465%" title="Дереккөздерін зерттеу: 22%"></span>
-            
-            
-            <span class="notapplicable" style="width:5.429864253393665%" title="Жарамсыз: 5%"></span></div>
 
-      </div>
-    <br style="clear:both;">
-  </div>
 
   
   <ul class="nav nav-tabs reporting-status-view" role="tablist">
@@ -337,30 +315,34 @@ var translations = {
 data-event-category="Tab change"
 data-event-action="Change reporting status view"
 data-event-label="Change reporting status view to goals"
->Мақсат бойынша мәртебе</a>
+>Есептіліктің жағдайы</a>
     </li>
     
-    
-    
-    
-    <li role="presentation" class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#un_designated_tierview" aria-controls="un_designated_tier" role="tab" data-on="click"
+      
+      
+      
+      
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#un_designated_tierview" aria-controls="un_designated_tier" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change reporting status view"
 data-event-label="Change reporting status view to un_designated_tier"
 >БҰҰ-мен тағайындалған деңгейі мәртебесі</a>
-    </li>
-    
-    
-    
-    
-    <li role="presentation" class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#customisationview" aria-controls="customisation" role="tab" data-on="click"
+      </li>
+      
+      
+      
+      
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#customisationview" aria-controls="customisation" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change reporting status view"
 data-event-label="Change reporting status view to customisation"
 >Жаhандық көрсеткішпен салыстыру мәртебесі</a>
-    </li>
+      </li>
+      
+    
+
     
   </ul>
   
@@ -368,977 +350,1060 @@ data-event-label="Change reporting status view to customisation"
   
   <div class="tab-content reporting-status-view">
     <div role="tabpanel" class="tab-pane active" id="goalsview">
-  <div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/1">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/1.png" alt="Кедейлікті жою - Мақсат 1" width="100" height="100" id="goal-1"/>
-          </a>
+  
+  <div class="goal goal-overall">
+    <div class="details">
+        <h2 class="status-goal">
+            Есептіліктің жалпы жағдайы <span class="total"><span>221</span> көрсеткіштер</span>
+        </h2>
+        <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete"><span class="status-inner">164</span></span><strong>Интернетте хабарланған</strong><span class="value">74%</span>
+            </div><div>
+                <span class="status notstarted"><span class="status-inner">45</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">20%</span>
+            </div><div>
+                <span class="status notapplicable"><span class="status-inner">12</span></span><strong>Жарамсыз</strong><span class="value">5%</span>
+            </div><br style="clear:both;">
+            </div>
         </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+            
+            
+            <span class="complete" style="width:74.2081447963801%" title="Интернетте хабарланған: 74%"></span>
+            
+            
+            <span class="notstarted" style="width:20.361990950226243%" title="Дереккөздерін зерттеу: 20%"></span>
+            
+            
+            <span class="notapplicable" style="width:5.429864253393665%" title="Жарамсыз: 5%"></span></div>
+    </div>
+    <br style="clear:both;">
+</div>
+  <h2>Мақсат бойынша мәртебе</h2><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/1">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/1.png" alt="Кедейлікті жою - Мақсат 1" width="100" height="100" class="goal-icon-1"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/1">Кедейлікті жою</a>
             <span class="total">12 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">8</span><strong>Интернетте хабарланған</strong><span class="value">67%</span>
-              </div><div>
-                <span class="status notstarted">4</span><strong>Дереккөздерін зерттеу</strong><span class="value">33%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">10</span></span><strong>Интернетте хабарланған</strong><span class="value">83%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">2</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">17%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:66.66666666666666%" title="Интернетте хабарланған: 67%"></span>
-          
-          
-            <span class="notstarted" style="width:33.33333333333333%" title="Дереккөздерін зерттеу: 33%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/2">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/2.png" alt="Аштықты жою - Мақсат 2" width="100" height="100" id="goal-2"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:83.33333333333334%" title="Интернетте хабарланған: 83%"></span>
+                
+                
+                <span class="notstarted" style="width:16.666666666666664%" title="Дереккөздерін зерттеу: 17%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/2">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/2.png" alt="Аштықты жою - Мақсат 2" width="100" height="100" class="goal-icon-2"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/2">Аштықты жою</a>
             <span class="total">16 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">12</span><strong>Интернетте хабарланған</strong><span class="value">75%</span>
-              </div><div>
-                <span class="status notstarted">3</span><strong>Дереккөздерін зерттеу</strong><span class="value">19%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Жарамсыз</strong><span class="value">6%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">14</span></span><strong>Интернетте хабарланған</strong><span class="value">88%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">1</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">6%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Жарамсыз</strong><span class="value">6%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:75.0%" title="Интернетте хабарланған: 75%"></span>
-          
-          
-            <span class="notstarted" style="width:18.75%" title="Дереккөздерін зерттеу: 19%"></span>
-          
-          
-            <span class="notapplicable" style="width:6.25%" title="Жарамсыз: 6%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/3">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/3.png" alt="Денсаулық пен амандық - Мақсат 3" width="100" height="100" id="goal-3"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:87.5%" title="Интернетте хабарланған: 88%"></span>
+                
+                
+                <span class="notstarted" style="width:6.25%" title="Дереккөздерін зерттеу: 6%"></span>
+                
+                
+                <span class="notapplicable" style="width:6.25%" title="Жарамсыз: 6%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/3">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/3.png" alt="Денсаулық пен амандық - Мақсат 3" width="100" height="100" class="goal-icon-3"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/3">Денсаулық пен амандық</a>
             <span class="total">30 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">21</span><strong>Интернетте хабарланған</strong><span class="value">70%</span>
-              </div><div>
-                <span class="status notstarted">7</span><strong>Дереккөздерін зерттеу</strong><span class="value">23%</span>
-              </div><div>
-                <span class="status notapplicable">2</span><strong>Жарамсыз</strong><span class="value">7%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">23</span></span><strong>Интернетте хабарланған</strong><span class="value">77%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">5</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">17%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">2</span></span><strong>Жарамсыз</strong><span class="value">7%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:70.0%" title="Интернетте хабарланған: 70%"></span>
-          
-          
-            <span class="notstarted" style="width:23.333333333333336%" title="Дереккөздерін зерттеу: 23%"></span>
-          
-          
-            <span class="notapplicable" style="width:6.666666666666667%" title="Жарамсыз: 7%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/4">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/4.png" alt="Сапалы білім беру - Мақсат 4" width="100" height="100" id="goal-4"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:76.66666666666667%" title="Интернетте хабарланған: 77%"></span>
+                
+                
+                <span class="notstarted" style="width:16.666666666666664%" title="Дереккөздерін зерттеу: 17%"></span>
+                
+                
+                <span class="notapplicable" style="width:6.666666666666667%" title="Жарамсыз: 7%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/4">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/4.png" alt="Сапалы білім беру - Мақсат 4" width="100" height="100" class="goal-icon-4"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/4">Сапалы білім беру</a>
             <span class="total">27 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">20</span><strong>Интернетте хабарланған</strong><span class="value">74%</span>
-              </div><div>
-                <span class="status notstarted">7</span><strong>Дереккөздерін зерттеу</strong><span class="value">26%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">25</span></span><strong>Интернетте хабарланған</strong><span class="value">93%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">2</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">7%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:74.07407407407408%" title="Интернетте хабарланған: 74%"></span>
-          
-          
-            <span class="notstarted" style="width:25.925925925925924%" title="Дереккөздерін зерттеу: 26%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/5">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/5.png" alt="Гендерлік теңдік - Мақсат 5" width="100" height="100" id="goal-5"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:92.5925925925926%" title="Интернетте хабарланған: 93%"></span>
+                
+                
+                <span class="notstarted" style="width:7.407407407407407%" title="Дереккөздерін зерттеу: 7%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/5">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/5.png" alt="Гендерлік теңдік - Мақсат 5" width="100" height="100" class="goal-icon-5"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/5">Гендерлік теңдік</a>
             <span class="total">18 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">12</span><strong>Интернетте хабарланған</strong><span class="value">67%</span>
-              </div><div>
-                <span class="status notstarted">4</span><strong>Дереккөздерін зерттеу</strong><span class="value">22%</span>
-              </div><div>
-                <span class="status notapplicable">2</span><strong>Жарамсыз</strong><span class="value">11%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">13</span></span><strong>Интернетте хабарланған</strong><span class="value">72%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">3</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">17%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">2</span></span><strong>Жарамсыз</strong><span class="value">11%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:66.66666666666666%" title="Интернетте хабарланған: 67%"></span>
-          
-          
-            <span class="notstarted" style="width:22.22222222222222%" title="Дереккөздерін зерттеу: 22%"></span>
-          
-          
-            <span class="notapplicable" style="width:11.11111111111111%" title="Жарамсыз: 11%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/6">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/6.png" alt="Таза су мен санитария - Мақсат 6" width="100" height="100" id="goal-6"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:72.22222222222221%" title="Интернетте хабарланған: 72%"></span>
+                
+                
+                <span class="notstarted" style="width:16.666666666666664%" title="Дереккөздерін зерттеу: 17%"></span>
+                
+                
+                <span class="notapplicable" style="width:11.11111111111111%" title="Жарамсыз: 11%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/6">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/6.png" alt="Таза су мен санитария - Мақсат 6" width="100" height="100" class="goal-icon-6"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/6">Таза су мен санитария</a>
             <span class="total">11 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">11</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
-              </div><div>
-                <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">11</span></span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">0</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
-          
-          
-            <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/7">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/7.png" alt="Қолжетімді әрі таза энергия - Мақсат 7" width="100" height="100" id="goal-7"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/7">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/7.png" alt="Қолжетімді әрі таза энергия - Мақсат 7" width="100" height="100" class="goal-icon-7"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/7">Қолжетімді әрі таза энергия</a>
             <span class="total">7 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">6</span><strong>Интернетте хабарланған</strong><span class="value">86%</span>
-              </div><div>
-                <span class="status notstarted">1</span><strong>Дереккөздерін зерттеу</strong><span class="value">14%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">5</span></span><strong>Интернетте хабарланған</strong><span class="value">71%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">2</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">29%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:85.71428571428571%" title="Интернетте хабарланған: 86%"></span>
-          
-          
-            <span class="notstarted" style="width:14.285714285714285%" title="Дереккөздерін зерттеу: 14%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/8">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/8.png" alt="Лайықты жұмыс пен экономикалық өсу - Мақсат 8" width="100" height="100" id="goal-8"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:71.42857142857143%" title="Интернетте хабарланған: 71%"></span>
+                
+                
+                <span class="notstarted" style="width:28.57142857142857%" title="Дереккөздерін зерттеу: 29%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/8">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/8.png" alt="Лайықты жұмыс пен экономикалық өсу - Мақсат 8" width="100" height="100" class="goal-icon-8"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/8">Лайықты жұмыс пен экономикалық өсу</a>
             <span class="total">16 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">15</span><strong>Интернетте хабарланған</strong><span class="value">94%</span>
-              </div><div>
-                <span class="status notstarted">1</span><strong>Дереккөздерін зерттеу</strong><span class="value">6%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">16</span></span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">0</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:93.75%" title="Интернетте хабарланған: 94%"></span>
-          
-          
-            <span class="notstarted" style="width:6.25%" title="Дереккөздерін зерттеу: 6%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/9">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/9.png" alt="Индустриализация, инновациялар мен инфрақұрылым - Мақсат 9" width="100" height="100" id="goal-9"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/9">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/9.png" alt="Индустриализация, инновациялар мен инфрақұрылым - Мақсат 9" width="100" height="100" class="goal-icon-9"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/9">Индустриализация, инновациялар мен инфрақұрылым</a>
             <span class="total">17 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">11</span><strong>Интернетте хабарланған</strong><span class="value">65%</span>
-              </div><div>
-                <span class="status notstarted">6</span><strong>Дереккөздерін зерттеу</strong><span class="value">35%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">15</span></span><strong>Интернетте хабарланған</strong><span class="value">88%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">2</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">12%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:64.70588235294117%" title="Интернетте хабарланған: 65%"></span>
-          
-          
-            <span class="notstarted" style="width:35.294117647058826%" title="Дереккөздерін зерттеу: 35%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/10">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/10.png" alt="Теңсіздікті қысқарту - Мақсат 10" width="100" height="100" id="goal-10"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:88.23529411764706%" title="Интернетте хабарланған: 88%"></span>
+                
+                
+                <span class="notstarted" style="width:11.76470588235294%" title="Дереккөздерін зерттеу: 12%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/10">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/10.png" alt="Теңсіздікті қысқарту - Мақсат 10" width="100" height="100" class="goal-icon-10"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/10">Теңсіздікті қысқарту</a>
             <span class="total">14 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">6</span><strong>Интернетте хабарланған</strong><span class="value">43%</span>
-              </div><div>
-                <span class="status notstarted">8</span><strong>Дереккөздерін зерттеу</strong><span class="value">57%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">7</span></span><strong>Интернетте хабарланған</strong><span class="value">50%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">6</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">43%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Жарамсыз</strong><span class="value">7%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:42.857142857142854%" title="Интернетте хабарланған: 43%"></span>
-          
-          
-            <span class="notstarted" style="width:57.14285714285714%" title="Дереккөздерін зерттеу: 57%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/11">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/11.png" alt="Тұрақты қалалар мен елді мекендер - Мақсат 11" width="100" height="100" id="goal-11"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:50.0%" title="Интернетте хабарланған: 50%"></span>
+                
+                
+                <span class="notstarted" style="width:42.857142857142854%" title="Дереккөздерін зерттеу: 43%"></span>
+                
+                
+                <span class="notapplicable" style="width:7.142857142857142%" title="Жарамсыз: 7%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/11">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/11.png" alt="Тұрақты қалалар мен елді мекендер - Мақсат 11" width="100" height="100" class="goal-icon-11"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/11">Тұрақты қалалар мен елді мекендер</a>
             <span class="total">14 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">11</span><strong>Интернетте хабарланған</strong><span class="value">79%</span>
-              </div><div>
-                <span class="status notstarted">3</span><strong>Дереккөздерін зерттеу</strong><span class="value">21%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">11</span></span><strong>Интернетте хабарланған</strong><span class="value">79%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">3</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">21%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:78.57142857142857%" title="Интернетте хабарланған: 79%"></span>
-          
-          
-            <span class="notstarted" style="width:21.428571428571427%" title="Дереккөздерін зерттеу: 21%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/12">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/12.png" alt="Жауапты тұтыну мен өндіру - Мақсат 12" width="100" height="100" id="goal-12"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:78.57142857142857%" title="Интернетте хабарланған: 79%"></span>
+                
+                
+                <span class="notstarted" style="width:21.428571428571427%" title="Дереккөздерін зерттеу: 21%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/12">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/12.png" alt="Жауапты тұтыну мен өндіру - Мақсат 12" width="100" height="100" class="goal-icon-12"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/12">Жауапты тұтыну мен өндіру</a>
             <span class="total">13 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">4</span><strong>Интернетте хабарланған</strong><span class="value">31%</span>
-              </div><div>
-                <span class="status notstarted">9</span><strong>Дереккөздерін зерттеу</strong><span class="value">69%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">4</span></span><strong>Интернетте хабарланған</strong><span class="value">31%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">9</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">69%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:30.76923076923077%" title="Интернетте хабарланған: 31%"></span>
-          
-          
-            <span class="notstarted" style="width:69.23076923076923%" title="Дереккөздерін зерттеу: 69%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/13">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/13.png" alt="Климаттың өзгеруіне қарсы күрес - Мақсат 13" width="100" height="100" id="goal-13"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:30.76923076923077%" title="Интернетте хабарланған: 31%"></span>
+                
+                
+                <span class="notstarted" style="width:69.23076923076923%" title="Дереккөздерін зерттеу: 69%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/13">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/13.png" alt="Климаттың өзгеруіне қарсы күрес - Мақсат 13" width="100" height="100" class="goal-icon-13"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/13">Климаттың өзгеруіне қарсы күрес</a>
             <span class="total">8 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">13%</span>
-              </div><div>
-                <span class="status notstarted">5</span><strong>Дереккөздерін зерттеу</strong><span class="value">63%</span>
-              </div><div>
-                <span class="status notapplicable">2</span><strong>Жарамсыз</strong><span class="value">25%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">3</span></span><strong>Интернетте хабарланған</strong><span class="value">38%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">3</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">38%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">2</span></span><strong>Жарамсыз</strong><span class="value">25%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:12.5%" title="Интернетте хабарланған: 13%"></span>
-          
-          
-            <span class="notstarted" style="width:62.5%" title="Дереккөздерін зерттеу: 63%"></span>
-          
-          
-            <span class="notapplicable" style="width:25.0%" title="Жарамсыз: 25%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/14">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/14.png" alt="Мұхит экожүйелерін қорғау - Мақсат 14" width="100" height="100" id="goal-14"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:37.5%" title="Интернетте хабарланған: 38%"></span>
+                
+                
+                <span class="notstarted" style="width:37.5%" title="Дереккөздерін зерттеу: 38%"></span>
+                
+                
+                <span class="notapplicable" style="width:25.0%" title="Жарамсыз: 25%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/14">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/14.png" alt="Мұхит экожүйелерін қорғау - Мақсат 14" width="100" height="100" class="goal-icon-14"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/14">Мұхит экожүйелерін қорғау</a>
             <span class="total">8 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">4</span><strong>Интернетте хабарланған</strong><span class="value">50%</span>
-              </div><div>
-                <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
-              </div><div>
-                <span class="status notapplicable">4</span><strong>Жарамсыз</strong><span class="value">50%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">4</span></span><strong>Интернетте хабарланған</strong><span class="value">50%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">0</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">4</span></span><strong>Жарамсыз</strong><span class="value">50%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:50.0%" title="Интернетте хабарланған: 50%"></span>
-          
-          
-            <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
-          
-          
-            <span class="notapplicable" style="width:50.0%" title="Жарамсыз: 50%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/15">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/15.png" alt="Құрлық экожүйелерін қорғау - Мақсат 15" width="100" height="100" id="goal-15"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:50.0%" title="Интернетте хабарланған: 50%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:50.0%" title="Жарамсыз: 50%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/15">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/15.png" alt="Құрлық экожүйелерін қорғау - Мақсат 15" width="100" height="100" class="goal-icon-15"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/15">Құрлық экожүйелерін қорғау</a>
             <span class="total">15 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">12</span><strong>Интернетте хабарланған</strong><span class="value">80%</span>
-              </div><div>
-                <span class="status notstarted">3</span><strong>Дереккөздерін зерттеу</strong><span class="value">20%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">11</span></span><strong>Интернетте хабарланған</strong><span class="value">73%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">4</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">27%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:80.0%" title="Интернетте хабарланған: 80%"></span>
-          
-          
-            <span class="notstarted" style="width:20.0%" title="Дереккөздерін зерттеу: 20%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/16">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/16.png" alt="Бейбітшілік, сот әділдігі мен мен мықты институттар - Мақсат 16" width="100" height="100" id="goal-16"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:73.33333333333333%" title="Интернетте хабарланған: 73%"></span>
+                
+                
+                <span class="notstarted" style="width:26.666666666666664%" title="Дереккөздерін зерттеу: 27%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/16">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/16.png" alt="Бейбітшілік, сот әділдігі мен мен мықты институттар - Мақсат 16" width="100" height="100" class="goal-icon-16"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/16">Бейбітшілік, сот әділдігі мен мен мықты институттар</a>
             <span class="total">32 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">15</span><strong>Интернетте хабарланған</strong><span class="value">47%</span>
-              </div><div>
-                <span class="status notstarted">16</span><strong>Дереккөздерін зерттеу</strong><span class="value">50%</span>
-              </div><div>
-                <span class="status notapplicable">1</span><strong>Жарамсыз</strong><span class="value">3%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">17</span></span><strong>Интернетте хабарланған</strong><span class="value">53%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">14</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">44%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">1</span></span><strong>Жарамсыз</strong><span class="value">3%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:46.875%" title="Интернетте хабарланған: 47%"></span>
-          
-          
-            <span class="notstarted" style="width:50.0%" title="Дереккөздерін зерттеу: 50%"></span>
-          
-          
-            <span class="notapplicable" style="width:3.125%" title="Жарамсыз: 3%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
-    </div><div class="goal reporting-status-item">
-        <div class="frame goal-tiles">
-          <a href="/sdg-site-kazstat-upgrade/17">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/17.png" alt="Тұрақты даму мүдделеріндегі әріптестіктер - Мақсат 17" width="100" height="100" id="goal-17"/>
-          </a>
-        </div>
-        <div class="details">
-          <h3 class="status-goal">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:53.125%" title="Интернетте хабарланған: 53%"></span>
+                
+                
+                <span class="notstarted" style="width:43.75%" title="Дереккөздерін зерттеу: 44%"></span>
+                
+                
+                <span class="notapplicable" style="width:3.125%" title="Жарамсыз: 3%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+</div><div class="goal reporting-status-item">
+    <div class="frame goal-tiles">
+        <a href="/sdg-site-kazstat-upgrade/17">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/kk/17.png" alt="Тұрақты даму мүдделеріндегі әріптестіктер - Мақсат 17" width="100" height="100" class="goal-icon-17"/>
+        </a>
+    </div>
+    <div class="details">
+        <h3 class="status-goal">
             <a href="/sdg-site-kazstat-upgrade/17">Тұрақты даму мүдделеріндегі әріптестіктер</a>
             <span class="total">28 көрсеткіштер</span>
-          </h3>
-          <div class="summary">
+        </h3>
+        <div class="summary">
             <div class="statuses"><div>
-                <span class="status complete">21</span><strong>Интернетте хабарланған</strong><span class="value">75%</span>
-              </div><div>
-                <span class="status notstarted">7</span><strong>Дереккөздерін зерттеу</strong><span class="value">25%</span>
-              </div><div>
-                <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-              </div><br style="clear:both;">
+                    <span class="status complete"><span class="status-inner">23</span></span><strong>Интернетте хабарланған</strong><span class="value">82%</span>
+                </div><div>
+                    <span class="status notstarted"><span class="status-inner">5</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">18%</span>
+                </div><div>
+                    <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                </div><br style="clear:both;">
             </div>
-          </div>
-          <div class="goal-stats">
-          
-          
-            <span class="complete" style="width:75.0%" title="Интернетте хабарланған: 75%"></span>
-          
-          
-            <span class="notstarted" style="width:25.0%" title="Дереккөздерін зерттеу: 25%"></span>
-          
-          
-            <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
-          <div class="divider">
-          </div>
         </div>
-      <br style="clear:both;">
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:82.14285714285714%" title="Интернетте хабарланған: 82%"></span>
+                
+                
+                <span class="notstarted" style="width:17.857142857142858%" title="Дереккөздерін зерттеу: 18%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
     </div>
+    <br style="clear:both;">
+</div>
+  
     </div>
-    <div role="tabpanel" class="tab-pane" id="un_designated_tierview"><div class="goal details reporting-status-item">
-        <h3 class="status-goal">
-          <span class="status-field">1</span>
-          <span class="total">90
-            
-              көрсеткіштер
-            
-          </span>
-        </h3>
+  
+
+  
+    <div role="tabpanel" class="tab-pane" id="un_designated_tierview" data-extra-field="true">
+      <div class="goal goal-overall">
+    <div class="details">
+        <h2 class="status-goal">
+            Есептіліктің жалпы жағдайы <span class="total"><span>221</span> көрсеткіштер</span>
+        </h2>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">83</span><strong>Интернетте хабарланған</strong><span class="value">92%</span>
+            <div class="statuses"><div>
+                <span class="status complete"><span class="status-inner">164</span></span><strong>Интернетте хабарланған</strong><span class="value">74%</span>
             </div><div>
-              <span class="status notstarted">4</span><strong>Дереккөздерін зерттеу</strong><span class="value">4%</span>
+                <span class="status notstarted"><span class="status-inner">45</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">20%</span>
             </div><div>
-              <span class="status notapplicable">3</span><strong>Жарамсыз</strong><span class="value">3%</span>
+                <span class="status notapplicable"><span class="status-inner">12</span></span><strong>Жарамсыз</strong><span class="value">5%</span>
             </div><br style="clear:both;">
-          </div>
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:92.22222222222223%" title="Интернетте хабарланған: 92%"></span>
-        
-        
-          <span class="notstarted" style="width:4.444444444444445%" title="Дереккөздерін зерттеу: 4%"></span>
-        
-        
-          <span class="notapplicable" style="width:3.333333333333333%" title="Жарамсыз: 3%"></span></div>
-        <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+            
+            
+            <span class="complete" style="width:74.2081447963801%" title="Интернетте хабарланған: 74%"></span>
+            
+            
+            <span class="notstarted" style="width:20.361990950226243%" title="Дереккөздерін зерттеу: 20%"></span>
+            
+            
+            <span class="notapplicable" style="width:5.429864253393665%" title="Жарамсыз: 5%"></span></div>
+    </div>
+    <br style="clear:both;">
+</div>
+      
+<h2>БҰҰ-мен тағайындалған деңгейі мәртебесі</h2><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">1 (ODA) / 2 (FDI)</span>
-          <span class="total">1
-            
-              көрсеткіш
-            
-          </span>
+            <span class="status-field">1</span>
+            <span class="total">90
+                
+                    көрсеткіштер
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
-            </div><div>
-              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
-            </div><div>
-              <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">84</span></span><strong>Интернетте хабарланған</strong><span class="value">93%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">3</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">3%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">3</span></span><strong>Жарамсыз</strong><span class="value">3%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
-        
-        
-          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
-        
-        
-          <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+                
+                
+                <span class="complete" style="width:93.33333333333333%" title="Интернетте хабарланған: 93%"></span>
+                
+                
+                <span class="notstarted" style="width:3.333333333333333%" title="Дереккөздерін зерттеу: 3%"></span>
+                
+                
+                <span class="notapplicable" style="width:3.333333333333333%" title="Жарамсыз: 3%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">1/2</span>
-          <span class="total">1
-            
-              көрсеткіш
-            
-          </span>
+            <span class="status-field">1 (ODA) / 2 (FDI)</span>
+            <span class="total">1
+                
+                    көрсеткіш
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
-            </div><div>
-              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
-            </div><div>
-              <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">1</span></span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">0</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
-        
-        
-          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
-        
-        
-          <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+                
+                
+                <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">1/2/3</span>
-          <span class="total">1
-            
-              көрсеткіш
-            
-          </span>
+            <span class="status-field">1/2</span>
+            <span class="total">1
+                
+                    көрсеткіш
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
-            </div><div>
-              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
-            </div><div>
-              <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">1</span></span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">0</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
-        
-        
-          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
-        
-        
-          <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+                
+                
+                <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">1/3</span>
-          <span class="total">2
-            
-              көрсеткіштер
-            
-          </span>
+            <span class="status-field">1/2/3</span>
+            <span class="total">1
+                
+                    көрсеткіш
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">2</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
-            </div><div>
-              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
-            </div><div>
-              <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">1</span></span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">0</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
-        
-        
-          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
-        
-        
-          <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+                
+                
+                <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">2</span>
-          <span class="total">66
-            
-              көрсеткіштер
-            
-          </span>
+            <span class="status-field">1/3</span>
+            <span class="total">2
+                
+                    көрсеткіштер
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">43</span><strong>Интернетте хабарланған</strong><span class="value">65%</span>
-            </div><div>
-              <span class="status notstarted">20</span><strong>Дереккөздерін зерттеу</strong><span class="value">30%</span>
-            </div><div>
-              <span class="status notapplicable">3</span><strong>Жарамсыз</strong><span class="value">5%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">1</span></span><strong>Интернетте хабарланған</strong><span class="value">50%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">1</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">50%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:65.15151515151516%" title="Интернетте хабарланған: 65%"></span>
-        
-        
-          <span class="notstarted" style="width:30.303030303030305%" title="Дереккөздерін зерттеу: 30%"></span>
-        
-        
-          <span class="notapplicable" style="width:4.545454545454546%" title="Жарамсыз: 5%"></span></div>
+                
+                
+                <span class="complete" style="width:50.0%" title="Интернетте хабарланған: 50%"></span>
+                
+                
+                <span class="notstarted" style="width:50.0%" title="Дереккөздерін зерттеу: 50%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">3</span>
-          <span class="total">59
-            
-              көрсеткіштер
-            
-          </span>
+            <span class="status-field">2</span>
+            <span class="total">66
+                
+                    көрсеткіштер
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">28</span><strong>Интернетте хабарланған</strong><span class="value">47%</span>
-            </div><div>
-              <span class="status notstarted">25</span><strong>Дереккөздерін зерттеу</strong><span class="value">42%</span>
-            </div><div>
-              <span class="status notapplicable">6</span><strong>Жарамсыз</strong><span class="value">10%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">48</span></span><strong>Интернетте хабарланған</strong><span class="value">73%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">15</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">23%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">3</span></span><strong>Жарамсыз</strong><span class="value">5%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:47.45762711864407%" title="Интернетте хабарланған: 47%"></span>
-        
-        
-          <span class="notstarted" style="width:42.3728813559322%" title="Дереккөздерін зерттеу: 42%"></span>
-        
-        
-          <span class="notapplicable" style="width:10.16949152542373%" title="Жарамсыз: 10%"></span></div>
+                
+                
+                <span class="complete" style="width:72.72727272727273%" title="Интернетте хабарланған: 73%"></span>
+                
+                
+                <span class="notstarted" style="width:22.727272727272727%" title="Дереккөздерін зерттеу: 23%"></span>
+                
+                
+                <span class="notapplicable" style="width:4.545454545454546%" title="Жарамсыз: 5%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">3 (a) /2 (b,c)</span>
-          <span class="total">1
-            
-              көрсеткіш
-            
-          </span>
+            <span class="status-field">3</span>
+            <span class="total">59
+                
+                    көрсеткіштер
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">1</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
-            </div><div>
-              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
-            </div><div>
-              <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">27</span></span><strong>Интернетте хабарланған</strong><span class="value">46%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">26</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">44%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">6</span></span><strong>Жарамсыз</strong><span class="value">10%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
-        
-        
-          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
-        
-        
-          <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+                
+                
+                <span class="complete" style="width:45.76271186440678%" title="Интернетте хабарланған: 46%"></span>
+                
+                
+                <span class="notstarted" style="width:44.06779661016949%" title="Дереккөздерін зерттеу: 44%"></span>
+                
+                
+                <span class="notapplicable" style="width:10.16949152542373%" title="Жарамсыз: 10%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"></div>
-    <div role="tabpanel" class="tab-pane" id="customisationview"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">Альтернативті ұлттық</span>
-          <span class="total">25
-            
-              көрсеткіштер
-            
-          </span>
+            <span class="status-field">3 (a) /2 (b,c)</span>
+            <span class="total">1
+                
+                    көрсеткіш
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">25</span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
-            </div><div>
-              <span class="status notstarted">0</span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
-            </div><div>
-              <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">1</span></span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">0</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
-        
-        
-          <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
-        
-        
-          <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+                
+                
+                <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;">
+    </div>
+    <div role="tabpanel" class="tab-pane" id="customisationview" data-extra-field="true">
+      <div class="goal goal-overall">
+    <div class="details">
+        <h2 class="status-goal">
+            Есептіліктің жалпы жағдайы <span class="total"><span>221</span> көрсеткіштер</span>
+        </h2>
+        <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete"><span class="status-inner">164</span></span><strong>Интернетте хабарланған</strong><span class="value">74%</span>
+            </div><div>
+                <span class="status notstarted"><span class="status-inner">45</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">20%</span>
+            </div><div>
+                <span class="status notapplicable"><span class="status-inner">12</span></span><strong>Жарамсыз</strong><span class="value">5%</span>
+            </div><br style="clear:both;">
+            </div>
+        </div>
+        <div class="goal-stats">
+            
+            
+            <span class="complete" style="width:74.2081447963801%" title="Интернетте хабарланған: 74%"></span>
+            
+            
+            <span class="notstarted" style="width:20.361990950226243%" title="Дереккөздерін зерттеу: 20%"></span>
+            
+            
+            <span class="notapplicable" style="width:5.429864253393665%" title="Жарамсыз: 5%"></span></div>
+    </div>
+    <br style="clear:both;">
+</div>
+      
+<h2>Жаhандық көрсеткішпен салыстыру мәртебесі</h2><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">Жаһандық шағын өзгерістермен</span>
-          <span class="total">45
-            
-              көрсеткіштер
-            
-          </span>
+            <span class="status-field">Альтернативті ұлттық</span>
+            <span class="total">25
+                
+                    көрсеткіштер
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">43</span><strong>Интернетте хабарланған</strong><span class="value">96%</span>
-            </div><div>
-              <span class="status notstarted">2</span><strong>Дереккөздерін зерттеу</strong><span class="value">4%</span>
-            </div><div>
-              <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">25</span></span><strong>Интернетте хабарланған</strong><span class="value">100%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">0</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">0%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:95.55555555555556%" title="Интернетте хабарланған: 96%"></span>
-        
-        
-          <span class="notstarted" style="width:4.444444444444445%" title="Дереккөздерін зерттеу: 4%"></span>
-        
-        
-          <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+                
+                
+                <span class="complete" style="width:100.0%" title="Интернетте хабарланған: 100%"></span>
+                
+                
+                <span class="notstarted" style="width:0.0%" title="Дереккөздерін зерттеу: 0%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">Жаһандық өзгеріссіз</span>
-          <span class="total">141
-            
-              көрсеткіштер
-            
-          </span>
+            <span class="status-field">Жаһандық шағын өзгерістермен</span>
+            <span class="total">45
+                
+                    көрсеткіштер
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">85</span><strong>Интернетте хабарланған</strong><span class="value">60%</span>
-            </div><div>
-              <span class="status notstarted">46</span><strong>Дереккөздерін зерттеу</strong><span class="value">33%</span>
-            </div><div>
-              <span class="status notapplicable">10</span><strong>Жарамсыз</strong><span class="value">7%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">43</span></span><strong>Интернетте хабарланған</strong><span class="value">96%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">2</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">4%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:60.28368794326241%" title="Интернетте хабарланған: 60%"></span>
-        
-        
-          <span class="notstarted" style="width:32.62411347517731%" title="Дереккөздерін зерттеу: 33%"></span>
-        
-        
-          <span class="notapplicable" style="width:7.092198581560284%" title="Жарамсыз: 7%"></span></div>
+                
+                
+                <span class="complete" style="width:95.55555555555556%" title="Интернетте хабарланған: 96%"></span>
+                
+                
+                <span class="notstarted" style="width:4.444444444444445%" title="Дереккөздерін зерттеу: 4%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"><div class="goal details reporting-status-item">
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
         <h3 class="status-goal">
-          <span class="status-field">Қосымша ұлттық</span>
-          <span class="total">15
-            
-              көрсеткіштер
-            
-          </span>
+            <span class="status-field">Жаһандық өзгеріссіз</span>
+            <span class="total">141
+                
+                    көрсеткіштер
+                
+            </span>
         </h3>
         <div class="summary">
-          <div class="statuses"><div>
-              <span class="status complete">13</span><strong>Интернетте хабарланған</strong><span class="value">87%</span>
-            </div><div>
-              <span class="status notstarted">2</span><strong>Дереккөздерін зерттеу</strong><span class="value">13%</span>
-            </div><div>
-              <span class="status notapplicable">0</span><strong>Жарамсыз</strong><span class="value">0%</span>
-            </div><br style="clear:both;">
-          </div>
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">91</span></span><strong>Интернетте хабарланған</strong><span class="value">65%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">40</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">28%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">10</span></span><strong>Жарамсыз</strong><span class="value">7%</span>
+                    </div><br style="clear:both;">
+            </div>
         </div>
         <div class="goal-stats">
-        
-        
-          <span class="complete" style="width:86.66666666666667%" title="Интернетте хабарланған: 87%"></span>
-        
-        
-          <span class="notstarted" style="width:13.333333333333332%" title="Дереккөздерін зерттеу: 13%"></span>
-        
-        
-          <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+                
+                
+                <span class="complete" style="width:64.53900709219859%" title="Интернетте хабарланған: 65%"></span>
+                
+                
+                <span class="notstarted" style="width:28.368794326241137%" title="Дереккөздерін зерттеу: 28%"></span>
+                
+                
+                <span class="notapplicable" style="width:7.092198581560284%" title="Жарамсыз: 7%"></span></div>
         <div class="divider"></div>
-      </div>
-      <br style="clear:both;"></div></div>
+    </div>
+    <br style="clear:both;"><div class="goal details reporting-status-item">
+        <h3 class="status-goal">
+            <span class="status-field">Қосымша ұлттық</span>
+            <span class="total">15
+                
+                    көрсеткіштер
+                
+            </span>
+        </h3>
+        <div class="summary">
+            <div class="statuses"><div>
+                        <span class="status complete"><span class="status-inner">13</span></span><strong>Интернетте хабарланған</strong><span class="value">87%</span>
+                    </div><div>
+                        <span class="status notstarted"><span class="status-inner">2</span></span><strong>Дереккөздерін зерттеу</strong><span class="value">13%</span>
+                    </div><div>
+                        <span class="status notapplicable"><span class="status-inner">0</span></span><strong>Жарамсыз</strong><span class="value">0%</span>
+                    </div><br style="clear:both;">
+            </div>
+        </div>
+        <div class="goal-stats">
+                
+                
+                <span class="complete" style="width:86.66666666666667%" title="Интернетте хабарланған: 87%"></span>
+                
+                
+                <span class="notstarted" style="width:13.333333333333332%" title="Дереккөздерін зерттеу: 13%"></span>
+                
+                
+                <span class="notapplicable" style="width:0.0%" title="Жарамсыз: 0%"></span></div>
+        <div class="divider"></div>
+    </div>
+    <br style="clear:both;">
+    </div>
+
+  
+
+  
+  </div>
   
 
   <!---->
@@ -1352,24 +1417,22 @@ data-event-label="Change reporting status view to customisation"
           <ul>
             <li><a href="https://open-sdg.org">Open SDG көмегімен салынған</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:ai.dosanova@economy.gov.kz" target="_blank">Бізбен хабарласыңыз</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 
                   <a href="https://facebook.com/statgov.kz" target="_blank">Facebook</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/sdg-site-kazstat-upgrade/about/cookies-and-privacy/">Cookies</a>
                 
                 </li>
               
+            
             </ul>
         </div>
       </div>
@@ -1391,7 +1454,7 @@ data-event-label="Change reporting status view to customisation"
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
-}
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
@@ -1402,7 +1465,12 @@ data-event-label="Change reporting status view to customisation"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Іздеу';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201206010829'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201206010829"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201207001507'></script>
+
+
+    
+    
+    <script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201207001507"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1440,7 +1508,8 @@ $(function() {
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
-              graphAnnotations: domData.graphannotations
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

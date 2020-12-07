@@ -123,7 +123,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201206010829">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201207001507">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -186,7 +186,7 @@ var translations = {
 
       <ul class="top-level">
         <li id="menuToggle"
-            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-label=""
             aria-haspopup="true">
           <button data-target="menu-mobile" aria-expanded="false">Меню</button>
           <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
@@ -226,7 +226,7 @@ var translations = {
 
         </li>
         <li id="searchToggle"
-            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-label=""
             aria-haspopup="true">
           <button data-target="search-mobile" aria-expanded="false">Поиск</button>
           <div id="search-mobile" class="menu-target">
@@ -302,7 +302,7 @@ var translations = {
       >
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
           <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
-          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.field)%></span>
+          <span class="sr-only"> <%=translations.t(fieldItem.field)%></span>
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
       </button>
       <div class="bar">
@@ -399,16 +399,10 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-9">
+<div id="main-content" class="container goal-9" role="main">
   
 
   
-<div class="row metadata-available-indicator">
-  <div class="col-xs-12">
-    <h2>Доля мелких предприятий, имеющих кредит или кредитную линию</h2>
-  </div>
-</div>
-
 
   
 
@@ -424,7 +418,7 @@ var translations = {
   data-charttitle="Доля мелких предприятий, имеющих кредит или кредитную линию"
   data-charttitles="null"
   data-measurementunit=""
-  data-showdata="false"
+  data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
   data-showmap="false"
@@ -432,9 +426,333 @@ var translations = {
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
+  data-indicatordownloads="null"
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Субкатегории</h4>
+    <p>Выберите категории из выпадающего меню внизу, чтобы увидеть разные разбивки данных. Несколько не будет доступно, пока более высокий уровень не выбран. </p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-site-kazstat-upgrade/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="http://brock.tips/sdg-data-kazstat-upgrade/ru/headline/9-3-2.csv" class="btn btn-primary btn-download" download="indicator_9-3-2.csv" tabindex="0" role="button">Скачать заголовки CSV</a>
+
+    <a href="http://brock.tips/sdg-data-kazstat-upgrade/ru/data/9-3-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_9-3-2.csv' tabindex='0' role='button'>Скачать исходные CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Доля мелких предприятий, имеющих кредит или кредитную линию</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col" class="table-value">Units</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>2.2</td>
+          
+          
+          
+          <td class="table-value">процент</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>2.3</td>
+          
+          
+          
+          <td class="table-value">процент</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>2.3</td>
+          
+          
+          
+          <td class="table-value">процент</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>2.4</td>
+          
+          
+          
+          <td class="table-value">процент</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>2.1</td>
+          
+          
+          
+          <td class="table-value">процент</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>2.0</td>
+          
+          
+          
+          <td class="table-value">процент</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>2.2</td>
+          
+          
+          
+          <td class="table-value">процент</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    
+    <p>Географический район: Казахстан</p>
+    
+    
+    
+  </div>
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/sdg-site-kazstat-upgrade/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded spacer medium" style="display:none;">
+
+    <div style="display: none;">
+  <span id="table-alternative"></span>
+</div>
+<ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+  <li role="presentation" class="nav-item active">
+    <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+ aria-describedby="table-alternative">График</a>
+  </li>
+  <li role="presentation" class="nav-item">
+    <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Таблица</a>
+  </li></ul>
+
+    <div class="tab-content data-view">
+  <div role="tabpanel" class="tab-pane active" id="chartview">
+    
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only"></span></i>
+      В таблице слишком много данных, чтобы показать в графике. Чтобы увидеть все, удалите выделенное.
+    </div>
+
+    
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Доля мелких предприятий, имеющих кредит или кредитную линию</h4>
+          <div id="chart" class="plot-container">
+            
+<canvas></canvas>
+<script>
+// Add a chart alteration to support the chart_graph_limits metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+  if (info.graphLimits && info.graphLimits.length > 0) {
+    var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
+    var overrides = {
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: limit.minimum,
+              max: limit.maximum,
+            }
+          }]
+        }
+      }
+    }
+    // Add these overrides onto the normal config.
+    $.extend(true, config, overrides);
+  }
+});
+</script>
+
+<script>
+opensdg.chartConfigAlter(function(config, info) {
+  // Force the "bar" type if there are less than 2 years of data.
+  if (info.labels.length < 2) {
+    var overrides = {type: 'bar'}
+    $.extend(true, config, overrides);
+  }
+});
+</script>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географический район:</dt>
+        <dd>Казахстан</dd>
+        
+
+        
+
+        
+
+        
+    <dl>
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button id="btnSave" title="Скачать диаграмму как изображение" class='btn btn-primary btn-download'>
+          Загрузить изображение диаграммы
+        </button>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="tableview">
+    <div style="display: none;">
+      <span id="column-sort-info"></span>
+    </div>
+    <div id="selectionsTable"></div>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Географический район:</dt>
+        <dd>Казахстан</dd>
+        
+
+        
+
+        
+
+        
+    <dl>
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>'
+
+  </div>
+</div>
+
+
+  </div>
+
+</section>
+
   
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
@@ -518,7 +836,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Доступный индикатор </th>
         <td>
           
-            <p>Доля мелких предприятий, имеющих кредит или кредитную линию</p>
+            
 
           
         </td>
@@ -622,8 +940,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/brockfanning/sdg-data-kazstat-upgrade/commit/91dec4745c9fbdb7720e2d8d1baa477c2b26c07f" target="_blank">
-                2020-11-22: see changes on GitHub <span class="visuallyhidden">открывается в новой вкладке</span>
+              <a href="https://github.com/brockfanning/sdg-data-kazstat-upgrade/commit/a3855c704925f6aca01fd6c34ec90ef9fcaf723f" target="_blank">
+                2020-12-06: see changes on GitHub <span class="visuallyhidden">открывается в новой вкладке</span>
               </a>
             
 
@@ -640,7 +958,7 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row"> Последний раз метаданные обновлялись </th>
+        <th scope="row">Последнее обновление метаданных </th>
         <td>
           
             
@@ -649,8 +967,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/brockfanning/sdg-data-kazstat-upgrade/commit/ff4a5b11c63668070383025d2fb07d4e56c5a64a" target="_blank">
-                2020-08-31: see changes on GitHub <span class="visuallyhidden">открывается в новой вкладке</span>
+              <a href="https://github.com/brockfanning/sdg-data-kazstat-upgrade/commit/8b3b6614f5e28b996d46683613d81600b4897256" target="_blank">
+                2020-12-06: see changes on GitHub <span class="visuallyhidden">открывается в новой вкладке</span>
               </a>
             
 
@@ -1364,6 +1682,8 @@ data-event-label="Change to Sources tab"
   
   <a class="btn btn-primary" href="http://prose.io/#//edit//meta/9-3-2.md">Редактировать метаданные</a>
   
+
+  
 </div>
 
   </div>
@@ -1384,24 +1704,22 @@ data-event-label="Change to Sources tab"
           <ul>
             <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:ai.dosanova@economy.gov.kz" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 
                   <a href="https://facebook.com/statgov.kz" target="_blank">Facebook</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/sdg-site-kazstat-upgrade/ru/about/cookies-and-privacy/">Cookies</a>
                 
                 </li>
               
+            
             </ul>
         </div>
       </div>
@@ -1423,7 +1741,7 @@ data-event-label="Change to Sources tab"
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
-}
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
@@ -1434,7 +1752,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201206010829'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201206010829"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201207001507'></script>
+
+
+    
+    
+    <script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201207001507"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1472,7 +1795,8 @@ $(function() {
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
-              graphAnnotations: domData.graphannotations
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',

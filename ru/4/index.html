@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201206010829">
+        <link rel="stylesheet" href="/sdg-site-kazstat-upgrade/assets/css/style.css?v=20201207001507">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -184,7 +184,7 @@ var translations = {
 
       <ul class="top-level">
         <li id="menuToggle"
-            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-label=""
             aria-haspopup="true">
           <button data-target="menu-mobile" aria-expanded="false">Меню</button>
           <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
@@ -224,7 +224,7 @@ var translations = {
 
         </li>
         <li id="searchToggle"
-            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-label=""
             aria-haspopup="true">
           <button data-target="search-mobile" aria-expanded="false">Поиск</button>
           <div id="search-mobile" class="menu-target">
@@ -316,7 +316,7 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-4 goal-by-target">
+<div id="main-content" class="container goal-indicators goal-4 goal-by-target" role="main">
 
   
 
@@ -859,8 +859,8 @@ a) учащихся 2/3 классов; b) выпускников начальн
       <div class="col-md-12  goal-indicator">
         <span>
           4.6.1
-          <span class="status notstarted">
-            В процессе разработки
+          <span class="status complete">
+            Опубликован
           </span>
         </span>
         <a href="/sdg-site-kazstat-upgrade/ru/4-6-1">
@@ -1034,8 +1034,8 @@ a) учащихся 2/3 классов; b) выпускников начальн
       <div class="col-md-12  goal-indicator">
         <span>
           4.a.1.1
-          <span class="status notstarted">
-            В процессе разработки
+          <span class="status complete">
+            Опубликован
           </span>
         </span>
         <a href="/sdg-site-kazstat-upgrade/ru/4-a-1-1">
@@ -1057,8 +1057,8 @@ a) учащихся 2/3 классов; b) выпускников начальн
       <div class="col-md-12  goal-indicator">
         <span>
           4.a.1.2
-          <span class="status notstarted">
-            В процессе разработки
+          <span class="status complete">
+            Опубликован
           </span>
         </span>
         <a href="/sdg-site-kazstat-upgrade/ru/4-a-1-2">
@@ -1080,8 +1080,8 @@ a) учащихся 2/3 классов; b) выпускников начальн
       <div class="col-md-12  goal-indicator">
         <span>
           4.a.1.3
-          <span class="status notstarted">
-            В процессе разработки
+          <span class="status complete">
+            Опубликован
           </span>
         </span>
         <a href="/sdg-site-kazstat-upgrade/ru/4-a-1-3">
@@ -1226,8 +1226,8 @@ b) начальной школе; c) младшей средней
       <div class="col-md-12  goal-indicator">
         <span>
           4.c.1.2
-          <span class="status notstarted">
-            В процессе разработки
+          <span class="status complete">
+            Опубликован
           </span>
         </span>
         <a href="/sdg-site-kazstat-upgrade/ru/4-c-1-2">
@@ -1248,24 +1248,22 @@ b) начальной школе; c) младшей средней
           <ul>
             <li><a href="https://open-sdg.org">Построен с использованием Open SDG</a></li>
             
-              
-                <li>
+              <li>
                 
                   <a href="mailto:ai.dosanova@economy.gov.kz" target="_blank">Свяжитесь с нами</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 
                   <a href="https://facebook.com/statgov.kz" target="_blank">Facebook</a>
                 
                 </li>
-              
-                <li>
+              <li>
                 <a href="/sdg-site-kazstat-upgrade/ru/about/cookies-and-privacy/">Cookies</a>
                 
                 </li>
               
+            
             </ul>
         </div>
       </div>
@@ -1287,7 +1285,7 @@ b) начальной школе; c) младшей средней
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
-}
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
@@ -1298,7 +1296,12 @@ b) начальной школе; c) младшей средней
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Поиск';</script>
 
-<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201206010829'></script><script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201206010829"></script><script>
+<script src='/sdg-site-kazstat-upgrade/assets/js/sdg.js?v=20201207001507'></script>
+
+
+    
+    
+    <script src="/sdg-site-kazstat-upgrade/assets/js/custom.js?v=20201207001507"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1336,7 +1339,8 @@ $(function() {
               startValues: domData.startvalues,
               graphLimits: domData.graphlimits,
               stackedDisaggregation: domData.stackeddisaggregation,
-              graphAnnotations: domData.graphannotations
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
             }),
             view  = new indicatorView(model, {
               rootElement: '#indicatorData',
