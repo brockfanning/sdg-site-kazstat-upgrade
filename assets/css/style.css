@@ -2299,6 +2299,9 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
 .layout-goal-by-target-vertical.contrast-high .tags .tag {
   color: black; }
 
+.layout-frontpage .goal-tiles .row > div {
+  margin-bottom: 10px; }
+
 .layout-frontpage-alt .frontpage-goals-grid {
   margin: 40px 0 20px 0;
   border-top: 2px solid #ccc; }
@@ -2340,7 +2343,7 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
 .layout-config-builder div[data-schemapath="root"] > .well > div > div > .row > div[data-schematype] > div a {
   margin-top: 15px;
   display: inline-block; }
-.layout-config-builder div[data-schemapath="root"] > h3 {
+.layout-config-builder div[data-schemapath="root"] > .je-header {
   display: none !important; }
 .layout-config-builder .help-block {
   color: #0b0c0c; }
